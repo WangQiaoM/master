@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    
+    <properties resource="mybatis-generator.properties"/>
+    
+    <context id="MySqlTables" targetRuntime="MyBatis3" defaultModelType="flat">
+        
+        <!-- 类JPA风格的Mapper和SqlMap XML生成插件 -->
+        <plugin type="org.mybatis.generator.plugins.JpaLikeOverridePlugin">
+            <!-- 是否使用Example -->
+            <property name="useExample" value="true"/>
+            <!-- 是否清理Mapper接口中的方法 结合RootClassInterfacePlugin插件使用-->
+            <property name="cleanClient" value="true"/>
+            <!-- 是否分页插件 -->
+            <property name="pageable" value="true"/>
+        </plugin>
+        <!-- Model 与 Mapper 基类继承插件 -->
+        <plugin type="org.mybatis.generator.plugins.RootClassInterfacePlugin">
+            <!-- 实体需要继承的父类 -->
+            <property name="modelRootClass" value="com.brtbeacon.plugin.common.entity.BaseEntity"/>
+            <!-- 是否使用泛型ID -->
+            <property name="useGenericId" value="true"/>
+            <!-- 需要忽略的字段 基类中存在的字段 -->
+            <property name="ignoreColumns" value="id,created_time,updated_time"/>
+            
+            <!-- 是否使用Example -->
+            <property name="useExample" value="true"/>
+            <!-- Mapper 接口的父级接口 -->
+            <property name="clientRootInterface" value="com.brtbeacon.persistent.mybatis.BaseExampleMapper"/>
+            <!-- Mapper 接口的注解 -->
+            <property name="clientAnnotationClass"
+                      value="com.brtbeacon.persistent.mybatis.annotation.MyBatisRepository"/>
+        </plugin>
+        
+        <!-- Mybatis-Spring Service 生成插件 -->
+        <plugin type="org.mybatis.generator.plugins.MyBatisSpringServicePlugin">
+            <!-- 位置和包名 -->
+            <property name="targetProject" value="src/main/java"/>
+            <property name="targetPackage" value="${service.target.package}"/>
+            <property name="implementationPackage" value="${service.implementation.package}"/>
+            <!-- 基础Service -->
+            <property name="rootInterface" value="com.brtbeacon.plugin.common.service.BaseService"/>
+            <property name="rootImplement" value="com.brtbeacon.plugin.common.service.BaseServiceSupport"/>
+            <!-- 是否生成 -->
+            <property name="switchOn" value="true"/>
+            <!-- 是否重写 getMapper() 方法 -->
+            <property name="overrideGetMapperMethod" value="true"/>
+            <!-- 是否使用Example -->
+            <property name="useExample" value="true"/>
+        </plugin>
+        
+        <!--生成注释  -->
+        <commentGenerator type="org.mybatis.generator.external.PithyCommentGenerator">
+            <!-- @author -->
+            <property name="author" value="Archx[archx@foxmail.com]"/>
+            <!-- @date pattern -->
+            <property name="datePattern" value="yyyy/MM/dd HHmm"/>
+        </commentGenerator>
+        
+        <!--数据库连接 -->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+        
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        
+        <!--生成实体类 指定包名 以及生成的地址 （可以自定义地址，但是路径不存在不会自动创建  使用Maven生成在target目录下，会自动创建） -->
+        <javaModelGenerator targetPackage="${javaModel.target.package}" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        
+        <!--生成SQLMAP文件 -->
+        <sqlMapGenerator targetPackage="${sqlMap.target.package}" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        
+        <!--生成Dao文件 可以配置 type="XMLMAPPER"生成xml的dao实现 修改targetRuntime="MyBatis3"  -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${javaClient.target.package}"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        
+        <!-- 参考配置 -->
+        <!--<table tableName="wh_recommendation" domainObjectName="Recommendation"/>-->
+        <!--<table tableName="wh_ad_image" domainObjectName="AdImage"/>-->
+         <!--<table tableName="wh_share_info" domainObjectName="ShareInfo"/>-->
+        <!--<table tableName="wh_user_info" domainObjectName="UserInfo"/>-->
+        <table tableName="beacons" domainObjectName="Beacons"/>
+    </context>
+</generatorConfiguration>
