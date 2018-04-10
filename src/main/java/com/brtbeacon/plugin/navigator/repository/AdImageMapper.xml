@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brtbeacon.plugin.navigator.repository.AdImageMapper">
+  <resultMap id="AdImageBaseResultMap" type="com.brtbeacon.plugin.navigator.entity.AdImage">
+    <!-- @mbg.generated -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+    <result column="sequence" jdbcType="CHAR" property="sequence" />
+    <result column="building_id" jdbcType="VARCHAR" property="buildingId" />
+  </resultMap>
+  <sql id="AdImageWhereClause">
+    <!-- @mbg.generated -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="AdImageUpdateClause">
+    <!-- @mbg.generated -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="AdImageBaseColumns">
+    <!-- @mbg.generated -->
+    id, 
+    img_url, 
+    sequence, 
+    building_id
+  </sql>
+  <select id="findOne" parameterType="java.lang.Integer" resultMap="AdImageBaseResultMap">
+    <!-- @mbg.generated -->
+    select 
+    <include refid="AdImageBaseColumns" />
+    from wh_ad_image
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="delete" parameterType="java.lang.Integer">
+    <!-- @mbg.generated -->
+    delete from wh_ad_image
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.brtbeacon.plugin.navigator.entity.AdImageExample">
+    <!-- @mbg.generated -->
+    delete from wh_ad_image
+    <if test="_parameter != null">
+      <include refid="AdImageWhereClause" />
+    </if>
+  </delete>
+  <insert id="save" parameterType="com.brtbeacon.plugin.navigator.entity.AdImage">
+    <!-- @mbg.generated -->
+    insert into wh_ad_image
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="imgUrl != null">
+        img_url,
+      </if>
+      <if test="sequence != null">
+        sequence,
+      </if>
+      <if test="buildingId != null">
+        building_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="imgUrl != null">
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        #{sequence,jdbcType=CHAR},
+      </if>
+      <if test="buildingId != null">
+        #{buildingId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.brtbeacon.plugin.navigator.entity.AdImageExample" resultType="java.lang.Long">
+    <!-- @mbg.generated -->
+    select count(*) from wh_ad_image
+    <if test="_parameter != null">
+      <include refid="AdImageWhereClause" />
+    </if>
+  </select>
+  <update id="updateByExample" parameterType="map">
+    <!-- @mbg.generated -->
+    update wh_ad_image
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.imgUrl != null">
+        img_url = #{record.imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sequence != null">
+        sequence = #{record.sequence,jdbcType=CHAR},
+      </if>
+      <if test="record.buildingId != null">
+        building_id = #{record.buildingId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="AdImageUpdateClause" />
+    </if>
+  </update>
+  <update id="update" parameterType="com.brtbeacon.plugin.navigator.entity.AdImage">
+    <!-- @mbg.generated -->
+    update wh_ad_image
+    <set>
+      <if test="imgUrl != null">
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        sequence = #{sequence,jdbcType=CHAR},
+      </if>
+      <if test="buildingId != null">
+        building_id = #{buildingId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="findAll" parameterType="com.brtbeacon.plugin.navigator.entity.AdImage" resultMap="AdImageBaseResultMap">
+    <!-- @mbg.generated -->
+    select 
+    <include refid="AdImageBaseColumns" />
+    from wh_ad_image
+    <where>
+      <if test="id != null">
+         and id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="imgUrl != null">
+         and img_url = #{imgUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="sequence != null">
+         and sequence = #{sequence,jdbcType=CHAR}
+      </if>
+      <if test="buildingId != null">
+         and building_id = #{buildingId,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="findByExample" parameterType="com.brtbeacon.plugin.navigator.entity.AdImageExample" resultMap="AdImageBaseResultMap">
+    <!-- @mbg.generated -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="AdImageBaseColumns" />
+    from wh_ad_image
+    <if test="_parameter != null">
+      <include refid="AdImageWhereClause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

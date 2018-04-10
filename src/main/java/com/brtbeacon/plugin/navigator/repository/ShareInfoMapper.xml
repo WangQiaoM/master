@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brtbeacon.plugin.navigator.repository.ShareInfoMapper">
+  <resultMap id="ShareInfoBaseResultMap" type="com.brtbeacon.plugin.navigator.entity.ShareInfo">
+    <!-- @mbg.generated -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="building_id" jdbcType="VARCHAR" property="buildingId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+    <result column="created_time" jdbcType="BIGINT" property="createdTime" />
+    <result column="updated_time" jdbcType="BIGINT" property="updatedTime" />
+    <result column="link" jdbcType="VARCHAR" property="link" />
+  </resultMap>
+  <sql id="ShareInfoWhereClause">
+    <!-- @mbg.generated -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="ShareInfoUpdateClause">
+    <!-- @mbg.generated -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="ShareInfoBaseColumns">
+    <!-- @mbg.generated -->
+    id, 
+    building_id, 
+    title, 
+    description, 
+    img_url, 
+    created_time, 
+    updated_time, 
+    link
+  </sql>
+  <select id="findOne" parameterType="java.lang.Long" resultMap="ShareInfoBaseResultMap">
+    <!-- @mbg.generated -->
+    select 
+    <include refid="ShareInfoBaseColumns" />
+    from wh_share_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long">
+    <!-- @mbg.generated -->
+    delete from wh_share_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.brtbeacon.plugin.navigator.entity.ShareInfoExample">
+    <!-- @mbg.generated -->
+    delete from wh_share_info
+    <if test="_parameter != null">
+      <include refid="ShareInfoWhereClause" />
+    </if>
+  </delete>
+  <insert id="save" parameterType="com.brtbeacon.plugin.navigator.entity.ShareInfo">
+    <!-- @mbg.generated -->
+    insert into wh_share_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="buildingId != null">
+        building_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="imgUrl != null">
+        img_url,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="link != null">
+        link,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="buildingId != null">
+        #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null">
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=BIGINT},
+      </if>
+      <if test="link != null">
+        #{link,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.brtbeacon.plugin.navigator.entity.ShareInfoExample" resultType="java.lang.Long">
+    <!-- @mbg.generated -->
+    select count(*) from wh_share_info
+    <if test="_parameter != null">
+      <include refid="ShareInfoWhereClause" />
+    </if>
+  </select>
+  <update id="updateByExample" parameterType="map">
+    <!-- @mbg.generated -->
+    update wh_share_info
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.buildingId != null">
+        building_id = #{record.buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imgUrl != null">
+        img_url = #{record.imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdTime != null">
+        created_time = #{record.createdTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.updatedTime != null">
+        updated_time = #{record.updatedTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.link != null">
+        link = #{record.link,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="ShareInfoUpdateClause" />
+    </if>
+  </update>
+  <update id="update" parameterType="com.brtbeacon.plugin.navigator.entity.ShareInfo">
+    <!-- @mbg.generated -->
+    update wh_share_info
+    <set>
+      <if test="buildingId != null">
+        building_id = #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null">
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=BIGINT},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=BIGINT},
+      </if>
+      <if test="link != null">
+        link = #{link,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="findAll" parameterType="com.brtbeacon.plugin.navigator.entity.ShareInfo" resultMap="ShareInfoBaseResultMap">
+    <!-- @mbg.generated -->
+    select 
+    <include refid="ShareInfoBaseColumns" />
+    from wh_share_info
+    <where>
+      <if test="id != null">
+         and id = #{id,jdbcType=BIGINT}
+      </if>
+      <if test="buildingId != null">
+         and building_id = #{buildingId,jdbcType=VARCHAR}
+      </if>
+      <if test="title != null">
+         and title = #{title,jdbcType=VARCHAR}
+      </if>
+      <if test="description != null">
+         and description = #{description,jdbcType=VARCHAR}
+      </if>
+      <if test="imgUrl != null">
+         and img_url = #{imgUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="createdTime != null">
+         and created_time = #{createdTime,jdbcType=BIGINT}
+      </if>
+      <if test="updatedTime != null">
+         and updated_time = #{updatedTime,jdbcType=BIGINT}
+      </if>
+      <if test="link != null">
+         and link = #{link,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="findByExample" parameterType="com.brtbeacon.plugin.navigator.entity.ShareInfoExample" resultMap="ShareInfoBaseResultMap">
+    <!-- @mbg.generated -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="ShareInfoBaseColumns" />
+    from wh_share_info
+    <if test="_parameter != null">
+      <include refid="ShareInfoWhereClause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

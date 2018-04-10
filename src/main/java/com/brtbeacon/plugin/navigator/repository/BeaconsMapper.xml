@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brtbeacon.plugin.navigator.repository.BeaconsMapper">
+  <resultMap id="BeaconsBaseResultMap" type="com.brtbeacon.plugin.navigator.entity.Beacons">
+    <!-- @mbg.generated -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="beacons" jdbcType="VARCHAR" property="beacons" />
+    <result column="total" jdbcType="INTEGER" property="total" />
+    <result column="created_time" jdbcType="BIGINT" property="createdTime" />
+  </resultMap>
+  <sql id="BeaconsWhereClause">
+    <!-- @mbg.generated -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="BeaconsUpdateClause">
+    <!-- @mbg.generated -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="BeaconsBaseColumns">
+    <!-- @mbg.generated -->
+    id, 
+    beacons, 
+    total, 
+    created_time
+  </sql>
+  <select id="findOne" parameterType="java.lang.Integer" resultMap="BeaconsBaseResultMap">
+    <!-- @mbg.generated -->
+    select 
+    <include refid="BeaconsBaseColumns" />
+    from beacons
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="delete" parameterType="java.lang.Integer">
+    <!-- @mbg.generated -->
+    delete from beacons
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.brtbeacon.plugin.navigator.entity.BeaconsExample">
+    <!-- @mbg.generated -->
+    delete from beacons
+    <if test="_parameter != null">
+      <include refid="BeaconsWhereClause" />
+    </if>
+  </delete>
+  <insert id="save" parameterType="com.brtbeacon.plugin.navigator.entity.Beacons">
+    <!-- @mbg.generated -->
+    insert into beacons
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="beacons != null">
+        beacons,
+      </if>
+      <if test="total != null">
+        total,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="beacons != null">
+        #{beacons,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.brtbeacon.plugin.navigator.entity.BeaconsExample" resultType="java.lang.Long">
+    <!-- @mbg.generated -->
+    select count(*) from beacons
+    <if test="_parameter != null">
+      <include refid="BeaconsWhereClause" />
+    </if>
+  </select>
+  <update id="updateByExample" parameterType="map">
+    <!-- @mbg.generated -->
+    update beacons
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.beacons != null">
+        beacons = #{record.beacons,jdbcType=VARCHAR},
+      </if>
+      <if test="record.total != null">
+        total = #{record.total,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdTime != null">
+        created_time = #{record.createdTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="BeaconsUpdateClause" />
+    </if>
+  </update>
+  <update id="update" parameterType="com.brtbeacon.plugin.navigator.entity.Beacons">
+    <!-- @mbg.generated -->
+    update beacons
+    <set>
+      <if test="beacons != null">
+        beacons = #{beacons,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        total = #{total,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="findAll" parameterType="com.brtbeacon.plugin.navigator.entity.Beacons" resultMap="BeaconsBaseResultMap">
+    <!-- @mbg.generated -->
+    select 
+    <include refid="BeaconsBaseColumns" />
+    from beacons
+    <where>
+      <if test="id != null">
+         and id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="beacons != null">
+         and beacons = #{beacons,jdbcType=VARCHAR}
+      </if>
+      <if test="total != null">
+         and total = #{total,jdbcType=INTEGER}
+      </if>
+      <if test="createdTime != null">
+         and created_time = #{createdTime,jdbcType=BIGINT}
+      </if>
+    </where>
+  </select>
+  <select id="findByExample" parameterType="com.brtbeacon.plugin.navigator.entity.BeaconsExample" resultMap="BeaconsBaseResultMap">
+    <!-- @mbg.generated -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="BeaconsBaseColumns" />
+    from beacons
+    <if test="_parameter != null">
+      <include refid="BeaconsWhereClause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

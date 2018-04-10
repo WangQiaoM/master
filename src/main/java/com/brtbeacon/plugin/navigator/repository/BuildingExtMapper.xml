@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brtbeacon.plugin.navigator.repository.BuildingExtMapper">
+  <resultMap id="BuildingExtBaseResultMap" type="com.brtbeacon.plugin.navigator.entity.BuildingExt">
+    <!-- @mbg.generated -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="buildingId" jdbcType="VARCHAR" property="buildingid" />
+    <result column="floors" jdbcType="VARCHAR" property="floors" />
+    <result column="area" jdbcType="INTEGER" property="area" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="cad_url" jdbcType="VARCHAR" property="cadUrl" />
+    <result column="city_id" jdbcType="VARCHAR" property="cityId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="latitude" jdbcType="DOUBLE" property="latitude" />
+    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="citys" jdbcType="VARCHAR" property="citys" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="appkey" jdbcType="VARCHAR" property="appkey" />
+    <result column="isweixin" jdbcType="VARCHAR" property="isweixin" />
+    <result column="upload_time" jdbcType="TIMESTAMP" property="uploadTime" />
+    <result column="affirm_time" jdbcType="TIMESTAMP" property="affirmTime" />
+    <result column="plot_time" jdbcType="TIMESTAMP" property="plotTime" />
+    <result column="succ_time" jdbcType="TIMESTAMP" property="succTime" />
+    <result column="pattern" jdbcType="CHAR" property="pattern" />
+    <result column="ptype" jdbcType="VARCHAR" property="ptype" />
+    <result column="appid" jdbcType="VARCHAR" property="appid" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="order_num" jdbcType="VARCHAR" property="orderNum" />
+    <result column="parent_building_demo_id" jdbcType="VARCHAR" property="parentBuildingDemoId" />
+  </resultMap>
+  <sql id="BuildingExtWhereClause">
+    <!-- @mbg.generated -->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="BuildingExtUpdateClause">
+    <!-- @mbg.generated -->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="BuildingExtBaseColumns">
+    <!-- @mbg.generated -->
+    id, 
+    buildingId, 
+    floors, 
+    area, 
+    remark, 
+    status, 
+    cad_url, 
+    city_id, 
+    name, 
+    latitude, 
+    longitude, 
+    address, 
+    citys, 
+    type, 
+    time, 
+    end_time, 
+    pay_time, 
+    appkey, 
+    isweixin, 
+    upload_time, 
+    affirm_time, 
+    plot_time, 
+    succ_time, 
+    pattern, 
+    ptype, 
+    appid, 
+    user_id, 
+    order_num, 
+    parent_building_demo_id
+  </sql>
+  <select id="findOne" parameterType="java.lang.Integer" resultMap="BuildingExtBaseResultMap">
+    <!-- @mbg.generated -->
+    select 
+    <include refid="BuildingExtBaseColumns" />
+    from dev_building_extend
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="delete" parameterType="java.lang.Integer">
+    <!-- @mbg.generated -->
+    delete from dev_building_extend
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.brtbeacon.plugin.navigator.entity.BuildingExtExample">
+    <!-- @mbg.generated -->
+    delete from dev_building_extend
+    <if test="_parameter != null">
+      <include refid="BuildingExtWhereClause" />
+    </if>
+  </delete>
+  <insert id="save" parameterType="com.brtbeacon.plugin.navigator.entity.BuildingExt">
+    <!-- @mbg.generated -->
+    insert into dev_building_extend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="buildingid != null">
+        buildingId,
+      </if>
+      <if test="floors != null">
+        floors,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="cadUrl != null">
+        cad_url,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="citys != null">
+        citys,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="appkey != null">
+        appkey,
+      </if>
+      <if test="isweixin != null">
+        isweixin,
+      </if>
+      <if test="uploadTime != null">
+        upload_time,
+      </if>
+      <if test="affirmTime != null">
+        affirm_time,
+      </if>
+      <if test="plotTime != null">
+        plot_time,
+      </if>
+      <if test="succTime != null">
+        succ_time,
+      </if>
+      <if test="pattern != null">
+        pattern,
+      </if>
+      <if test="ptype != null">
+        ptype,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="orderNum != null">
+        order_num,
+      </if>
+      <if test="parentBuildingDemoId != null">
+        parent_building_demo_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="buildingid != null">
+        #{buildingid,jdbcType=VARCHAR},
+      </if>
+      <if test="floors != null">
+        #{floors,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="cadUrl != null">
+        #{cadUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="citys != null">
+        #{citys,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appkey != null">
+        #{appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="isweixin != null">
+        #{isweixin,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null">
+        #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="affirmTime != null">
+        #{affirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plotTime != null">
+        #{plotTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="succTime != null">
+        #{succTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pattern != null">
+        #{pattern,jdbcType=CHAR},
+      </if>
+      <if test="ptype != null">
+        #{ptype,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="orderNum != null">
+        #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="parentBuildingDemoId != null">
+        #{parentBuildingDemoId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.brtbeacon.plugin.navigator.entity.BuildingExtExample" resultType="java.lang.Long">
+    <!-- @mbg.generated -->
+    select count(*) from dev_building_extend
+    <if test="_parameter != null">
+      <include refid="BuildingExtWhereClause" />
+    </if>
+  </select>
+  <update id="updateByExample" parameterType="map">
+    <!-- @mbg.generated -->
+    update dev_building_extend
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildingid != null">
+        buildingId = #{record.buildingid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.floors != null">
+        floors = #{record.floors,jdbcType=VARCHAR},
+      </if>
+      <if test="record.area != null">
+        area = #{record.area,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cadUrl != null">
+        cad_url = #{record.cadUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityId != null">
+        city_id = #{record.cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.latitude != null">
+        latitude = #{record.latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="record.longitude != null">
+        longitude = #{record.longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.citys != null">
+        citys = #{record.citys,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endTime != null">
+        end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.payTime != null">
+        pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.appkey != null">
+        appkey = #{record.appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isweixin != null">
+        isweixin = #{record.isweixin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uploadTime != null">
+        upload_time = #{record.uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.affirmTime != null">
+        affirm_time = #{record.affirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.plotTime != null">
+        plot_time = #{record.plotTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.succTime != null">
+        succ_time = #{record.succTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.pattern != null">
+        pattern = #{record.pattern,jdbcType=CHAR},
+      </if>
+      <if test="record.ptype != null">
+        ptype = #{record.ptype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appid != null">
+        appid = #{record.appid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.orderNum != null">
+        order_num = #{record.orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentBuildingDemoId != null">
+        parent_building_demo_id = #{record.parentBuildingDemoId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="BuildingExtUpdateClause" />
+    </if>
+  </update>
+  <update id="update" parameterType="com.brtbeacon.plugin.navigator.entity.BuildingExt">
+    <!-- @mbg.generated -->
+    update dev_building_extend
+    <set>
+      <if test="buildingid != null">
+        buildingId = #{buildingid,jdbcType=VARCHAR},
+      </if>
+      <if test="floors != null">
+        floors = #{floors,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="cadUrl != null">
+        cad_url = #{cadUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="citys != null">
+        citys = #{citys,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appkey != null">
+        appkey = #{appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="isweixin != null">
+        isweixin = #{isweixin,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null">
+        upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="affirmTime != null">
+        affirm_time = #{affirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plotTime != null">
+        plot_time = #{plotTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="succTime != null">
+        succ_time = #{succTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pattern != null">
+        pattern = #{pattern,jdbcType=CHAR},
+      </if>
+      <if test="ptype != null">
+        ptype = #{ptype,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        appid = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="orderNum != null">
+        order_num = #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="parentBuildingDemoId != null">
+        parent_building_demo_id = #{parentBuildingDemoId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="findAll" parameterType="com.brtbeacon.plugin.navigator.entity.BuildingExt" resultMap="BuildingExtBaseResultMap">
+    <!-- @mbg.generated -->
+    select 
+    <include refid="BuildingExtBaseColumns" />
+    from dev_building_extend
+    <where>
+      <if test="id != null">
+         and id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="buildingid != null">
+         and buildingId = #{buildingid,jdbcType=VARCHAR}
+      </if>
+      <if test="floors != null">
+         and floors = #{floors,jdbcType=VARCHAR}
+      </if>
+      <if test="area != null">
+         and area = #{area,jdbcType=INTEGER}
+      </if>
+      <if test="remark != null">
+         and remark = #{remark,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null">
+         and status = #{status,jdbcType=VARCHAR}
+      </if>
+      <if test="cadUrl != null">
+         and cad_url = #{cadUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="cityId != null">
+         and city_id = #{cityId,jdbcType=VARCHAR}
+      </if>
+      <if test="name != null">
+         and name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="latitude != null">
+         and latitude = #{latitude,jdbcType=DOUBLE}
+      </if>
+      <if test="longitude != null">
+         and longitude = #{longitude,jdbcType=DOUBLE}
+      </if>
+      <if test="address != null">
+         and address = #{address,jdbcType=VARCHAR}
+      </if>
+      <if test="citys != null">
+         and citys = #{citys,jdbcType=VARCHAR}
+      </if>
+      <if test="type != null">
+         and type = #{type,jdbcType=VARCHAR}
+      </if>
+      <if test="time != null">
+         and time = #{time,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endTime != null">
+         and end_time = #{endTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="payTime != null">
+         and pay_time = #{payTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="appkey != null">
+         and appkey = #{appkey,jdbcType=VARCHAR}
+      </if>
+      <if test="isweixin != null">
+         and isweixin = #{isweixin,jdbcType=VARCHAR}
+      </if>
+      <if test="uploadTime != null">
+         and upload_time = #{uploadTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="affirmTime != null">
+         and affirm_time = #{affirmTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="plotTime != null">
+         and plot_time = #{plotTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="succTime != null">
+         and succ_time = #{succTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="pattern != null">
+         and pattern = #{pattern,jdbcType=CHAR}
+      </if>
+      <if test="ptype != null">
+         and ptype = #{ptype,jdbcType=VARCHAR}
+      </if>
+      <if test="appid != null">
+         and appid = #{appid,jdbcType=VARCHAR}
+      </if>
+      <if test="userId != null">
+         and user_id = #{userId,jdbcType=BIGINT}
+      </if>
+      <if test="orderNum != null">
+         and order_num = #{orderNum,jdbcType=VARCHAR}
+      </if>
+      <if test="parentBuildingDemoId != null">
+         and parent_building_demo_id = #{parentBuildingDemoId,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="findByExample" parameterType="com.brtbeacon.plugin.navigator.entity.BuildingExtExample" resultMap="BuildingExtBaseResultMap">
+    <!-- @mbg.generated -->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="BuildingExtBaseColumns" />
+    from dev_building_extend
+    <if test="_parameter != null">
+      <include refid="BuildingExtWhereClause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

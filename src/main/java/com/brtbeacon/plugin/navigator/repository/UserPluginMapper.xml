@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brtbeacon.plugin.navigator.repository.UserPluginMapper">
+    <resultMap id="UserPluginBaseResultMap" type="com.brtbeacon.plugin.navigator.entity.UserPlugin">
+        <!-- @mbg.generated -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="plugs_id" jdbcType="INTEGER" property="plugsId"/>
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="building_extend_id" jdbcType="INTEGER" property="buildingExtendId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="signs" jdbcType="VARCHAR" property="signs"/>
+    </resultMap>
+    <sql id="UserPluginWhereClause">
+        <!-- @mbg.generated -->
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="UserPluginUpdateClause">
+        <!-- @mbg.generated -->
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="("
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="UserPluginBaseColumns">
+        <!-- @mbg.generated -->
+        id,
+        user_id,
+        plugs_id,
+        end_time,
+        status,
+        building_extend_id,
+        create_time,
+        signs
+    </sql>
+    <select id="findOne" parameterType="java.lang.Integer" resultMap="UserPluginBaseResultMap">
+        <!-- @mbg.generated -->
+        select
+        <include refid="UserPluginBaseColumns"/>
+        from dev_user_plugs
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="delete" parameterType="java.lang.Integer">
+        <!-- @mbg.generated -->
+        delete from dev_user_plugs
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.brtbeacon.plugin.navigator.entity.UserPluginExample">
+        <!-- @mbg.generated -->
+        delete from dev_user_plugs
+        <if test="_parameter != null">
+            <include refid="UserPluginWhereClause"/>
+        </if>
+    </delete>
+    <insert id="save" parameterType="com.brtbeacon.plugin.navigator.entity.UserPlugin">
+        <!-- @mbg.generated -->
+        insert into dev_user_plugs
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="plugsId != null">
+                plugs_id,
+            </if>
+            <if test="endTime != null">
+                end_time,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="buildingExtendId != null">
+                building_extend_id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="signs != null">
+                signs,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="plugsId != null">
+                #{plugsId,jdbcType=INTEGER},
+            </if>
+            <if test="endTime != null">
+                #{endTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="buildingExtendId != null">
+                #{buildingExtendId,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="signs != null">
+                #{signs,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.brtbeacon.plugin.navigator.entity.UserPluginExample"
+            resultType="java.lang.Long">
+        <!-- @mbg.generated -->
+        select count(*) from dev_user_plugs
+        <if test="_parameter != null">
+            <include refid="UserPluginWhereClause"/>
+        </if>
+    </select>
+    <update id="updateByExample" parameterType="map">
+        <!-- @mbg.generated -->
+        update dev_user_plugs
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.userId != null">
+                user_id = #{record.userId,jdbcType=BIGINT},
+            </if>
+            <if test="record.plugsId != null">
+                plugs_id = #{record.plugsId,jdbcType=INTEGER},
+            </if>
+            <if test="record.endTime != null">
+                end_time = #{record.endTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.status != null">
+                status = #{record.status,jdbcType=INTEGER},
+            </if>
+            <if test="record.buildingExtendId != null">
+                building_extend_id = #{record.buildingExtendId,jdbcType=INTEGER},
+            </if>
+            <if test="record.createTime != null">
+                create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.signs != null">
+                signs = #{record.signs,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="UserPluginUpdateClause"/>
+        </if>
+    </update>
+    <update id="update" parameterType="com.brtbeacon.plugin.navigator.entity.UserPlugin">
+        <!-- @mbg.generated -->
+        update dev_user_plugs
+        <set>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="plugsId != null">
+                plugs_id = #{plugsId,jdbcType=INTEGER},
+            </if>
+            <if test="endTime != null">
+                end_time = #{endTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="buildingExtendId != null">
+                building_extend_id = #{buildingExtendId,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="signs != null">
+                signs = #{signs,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="findAll" parameterType="com.brtbeacon.plugin.navigator.entity.UserPlugin"
+            resultMap="UserPluginBaseResultMap">
+        <!-- @mbg.generated -->
+        select
+        <include refid="UserPluginBaseColumns"/>
+        from dev_user_plugs
+        <where>
+            <if test="id != null">
+                and id = #{id,jdbcType=INTEGER}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId,jdbcType=BIGINT}
+            </if>
+            <if test="plugsId != null">
+                and plugs_id = #{plugsId,jdbcType=INTEGER}
+            </if>
+            <if test="endTime != null">
+                and end_time = #{endTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="status != null">
+                and status = #{status,jdbcType=INTEGER}
+            </if>
+            <if test="buildingExtendId != null">
+                and building_extend_id = #{buildingExtendId,jdbcType=INTEGER}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="signs != null">
+                and signs = #{signs,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+    <select id="findByExample" parameterType="com.brtbeacon.plugin.navigator.entity.UserPluginExample"
+            resultMap="UserPluginBaseResultMap">
+        <!-- @mbg.generated -->
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="UserPluginBaseColumns"/>
+        from dev_user_plugs
+        <if test="_parameter != null">
+            <include refid="UserPluginWhereClause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    
+    <select id="findBySignature" resultMap="UserPluginBaseResultMap">
+        select <include refid="UserPluginBaseColumns"/>
+        from dev_user_plugs where signs = #{sign} limit 0,1
+    </select>
+</mapper>
