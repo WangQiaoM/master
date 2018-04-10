@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/fragment :: header"></head>
+<body>
+
+<!-- 头部-->
+<div class="header-module" th:include="include/fragment :: nav-header">
+</div>
+
+<!--main-->
+<div class="body-module">
+    <div id="recommendation" class="center-module">
+
+        <ol class="guide-module" style=" margin-top: 30px;">
+            <li :class="step == 1 ? 'active':''">1 填写信息</li>
+            <li :class="step == 2 ? 'active':''">2 选择检索位置</li>
+        </ol>
+
+        <div class="title-label">创建推荐项</div>
+
+        <!--填写信息-->
+        <div v-show="step == 1" class="main-module" id='form-step-1' style=" margin-top: 30px;">
+
+            <div id="form1" class="form-module">
+
+                <div class="tab-tr">
+
+                    <div class="label">
+                        <span>推荐名称</span>
+                        <i>*</i>
+                    </div>
+
+                    <div class="input">
+                        <input name="title" placeholder="长度不能超过5个汉字或10个英文字符" v-model="rec.title" type="text" is-yz="true" yz-type="null,length" min="1" max="10" null-message="不能为空" length-message="长度不能超过5个汉字或10个英文字符"/>
+                    </div>
+
+                </div>
+
+                <div class="tab-tr">
+
+                    <div class="label">
+                        <span>自定义图标</span>
+                        <i>*</i>
+                    </div>
+
+                    <div class="upload">
+                        <div class="img"><img :src="rec.imgUrl ? rec.imgUrl : '/images/console/icon_01.png'"/></div>
+                        <a class="btn">上传</a>
+                        <div class="file-div"><input type="file"/></div>
+                        <p class="tips">建议100*100px,上限100K，仅支持jpg/png</p>
+                    </div>
+                </div>
+
+                <div class="tab-tr">
+
+                    <div class="default-image-list">
+                        <ul>
+                            <li v-for="icon in icons"><img :src="icon.src" :title="icon.title" @click.stop="choose(icon)"/></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="tab-tr">
+
+                    <div class="label">
+                        <span>优先级设置</span>
+                    </div>
+
+                    <div class="input" style=" width: 80px; float: left;">
+                        <input name="priority" v-model="rec.priority" type="text" is-yz="true" yz-type="null,intNum" null-message="不能为空" intNum-message="必须是正整数"/>
+                    </div>
+
+                    <p class="tips" style=" line-height: 35px;">值越低优先级越高</p>
+
+                </div>
+
+            </div>
+
+            <div class="button-box">
+                <a class="button" color='green' id="next-btn" @click.stop="next()">下一步：选择位置点</a>
+                <a class="button" color='gray' id='cancel-btn' @click.stop="close()">取消并关闭</a>
+            </div>
+
+            <div style=" height: 50px;"></div>
+
+        </div>
+
+
+        <!--选择检索位置-->
+        <div v-show="step == 2" class="main-module" id='form-step-2' style=" margin-top: 30px; display: none;">
+
+            <div class="search-module">
+                <div class="input"><input v-model="searchText" placeholder="输入名称搜索" type="text"/></div>
+                <a class="button" color='green' @click="search(searchText)">搜索</a>
+            </div>
+
+            <div class="table-model bview-table-wrapper" id="table-model" style=" width: 800px; margin: 0 auto;">
+
+                <div class="bview-table-head">
+                    <table>
+                        <colgroup>
+                            <col width="80"/>
+                            <col width="300"/>
+                            <col width="150"/>
+                            <col/>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" :ckecked="allChecked" v-model="allChecked" @change="selectAll()"/>
+                                <span>全选</span>
+                            </th>
+                            <th><span>位置坐标点</span></th>
+                            <th><span>所属楼层</span></th>
+                            <th><span>位置名称</span></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="bview-table-body" style=" max-height: 350px;">
+                    <table>
+                        <colgroup>
+                            <col width="80"/>
+                            <col width="300"/>
+                            <col width="150"/>
+                            <col/>
+                        </colgroup>
+                        <tbody>
+
+                        <tr v-show="records.length" v-for="(poi, index) in mapData">
+                            <td><input type="checkbox" v-model="poi.checked" :checked="poi.checked == true" @change="select(poi)" :poi-id='poi.POI_ID' :poi-name='poi.NAME' :poi-floor='poi.FLOOR_NAME' :key="poi.POI_ID"/></td>
+                            <td><span>{{poi.LABEL_X}} , {{poi.LABEL_Y}}</span></td>
+                            <td><span>{{poi.FLOOR_NAME}}</span></td>
+                            <td><span>{{poi.NAME}}</span></td>
+                        </tr>
+                        <tr v-show="!records.length && searchText != ''">
+                            <td align="center" colspan="4">没有数据</td>
+                        </tr>
+                        <tr v-show="!records.length && !searchText">
+                            <td align="center" colspan="4" style="height: 120px;">
+                                此建筑共<span style="color: #ffa500; font-weight: bold;" v-text="length">0</span>个POI位置，<span style="color: #00A887;">请使用搜索框查找</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="selected-box">
+                <label>已选择：(<b v-text="count">0</b>)</label>
+                <span v-for="p in points" :poi-id="p.POI_ID">{{p.NAME}} {{p.FLOOR_NAME}} <i class="close" @click.stop="remove(p.POI_ID)">×</i></span>
+            </div>
+
+
+            <div style=" height: 50px;"></div>
+
+            <div class="button-box">
+                <a class="button" color='gray' id="prev-btn" @click.stop="prev()">上一步</a>
+                <a class="button" color='green' id="save-btn" @click.stop="save()">我已选择完成：确认提交</a>
+            </div>
+
+            <div style=" height: 50px;"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="floor-module">
+    <p>备案号：渝ICP备14003428号 Copyright © 2014-2017 Bright Beacon Inc</p>
+</div>
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/require.js/2.3.3/require.min.js"></script>
+<script type="text/javascript" th:inline="javascript">
+
+    var ID = "[(${id})]"; // 推荐标识
+    var buildingID = "[(${buildingID})]"; // 建筑标识
+
+
+    $("#switch_site ul li").each(function (i) {
+        if ($(this).attr("type")==buildingID){
+            $("#switch_site button").text($(this).find("a").text());
+            $("#switch_site button").append("&nbsp;&nbsp;<span class='caret'></span>")
+        }
+    });
+
+
+    require(['/js/config.js'], function () {
+
+        // 默认图标配置文件
+        // http://files.brtbeacon.com/pro/wxdh/icons/icons.js
+        // 默认的图标位于阿里云OSS上 brtbeacon/pro/wxdh/icons/ 目录下
+
+        require(['jquery', 'vue', 'utils', '//files.brtbeacon.net/pro/wxdh/icons/icons.1.2.js'], function ($, Vue, Utils, Icon) {
+
+            var $Recommendation; // Vue 对象
+            var $Validator; // 验证器对象
+
+            var init$Recommendation = function (rec) {
+
+                // 点位数据
+                var points = [];
+                if (rec.points) {
+                    try {
+                        points = JSON.parse(rec.points);
+                    } catch (e) {
+                        alert('点位数据转换出错');
+                        return;
+                    }
+                }
+                // 默认图片
+                if (!rec.imgUrl) {
+                    rec.imgUrl = 'http://files.brtbeacon.com/pro/wxdh/icons/icon_default.png';
+                }
+                // 建筑标识
+                if (!rec.buildingExtendId) {
+                    rec.buildingExtendId = buildingID;
+                }
+
+                $Recommendation = new Vue({
+                    el: '#recommendation',
+                    data: {
+                        rec: rec,
+                        icons: Icon.icons,  // 系统默认的图标
+                        step: 1, // 步骤
+                        count: 0, // 计数器
+                        searchText: "", // 搜索标题
+                        records: [], // 结果
+                        points: points, // 已选择,
+                        allChecked: false, // 全选
+                        length: 0
+                    },
+                    methods: {
+                        // 下一步
+                        "next": function () {
+                            // 验证通过后执行下一步 step++
+                            $Validator.check() && this.step++;
+                        },
+                        "close": function () {
+                            window.opener = null;
+                            window.open('', '_self');
+                            window.close();
+                        },
+                        // 上一步
+                        "prev": function () {
+                            this.step--;
+                        },
+                        "search": function (text) {
+                            if (!text) {
+                                require(['art'], function (art) {
+                                    art.tips('请输入检索关键字');
+                                });
+                            }
+
+                            var $this = this;
+                            // 执行搜索
+                            Utils.get('/data/poi?buildingID=' + buildingID + '&name=' + encodeURIComponent(text)).done(function (data) {
+                                if (data.code == 0) {
+                                    $this.records = data.data.records;
+                                } else {
+                                    require(['art'], function (art) {
+                                        art.error(data.message);
+                                    });
+                                    $this.records = [];
+                                }
+                            });
+                        },
+                        // 选择
+                        "select": function (poi) {
+                            // 浏览器会自动执行onchange
+                            // 取消选择
+                            if (!poi.checked) {
+                                this.remove(poi.POI_ID);
+                            } else {
+                                // 选择
+                                this.points.push(poi);
+                            }
+                        },
+                        // 全选
+                        "selectAll": function () {
+                            // 遍历记录全选或反选
+                            var records = this.mapData;
+                            for (var i = 0, len = records.length; i < len; i++) {
+                                var r = records[i];
+                                if (typeof r.checked == 'undefined') {
+                                    r.checked = false;
+                                }
+                                if (r.checked != this.allChecked) {
+                                    r.checked = this.allChecked;
+                                    this.select(r);
+                                }
+                            }
+                        },
+                        // 移除选择的
+                        "remove": function (id) {
+                            var points = this.points;
+                            for (var i = 0, len = points.length; i < len; i++) {
+                                var p = points[i];
+                                if (p.POI_ID == id) {
+                                    this.points.splice(i, 1);
+                                    break;
+                                }
+                            }
+                        },
+                        // 验证是否已选择
+                        "contains": function (poi) {
+                            var points = this.points;
+                            if (points && points.length) {
+                                for (var i = 0, len = points.length; i < len; i++) {
+                                    var p = points[i];
+                                    if (p.POI_ID == poi.POI_ID) {
+                                        return true;
+                                    }
+                                }
+                            }
+                            return false;
+                        },
+                        "choose": function (icon) {
+                            this.rec.imgUrl = icon.src;
+                        },
+                        // 保存
+                        "save": function () {
+                            var points = JSON.stringify(this.points);
+                            var data = this.rec;
+
+                            // 提交数据
+                            data.points = points;
+                            data.buildingId = buildingID;
+
+                            Utils.post('/data/recommendation', data).done(function (data) {
+                                if (data.code == 0) {
+                                    require(['art'], function (art) {
+                                        art.tips('操作成功', function () {
+                                            window.location.href = '/view/setup/' + buildingID;
+                                        });
+                                    });
+                                } else {
+                                    require(['art'], function (art) {
+                                        art.error(data.message);
+                                    });
+                                }
+                            });
+                        }
+                    },
+                    computed: {
+                        // 计算地图数据
+                        "mapData": function () {
+                            var _mapPoi = [];
+                            var records = this.records;
+
+                            var selected = 0;
+
+                            if (records && records.length) {
+                                for (var i = 0, len = records.length; i < len; i++) {
+                                    var r = records[i];
+                                    r.checked = !!this.contains(r);
+                                    r.checked && selected++;
+                                    _mapPoi.push(r);
+                                }
+                            }
+                            // 更新计数器
+                            this.count = this.points.length;
+
+                            // 更新全选状态
+                            this.allChecked = records.length && (records.length == selected);
+                            return _mapPoi;
+                        }
+
+                    },
+                    // 创建后获取地图的点位总数
+                    created: function () {
+                        var $this = this;
+                        // 执行搜索
+                        Utils.get('/data/poi?buildingID=' + buildingID + '&name=').done(function (data) {
+                            if (data.code == 0) {
+                                var _data = data.data;
+                                if (_data.length) {
+                                    $this.length = _data.length;
+//                                    if (_data.length < 100) {
+//                                        $this.records = _data.records;
+//                                    }
+                                }
+                            }
+                        });
+                    },
+                    // 挂载完成后
+                    mounted: function () {
+                        var $this = this;
+                        require(['jquery.upload', 'jquery.validator'], function (Upload) {
+                            // 初始化验证器
+                            $Validator = $("#form1").bbadValidator({
+                                intNum: /^\d+$/
+                            });
+                            // 文件上传
+                            $('div.upload > a.btn').on('click', function () {
+                                var $file = $(this).siblings('div.file-div').find('input');
+                                Upload('/oss/upload', $file, {
+                                    success: function (data) {
+                                        if (data.code == 0) {
+                                            $this.rec.imgUrl = data.result;
+                                            //$('div.img > img').prop('src', data.result);
+                                        } else {
+                                            require(['art'], function (art) {
+                                                art.error(data.message);
+                                            });
+                                        }
+                                    },
+                                    validate: function (target) {
+                                        var F = target.files[0];
+                                        if (F) {
+                                            var val = F.name;
+                                            var size = F.size;
+                                            if (size > 100 * 1024) {
+                                                require(['art'], function (art) {
+                                                    art.error("文件大小限制 100KB");
+                                                });
+                                            }
+                                        } else {
+                                            var val = $(target).val();
+                                        }
+                                        if (!/\.(jpg|png|jpeg|PNG|JPEG|JPG)$/.test(val)) {
+                                            require(['art'], function (art) {
+                                                art.error("图片类型必须是.jpg .jpeg .png中的一种!");
+                                            });
+                                            return false;
+                                        }
+                                        return true;
+                                    },
+                                    error: function (error) {
+                                        require(['art'], function (art) {
+                                            art.error(error);
+                                        });
+                                    }
+                                });
+                            });
+                        });
+                    }
+                });
+            };
+
+            // 初始化数据
+            if (ID) {
+                Utils.get('/data/recommendation/' + ID).done(function (data) {
+                    data.code == 0 ? init$Recommendation(data.result) : init$Recommendation({priority: 1});
+                });
+            } else {
+                init$Recommendation({priority: 1});
+            }
+        });
+    });
+
+</script>
+
+</html>

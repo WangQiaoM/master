@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title th:text="${status}">出错啦</title>
+
+    <link rel="stylesheet" th:href="@{/css/error.css}" href="css/error.css"/>
+</head>
+<body>
+
+<div class="index-404">
+
+    <div class="image-box">
+        <img th:src="@{/images/cry_img.jpg}" src="images/cry_img.jpg"/>
+    </div>
+
+    <div class="title-box">
+        <p>您要找的内容已丢失！</p>
+        <span>错误反馈：<b th:text="${status}"></b></span>
+    </div>
+
+    <div class="button-box">
+        <a href="##">返回首页</a>
+    </div>
+
+    <div class="query-report-box">
+
+        <a id="query">查看报告</a>
+
+        <div class="error-content" id="error-content" style=" display: none;">
+            <h1>错误报告信息</h1>
+            <p>纵然万劫不复,纵然相思入骨,我也待你眉眼如初,岁月如故</p>
+            <p>时间: <span th:text="${#dates.format(timestamp,'yyyy-MM-dd HH:mm')}">时间戳</span></p>
+            <p>错误: <span th:text="${error}">错误</span></p>
+            <p>消息: <span th:text="${message}">消息</span></p>
+            <p>路径: <span th:text="${path}">路径</span></p>
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    !function () {
+
+        var _isShow = false;
+
+        document.getElementById('query').addEventListener('click', function () {
+
+            if (_isShow) {
+                document.getElementById('error-content').style.display = 'none';
+                _isShow = false;
+            } else {
+                document.getElementById('error-content').style.display = 'block';
+                _isShow = true;
+            }
+
+        }, false);
+
+    }();
+
+</script>
+
+</body>
+</html>

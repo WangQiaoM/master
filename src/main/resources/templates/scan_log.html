@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:func="http://admin.open.brtbeacon.com/thymeleaf">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <title>scan_log</title>
+    <script type="text/javascript" src="/js/jquery-1.11.2.min.js" ></script>
+    <script type="text/javascript" th:inline="javascript">
+        var $appId = "[(${appId})]";
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i)=="micromessenger") {
+            $APP = 0;  // 微信浏览器
+            $.getScript("http://res.wx.qq.com/open/js/jweixin-1.1.0.js");
+        } else {
+            $APP = 1; //非微信浏览器(即APP)
+            $.getScript("/js/navigation/brt.wx.native.js");
+        }
+    </script>
+
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    $.getScript("/js/scan_log.js?t="+new Date().getTime())
+</script>
+</html>

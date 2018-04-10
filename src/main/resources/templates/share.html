@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/fragment :: header"></head>
+<body>
+
+<!-- 头部-->
+<div class="header-module" th:include="include/fragment :: nav-header">
+</div>
+
+<!--main-->
+<div class="body-module">
+    <div id="recommendation" class="center-module">
+
+        <!--面包屑-->
+        <ol class="breadcrumb-module">
+            <li><a href="http://open.brtbeacon.com/web/building/index">我的建筑列表</a></li>
+            <li><a th:href="'http://open.brtbeacon.com/web/building/manage/' + ${buildingID}">建筑管理</a></li>
+            <li><a th:href="'http://open.brtbeacon.com/web/building/plugs/' + ${buildingID}">标准插件</a></li>
+            <li>自定义管理</li>
+        </ol>
+
+
+        <div class="button-group" id="toggle-button">
+            <a th:href="@{'/view/setup/' +${buildingID}}" href="#" class="button" color='white' size='large'>查询项推荐</a>
+            <a href="#" class="button" color='green' size='large'>分享管理</a>
+            <a th:href="@{'/view/setup/' +${buildingID}+'/adImage'}" href="#" class="button" color='white' size='large'>广告图片</a>
+        </div>
+
+
+        <div id="share" class="content-model">
+
+            <!--填写信息-->
+            <div class="main-module" style=" margin-top: -1px;">
+
+                <div class="form-module">
+
+                    <div class="tab-tr">
+                        <div class="label">
+                            <span>分享标题</span>
+                            <i>*</i>
+                        </div>
+
+                        <div class="input">
+                            <input v-model="share.title" type="text" is-yz="true" yz-type="null,length" min="1" max="30" null-message="不能为空" length-message="长度不能超过15个汉字或30个英文字符">
+                        </div>
+                    </div>
+                    <div class="tab-tr">
+
+                        <div class="label">
+                            <span>分享描述</span>
+                            <i>*</i>
+                        </div>
+
+                        <div class="textarea" style=" height: 80px;">
+                            <textarea v-model="share.description" placeholder="不超过40个汉字或120字符" maxlength="120" is-yz="true" yz-type="null,length" min="1" max="120" null-message="不能为空" length-message="不超过40个汉字或120字符"></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-tr">
+
+                        <div class="label">
+                            <span>自定义图标</span>
+                            <i>*</i>
+                        </div>
+
+                        <div class="upload">
+                            <div class="img"><img :src="share.imgUrl ? share.imgUrl : '/images/console/icon_01.png'"/></div>
+                            <a class="btn">上传</a>
+                            <div class="file-div"><input type="file"/></div>
+                            <p class="tips">建议尺寸100*100px,上限100K，仅支持jpg/png</p>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="button-box">
+                    <a class="button" color='green' id="next-btn" @click="save">保存</a>
+                </div>
+
+                <div style=" height: 50px;"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="floor-module">
+    <p>备案号：渝ICP备14003428号 Copyright © 2014-2017 Bright Beacon Inc</p>
+</div>
+
+<script type="text/javascript" src="//cdn.bootcss.com/require.js/2.3.3/require.min.js"></script>
+<script type="text/javascript" th:inline="javascript">
+    var buildingID = "[(${buildingID})]";
+
+    $("#switch_site ul li").each(function (i) {
+        if ($(this).attr("type")==buildingID){
+            $("#switch_site button").text($(this).find("a").text());
+            $("#switch_site button").append("&nbsp;&nbsp;<span class='caret'></span>")
+        }
+    });
+
+
+    require(['/js/config.js'], function () {
+        require(['jquery', 'utils', 'vue', 'jquery.upload', 'jquery.validator'], function ($, Utils, Vue, Upload) {
+
+            var $Share; // Vue 对象
+
+            var $Validator; // 验证器对象
+
+            // 初始化数据
+            Utils.get('/data/share/' + buildingID).done(function (data) {
+                if (data.code == 0) {
+                    init$Recommendation(data.result || {"imgUrl": 'http://files.brtbeacon.com/pro/wxdh/icons/icon_default.png'});
+                } else {
+                    init$Recommendation({
+                        "imgUrl": 'http://files.brtbeacon.com/pro/wxdh/icons/icon_default.png'
+                    });
+                }
+            });
+
+            function init$Recommendation(share) {
+
+                // 默认主键为建筑标志
+                if (!share.id) {
+                    share.id = buildingID;
+                }
+
+                $Share = new Vue({
+                    el: '#share',
+                    data: {
+                        share: share,
+                        change: false
+                    },
+                    methods: {
+                        save: function () {
+                            if (!$Validator.check()) {
+                                return false;
+                            }
+                            // 验证完成
+                            Utils.post('/data/share', this.share).done(function (data) {
+                                var message = '数据更新失败';
+                                if (data.code == 0) {
+                                    message = '操作成功';
+                                }
+                                require(['art'], function (art) {
+                                    art.success(message);
+                                });
+                            });
+                        }
+                    },
+                    // 挂载完成后
+                    mounted: function () {
+                        var $this = this;
+                        // 初始化验证器
+                        $Validator = $("#share").bbadValidator();
+
+                        // 文件上传
+                        $('div.upload > a.btn').on('click', function () {
+                            var $file = $(this).siblings('div.file-div').find('input');
+                            Upload('/oss/upload', $file, {
+                                success: function (data) {
+                                    if (data.code == 0) {
+                                        $this.share.imgUrl = data.result;
+                                        $('div.img > img').prop('src', data.result);
+                                    } else {
+                                        require(['art'], function (art) {
+                                            art.error(data.message);
+                                        });
+                                    }
+                                },
+                                validate: function (target) {
+                                    var F = target.files[0];
+                                    if (F) {
+                                        var val = F.name;
+                                        var size = F.size;
+                                        if (size > 100 * 1024) {
+                                            require(['art'], function (art) {
+                                                art.error("文件大小限制 100KB");
+                                            });
+                                        }
+                                    } else {
+                                        var val = $(target).val();
+                                    }
+                                    if (!/\.(jpg|png|jpeg|PNG|JPEG|JPG)$/.test(val)) {
+                                        require(['art'], function (art) {
+                                            art.error("图片类型必须是.jpg .jpeg .png中的一种!");
+                                        });
+                                        return false;
+                                    }
+                                    return true;
+                                },
+                                error: function (error) {
+                                    require(['art'], function (art) {
+                                        art.error(error);
+                                    });
+                                }
+                            });
+                        });
+                    }
+                });
+            }
+
+        });
+    });
+</script>
+</body>
+</html>

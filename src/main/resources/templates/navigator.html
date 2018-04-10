@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:func="http://admin.open.brtbeacon.com/thymeleaf">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <title></title>
+    <style type="text/css">
+        #_qwgqqdhmyDiv{ display: none; opacity: 0; visibility: hidden; width: 0; height: 0; overflow: hidden; z-index: -999999; position: fixed; top: -9999px;}
+    </style>
+
+    <link rel="stylesheet" type="text/css" th:href="'/css/style.css?t='+${time}"/>
+
+    <!--alertLayer-->
+    <link rel="stylesheet" type="text/css" href="/js/navigation/alertLayer/alertLayer.css" />
+    <script type="text/javascript" src="/js/navigation/alertLayer/alertLayer.js" ></script>
+
+<body>
+<script type="text/javascript">
+
+    LoadingLayer.show('努力加载中...');
+
+</script>
+
+<div class="body-container">
+
+
+    <div class="head-container" id="head-container">
+        <div class="l-name">
+            <span></span>
+        </div>
+        <div class="r-name">
+            <span>当前楼层：</span>
+            <span class="fName"></span>
+        </div>
+    </div>
+
+    <!--首页-->
+    <div class="index-container">
+
+        <audio id="brtAudio" controls="controls" style=" position: fixed; top: -9999px;" ></audio>
+
+        <!--微信分享提示-->
+        <div class="weixin-share-tips" id="weixin-share-tips" onclick="this.style.display='none'"></div>
+
+        <!--app下载提示-->
+        <!--<div class="app-download-tips" id="app-download-tips">-->
+            <!--<img src="/images/logo1.jpg" style=" border-radius: 5px; border: 1px solid #dddddd" />-->
+            <!--<span>畅行九州</span>-->
+            <!--<a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.whwfsf.wisdomstation">立即下载</a>-->
+        <!--</div>-->
+
+        <!--纠正正北方向提示-->
+        <div class="rectify-heading-tips" id="rectify-heading-tips">
+            <div>
+                <p><img src="http://files.brtbeacon.net/custom/crc/sz_002/images/u417.png"/></p>
+                <p>将手机沿图示方向移动数次，以校准指南针</p>
+                <a class="btn" onclick="$('#rectify-heading-tips').fadeOut(200)">我知道了</a>
+            </div>
+        </div>
+
+        <!--友情提示-->
+        <!--<div class="look-car-tips" id="look-car-tips">
+            <i></i>
+            帮您找车，停在万象天地车库，输车牌智能寻车！
+            <a class="close" onclick="$('#look-car-tips').fadeOut(200);"></a>
+        </div>-->
+
+        <!--地图选点提示-->
+        <div class="map-select-point-tips" id="map-select-point-tips">
+            直接点击地图选点
+        </div>
+
+        <!--地图-->
+        <div class="brtmap" id="brtmap"></div>
+
+
+        <!--楼层切换-->
+        <div class="floorSwitch-module" id="floorSwitch-module">
+            <div class="box"></div>
+            <ul class="ul scrollStyle clickRemoveShow">
+            </ul>
+        </div>
+
+
+        <!--搜索框 触发搜索页显示-->
+        <div class="searchButton-module" id="searchButton-module">
+            <input type="text" disabled="disabled" placeholder="检票口/洗手间/店铺/车站设施" />
+            <a class="close"></a>
+        </div>
+
+
+        <!--起点、终点 选择-->
+        <div class="startEndPoint-module" id="startEndPoint-module">
+            <div class="btn-back"><a class="btn"></a></div>
+            <div class="show-box">
+                <div class="item-box start-box"><input type="text" placeholder="请选择起点位置" readonly="readonly" /></div>
+                <div class="item-box end-box"><input type="text" placeholder="请选择终点位置" readonly="readonly" /></div>
+            </div>
+            <div class="btn-change"><a class="btn"></a></div>
+        </div>
+
+
+        <!--查看起点层、终点层-->
+        <div class="queryRouteFloor-module query-start" id="query-start-floor">查看起点层</div>
+        <div class="queryRouteFloor-module query-end" id="query-end-floor">查看终点层</div>
+
+
+        <!--导航中，提示模板-->
+        <div class="naviingTips-module" id="naviingTips-module">
+
+            <div class="top-box">
+                <div class="heading-icon straight"></div>
+                <div class="tips-text">
+                    <p class="p1">-</p>
+                    <p class="p2">-</p>
+                </div>
+
+                <a class="btn" onclick="$('#rectify-heading-tips').fadeIn(200)">方向校准</a>
+
+            </div>
+            <div class="bom-box">
+                <i class="act-icon"></i>
+                <span class="text">全程剩余<b class="b1">-</b>米  约<b class="b2">-</b>分钟</span>
+
+                <i class="jt-ico"></i>
+            </div>
+
+        </div>
+
+
+        <!--导航结束-->
+        <div class="navOverTips-module" id="navOverTips-module">
+            <div class="left-box">
+                <div class="start-text">-</div>
+                <div class="end-text">-</div>
+                <div class="tips-text">减掉 <b>0</b>克 脂肪</div>
+            </div>
+            <div class="right-box">
+                <div class="act-icon"></div>
+                <div class="text">全长 <b>0</b>米</div>
+            </div>
+        </div>
+
+
+
+        <!--
+            底部切换模板
+        -->
+        <div class="bottom-module">
+
+            <!--我的位置-->
+            <div class="location-control location" id="location-button" style="top: -3.5rem;"></div>
+
+            <!--help 按钮-->
+            <!--<div class="location-control help" id="help-button"></div>-->
+
+
+            <!--放大缩小-->
+            <div class="zoom-control" id="zoom-control">
+                <a class="zoomIn"></a>
+                <a class="zoomOut"></a>
+            </div>
+
+
+            <div class="change-module" id="change-module">
+
+                <!--去这里-->
+                <div class="change-control toThisPlace-control" id="toThisPlace-control" style=" display: none">
+                    <a>去这里</a>
+                </div>
+
+
+                <!--我的位置详情-->
+                <div class="change-control locationPOI-control" id="locationPOI-control" style=" display: none;">
+                    <div>
+                        <div class="close"></div>
+
+                        <div class="right">
+                            <p>
+                                我在 <span>-</span>
+                            </p>
+                            <a class="share">分享</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--poi 详情-->
+                <div class="change-control poiInfo-control" id="poiInfo-control" style=" display: none;">
+
+                    <div class="close"></div>
+
+                    <div class="goBtn">到这去</div>
+
+                    <div class="info-box">
+                        <div class="p1">-</div>
+                        <div class="p3">当前停放 <span></span></div>
+                        <div class="p2">-</div>
+                    </div>
+
+                    <div class="btn-box">
+                        <a class="btn-back"><!--返回--></a>
+                        <a class="btn-start">设为起点</a>
+                        <a class="btn-end">设为终点</a>
+                        <a class="btn-share">分享位置</a>
+                    </div>
+
+                </div>
+
+
+                <!--开始导航-->
+                <div class="change-control startNav-control off" id="startNav-control" style=" display: none;">
+
+                    <div class="info-box">
+                        <p class="p1">-</p>
+                        <p class="p2">-</p>
+                    </div>
+
+                    <a class="start-btn">步行导航</a>
+                </div>
+
+
+                <!--导航中，查看导航路径-->
+                <div class="change-control navingBomButton-control" id="navingBomButton-control" style=" display: none;">
+                    <div class="box">
+                        <div class="close"></div>
+                        <div class="btn-box">
+                            <div class="btn b-overview">
+                                全览路线
+                                <div class="li">
+                                    <a class="start">起点层</a>
+                                    <a class="end">终点层</a>
+                                </div>
+                            </div>
+                            <div class="btn b-continue">继续导航</div>
+                            <div class="btn b-backmap">返回地图</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--多个poi信息列表-->
+                <div class="change-control allPoiList-control" id='allPoiList-control' style=" display: none;">
+                    <div class="head-box">
+                        <div class="back"></div>
+                        <div class="title">
+                            共<b class="b1">-</b>个结果  分布于<b class="b2">-</b>层
+                        </div>
+                    </div>
+                    <div class="content-box scrollStyle">
+                        <ul>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!--地图选点 附近列表-->
+                <div class="change-control selectPointList-control" id="selectPointList-control" style=" display: none;">
+
+                    <div class="head-box">
+                        <div class="back"></div>
+                        <div class="title">
+                            共搜到附近<b>-</b>条信息
+                        </div>
+                    </div>
+                    <div class="content-box scrollStyle">
+                        <ul>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!--搜索页-->
+    <div class="search-container">
+
+        <div class="head-module" id="head-module">
+
+            <div class="back-button"></div>
+
+            <div class="box-control">
+                <div class="floor-box">
+                    <div class="box" floor-id=''>全部</div>
+                    <ul class="ul scrollStyle">
+                        <li floor-id='' class="active">全部</li>
+                    </ul>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="检票口/洗手间/店铺/车站设施" />
+                    <a class="close"></a>
+                    <a class="submit">搜 索</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content-module">
+
+            <!--选点-->
+            <div class="locationPoint-control" id="locationPoint-control" style=" display: none;">
+                <a class="myPoint">我的位置</a>
+                <a class="mapPoint">地图选点</a>
+            </div>
+
+            <!--设施-->
+            <div class="facility-control" id="facility-control">
+
+                <div class="box">
+
+                </div>
+
+                <div class="moveBtn"></div>
+            </div>
+
+            <!--搜索结果-->
+            <div class="sResult-control" id="sResult-control" style=" display: none;">
+                <ul></ul>
+                <p class="tips">-</p>
+            </div>
+
+            <!--历史记录-->
+            <div class="sHistory-control" id="sHistory-control">
+                <ul class="list">
+                </ul>
+                <div class="empty-btn on">-</div>
+            </div>
+
+        </div>
+
+
+        <div class="select-floor-module" id="select-floor-module">
+
+            <div class="head-box">
+                <div class="close"></div>
+                <div class="title">请选择结果分布的楼层</div>
+            </div>
+
+            <div class="content-box scrollStyle">
+                <ul>
+                    <li>F1层 <b>(20)</b></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="bulidingSelect-module" id="bulidingSelect-module">
+
+        <div class="head-model">
+            <div class="hm-top">
+                <div class="back"></div>
+                <div class="point">
+                    定位最近站点：
+                    <span>武汉站</span>
+                </div>
+            </div>
+            <div class="hm-bom">
+                <div class="d1">当前城市：<span>武汉</span></div>
+                <div class="d2">
+                    <a  th:attr="href='http://'+${domainName}+'/nav/wh_station/index'" >武汉站</a>
+                    <a  th:attr="href='http://'+${domainName}+'/nav/hk_station/init'">汉口站</a>
+                    <a  th:attr="href='http://'+${domainName}+'/nav/wc_station/home'">武昌站</a>
+                </div>
+            </div>
+        </div>
+        <div class="content-model">
+
+            <ul>
+                <li>
+                    <div class="dt">H</div>
+                    <div class="dd">
+                        <a th:attr="href='http://'+${domainName}+'/nav/hk_station/init'">汉口站</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="dt">W</div>
+                    <div class="dd">
+                        <a th:attr="href='http://'+${domainName}+'/nav/wh_station/index'" >武汉站</a>
+                        <a th:attr="href='http://'+${domainName}+'/nav/wc_station/home'">武昌站</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div  class="swipe-fixed hide">
+        <div class="swipe-control">
+            <div  class="swipe" id="swipe">
+                <div id="logo" class="swipe-wrap" >
+                    <!--<div class="swipe-item" style=" background-image: url(http:\/\/files.brtbeacon.com\/pro\/wxdh\/upload\/13659845138\/201710121100_OsiIAAz4ll.jpg)"></div>
+                    <div class="swipe-item" style=" background-image: url(/images/swipe_3.jpg)"></div>-->
+
+                </div>
+            </div>
+
+            <ol class="pages">
+            </ol>
+
+            <a class="close"></a>
+
+        </div>
+
+    </div>
+
+    <!--帮助中心-->
+    <!--<div class="help-container" id="help-container">
+        <div class="head">
+            <div class="title">
+                <a class="back"></a>
+                帮助中心
+            </div>
+            <div class="div1"><img src="http://files.brtbeacon.net/custom/crc/sz_002/images/help_0.jpg" /></div>
+        </div>
+        <div class="content">
+            <img class="load-img" data-src="http://files.brtbeacon.net/custom/crc/sz_002/images/help_1.jpg" />
+            <img class="load-img" data-src="http://files.brtbeacon.net/custom/crc/sz_002/images/help_2.jpg" />
+            <img class="load-img" data-src="http://files.brtbeacon.net/custom/crc/sz_002/images/help_3.jpg" />
+        </div>
+    </div>-->
+
+
+</div>
+
+<!--jquery-->
+<script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" th:inline="javascript">
+
+    var $APP = ""; // app 标识
+
+    // 微信appId
+    var $appId = [[${appId}]];
+
+    var $angle = [[${angle}]];
+
+    // 请求微信签名路径
+    var $url ="/api/v1/jsapi?callback=_init_wx_ready&url=" + encodeURIComponent(location.href.split('#')[0])+"&appId="+$appId; //http://wxdh.pro.brtbeacon.net/navigation/[(${hash})]";
+
+    // 广告(list)
+    var _initAdImages = /*[[${adimages}]]*/[];
+    //建筑名称
+    var $buildingName = "[(${buildingName})]";
+    // 建筑BuildingId
+    var _initBuildingID = "[(${buildingID})]";
+    // 建筑token
+    var _initToken = "[(${token})]";
+
+    var $sign = "[(${sign})]";
+
+    // 初始化加载楼层
+    var _initFloorID = _initBuildingID+"F01";
+
+    // 分享对象
+    var $shareInfo = {
+        "title": "[(${share.title})]" || "位置分享",
+        "imgUrl": "http://files.brtbeacon.com/pro/wxdh/icons/high-speed-rail_icon_default.png",
+        "desc": "[(${share.description})]" || "正向定位，微信导航",
+        "link": "[(${share.link})]"||'http://wxdc5366f23170db83.wx.oauth.user.heymking.com/'+$sign+"/nav"
+    };
+
+    //分享poi
+    var $initSharePOI = /*[[${poi}]]*/null;
+    //app click poi
+    var $initMarkingPOI = /*[[${markingInfo}]]*/null;
+
+    //click or share
+    if($initMarkingPOI || $initSharePOI){
+        _initFloorID = ($initMarkingPOI || $initSharePOI).FLOOR_ID;
+    }
+
+    //友情提示延迟隐藏
+    window.setTimeout(function () {
+        $('#look-car-tips').fadeOut(200);
+    },8000);
+
+
+    $.getUrlParam=function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    };
+
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        $APP = 0;  // 微信浏览器
+        $.getScript("http://res.wx.qq.com/open/js/jweixin-1.1.0.js");
+    } else {
+        $APP = 1; //非微信浏览器(即APP)
+        $.getScript("/js/navigation/brt.wx.native.js");
+    }
+
+    if($.getUrlParam("debug")==1){
+        $.getScript("http://58.17.241.195:8888/target/target-script-min.js#anonymous");
+    }
+
+    _initAdImages.sort(function (a,b) {
+        return a.sequence - b.sequence
+    });
+
+    // 设置首页广告图片
+    for (var i=0;i<_initAdImages.length;i++){
+        $("#logo").append("<div class='swipe-item' style='background-image: url("+_initAdImages[i].imgUrl+")'></div>");
+    }
+
+
+    // 设置头部站点名称
+    /*$('div.head-container').find('.l-name').find('span').text($buildingName);
+    $('#bulidingSelect-module').find('.head-model').find('.point').find('span').text($buildingName);
+    $('#bulidingSelect-module').find('.hm-bom').find('.d1').find('span').text($buildingName);*/
+
+
+    //屏蔽建筑 不能切换地图
+
+    /*if ("07310002"==_initBuildingID || "05320004" == _initBuildingID || "00200009" == _initBuildingID
+    ||"04750001"==_initBuildingID ||"00240002" ==_initBuildingID ||"00290003"==_initBuildingID
+    || "04110001" == _initBuildingID){
+
+        document.title = $buildingName;
+    }else{
+        $(".index-container").css("top","2.5rem");
+        $(".head-container").show();
+        document.title = $buildingName;
+    }*/
+
+
+</script>
+<!--brtmap 3D -->
+<link rel="stylesheet" type="text/css" href="http://files.brtbeacon.net/map/custom/sdk/2.1.5/brtmap-gl-2.1.5.css">
+<script src="http://files.brtbeacon.net/map/custom/sdk/2.1.5/brtmap-v2.1.5.js"></script>
+
+<!--location-->
+<!--<script type="text/javascript" src="http://files.brtbeacon.com/BRTMap/2.0/BRTLocation-2.0.2.min.js"></script>-->
+<script src="http://files.brtbeacon.com/BRTMap/2.0/BRTLocation-2.1.0.min.js" type="text/javascript"></script>
+
+
+<!--comm-->
+<script type="text/javascript" th:src="'/js/navigation/comm.js?t='+${time}"></script>
+
+<!--index-->
+<script type="text/javascript" th:src="'/js/navigation/index.js?t='+${time}"></script>
+
+<!--search-->
+<script type="text/javascript" th:src="'/js/navigation/search.js?t='+${time}"></script>
+
+<!--nav-->
+<script type="text/javascript" th:src="'/js/navigation/nav.js?t='+${time}"></script>
+
+<script type="text/javascript" src="/js/navigation/swipe.js"></script>
+
+</body>
+
+<script type="text/javascript">
+
+    function init_swipe() {
+
+        $swipeControl = $('div.swipe-control');
+
+        $swipeControl.parent().removeClass('hide');
+
+        var len = $swipeControl.find('.swipe-item').length;
+
+        var $swipe = Swipe($('#swipe')[0], {
+            continuous: true,
+            disableScroll: true,
+            stopPropagation: true,
+            callback: function (index, element) {
+                if(index >= len){
+                    index -= 2;
+                }
+                $swipeControl.find('.pages').find('li').eq(index).addClass('active').siblings().removeClass('active');
+            }
+        });
+
+
+        $swipeControl.find('.pages').empty();
+        for(var i = 0; i < len; i++){
+            $swipeControl.find('.pages').append('<li class="'+ (i == 0 ? 'active' : '') +'"></li>');
+        }
+
+
+        $swipeControl.find('.close').off().on('click',function () {
+            $('div.swipe-fixed').hide();
+        });
+
+    }
+
+    //console.log('oneReady_Swipe',sessionStorage.getItem('oneReady_Swipe'));
+
+    if(!sessionStorage.getItem('oneReady_Swipe')&&_initAdImages.length>0){
+        init_swipe();
+        sessionStorage.setItem('oneReady_Swipe','true');
+    }
+
+</script>
+
+</html>

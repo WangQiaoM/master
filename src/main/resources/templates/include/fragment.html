@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- 头部 -->
+<header th:fragment="header">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>导航插件</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+    <link rel="stylesheet" th:href="@{/css/console/comm.css}" href="css/console/comm.css"/>
+    <link rel="stylesheet" th:href="@{/css/console/style.css}" href="css/console/style.css"/>
+    <script src="/js/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        #switch_site{
+            float:right;
+            margin-top: 4px;
+        }
+        .btn-default{
+            border-color: rgba(255,255,255,.15);
+            color: #0eb493;
+        }
+        .btn{
+            font-size: 12px;
+        }
+        .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+            color: #0eb493;
+            background-color: rgba(255,255,255,.15);
+            border-color: rgba(255,255,255,.15);
+        }
+        .label{
+            color: #666666;
+        }
+    </style>
+</header>
+
+<!-- 导航 -->
+<nav-header th:fragment="nav-header">
+    <div class="center-module">
+        <div class="logo">
+            <a href="http://www.brtbeacon.com"><img th:src="@{/images/console/logo.jpg}" src="/images/console/logo.png"/></a>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li><a href="http://open.brtbeacon.com">控制台首页</a></li>
+            </ul>
+        </div>
+
+        <div class="user">
+            <span th:text="${user.login}"></span> <i>|</i> <a href="/exit" style="color: #0eb493">退出</a>
+        </div>
+
+
+        <div id="switch_site">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" >
+                    <li th:each=" build :${buildings}" th:attr="type=${build.buildingId}"><a th:attr="href='/view/setup/'+${build.buildingId}" th:text="${build.name}"></a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</nav-header>
+</body>
+</html>

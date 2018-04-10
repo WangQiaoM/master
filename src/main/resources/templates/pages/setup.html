@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>标准插件后台管理</title>
+
+    <link rel="stylesheet" href="/css/newStyle/comm.css">
+    <link rel="stylesheet" href="/css/newStyle/ivu-style.css">
+    <link rel="stylesheet" href="/css/newStyle/style.css">
+    <!-- vue.js -->
+    <script type="text/javascript" src="https://files.brtbeacon.net/public/js/vue/vue.min.js"></script>
+    <!-- iview.css -->
+    <link rel="stylesheet" href="https://files.brtbeacon.net/public/js/iview/2.7.0/styles/iview.css" />
+    <!-- iview.js -->
+    <script type="text/javascript" src="https://files.brtbeacon.net/public/js/iview/2.7.0/iview.min.js" ></script>
+
+
+</head>
+<body>
+
+<!--header Start-->
+<div class="header-module">
+    <div class="center-module">
+        <div class="logo-box fl">
+            <a class="logo"><img src="/images/logo.png" /></a>
+            <label>插件管理</label>
+        </div>
+        <div class="right-box fr">
+            <a href="##">控制台首页</a>
+            <a href="http://www.brtbeacon.com">
+                <img src="/images/logo.png" />
+                智石科技
+            </a>
+        </div>
+    </div>
+</div>
+<!-- header End -->
+<!-- Container Start -->
+<!--main-->
+<div class="main-module" id="main">
+    <div class="center-module">
+
+        <!--面包屑导航-->
+        <div class="guide-nav-section">
+            <Breadcrumb>
+                <Breadcrumb-item href="##">控制台首页</Breadcrumb-item>
+                <Breadcrumb-item href="##">建筑与地图 </Breadcrumb-item>
+                <Breadcrumb-item href="##">我的插件 </Breadcrumb-item>
+                <Breadcrumb-item>自定义管理</Breadcrumb-item>
+            </Breadcrumb>
+        </div>
+
+        <!--选项卡-->
+        <div class="tabs-btn-section">
+            <a class="active">查询项推荐</a>
+            <a class="">模块管理</a>
+            <a>分享管理</a>
+            <a>插件设置</a>
+            <a>POI审核管理</a>
+        </div>
+
+        <!--section-->
+        <div class="section-module" style=" border-top-left-radius: 0;">
+
+            <Affix>
+                <div class="head-title-section border">
+                    <div class="label-box" style=" margin-left: 10px;">
+                        <img src="/images/logo.png" />
+                        <b>室内主动定位导航(微信版)</b>
+                    </div>
+                    <div class="right-box" style=" margin-right: 10px;">
+                        <span class="fs-12px color-999">上线<b class="color-green">23</b>个</span>
+
+                        <a class="button" color='green' size='small'>+ 创建推荐项</a>
+                        <a class="button" color='green' size='small'>保存排列顺序</a>
+                    </div>
+                    <div class="tips-box color-blue">
+                        <i class="ivu-icon ivu-icon-alert-circled fs-16px"></i>
+                        如有修改地图POI名称，请同步调整对应POI位置点！
+                    </div>
+                </div>
+            </Affix>
+            <div class="table-section">
+                <i-table border :columns="columns" :data="tableData" :no-data-text="tableTips"></i-table>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="pt-50px"></div>
+<div class="pt-30px"></div>
+<div class="pt-10px"></div>
+<!--floor-->
+<div class="floor-module">
+    <p>Copyright © 2013-2017, Bright Beacon Technology Inc.  智石科技Brtbeacon.com版权所有</p>
+</div>
+
+</body>
+
+<!--jquery-->
+<script type="text/javascript" src="//cdn.bootcss.com/require.js/2.3.3/require.min.js" ></script>
+
+<!--comm-->
+<script type="text/javascript" src="/js/comm.js" ></script>
+
+
+<script type="text/javascript">
+
+    //		Vue.component('brt-Step',{
+    //			props:['columns'],
+    //			template:"<div class='brt-Step'></div>"
+    //		});
+
+
+    var _data = [];
+
+    for(var i = 0; i < 50; i++){
+        _data.push({
+            NO:i+1,
+            TIME:'2017/11/15 14:11:20',
+            NAME:"ATM",
+            POI_POINT:'厕所F1,电梯F2,电梯F2',
+            MODEL:Math.floor(Math.random() * 3),
+            POI_COUNT:22,
+            ICON:'images/icon_01.png'
+        });
+    }
+
+    var $main = new Vue({
+        el:'#main',
+        data:{
+            columns:[
+                {
+                    title:'序号',
+                    key:"NO",
+                    width:65,
+                    align:'center'
+                },
+                {
+                    title:'最近修改时间',
+                    key:"TIME",
+                    width:150,
+                    align:'center'
+                },
+                {
+                    title:'推荐中文名称',
+                    key:"NAME",
+                    width:120,
+                    align:'center'
+                },
+                {
+                    title:'推荐英文名称',
+                    key:"NAME",
+                    width:120,
+                    align:'center'
+                },
+                {
+                    title:'POI位置点',
+                    key:"POI_POINT",
+                    ellipsis:true
+                },
+                {
+                    title:'所属模块名称',
+                    key:'MODEL',
+                    width:120,
+                    align:'center',
+                    render:function(h,params){
+
+                        var _modelName = [
+                            {
+                                name:'公共设施',
+                                color:'#FF3300'
+                            },
+                            {
+                                name:'商城推荐',
+                                color:'#0099FF'
+                            },
+                            {
+                                name:'美食餐饮',
+                                color:'#0EB493'
+                            }
+                        ];
+
+
+                        var item = _modelName[params.row.MODEL];
+
+                        return h('span',{style:{color:item.color}},item.name);
+
+
+                    },
+                },
+                {
+                    title:'POI个数',
+                    key:"POI_COUNT",
+                    width:88,
+                    align:'center'
+                },
+                {
+                    title:'自定义图标',
+                    key:"ICON",
+                    width:100,
+                    align:'center',
+                    render:function(h, params){
+                        return h('img',{class:'table-icon',attrs:{src:params.row.ICON}});
+                    }
+                },
+                {
+                    title:'操作',
+                    align:'center',
+                    width:255,
+                    render:function(h, row){
+
+                        var _hideTop = row.index == 0 ? 'visibility:hidden' : '';
+                        var _hideBom = (row.index == _data.length - 1) ? 'visibility:hidden' : '';
+
+                        return h('div',{class:'table-btns'},[
+
+                            h('Button',{props: { type: 'text', size: 'small'}},'编辑'),
+                            h('Button',{props: { type: 'text', size: 'small'}},'删除'),
+
+                            h('Button',{props: { type: 'text', size: 'small'}, style:_hideTop,
+                                on:{
+                                    click:function(){
+                                        var _index = row.index - 1, _arr = this.$main.tableData;
+                                        this.$main.tableData[_index] = _arr.splice(row.index, 1, _arr[_index])[0];
+                                    }
+                                }
+                            },'↑上移'),
+
+                            h('Button',{props: { type: 'text', size: 'small'}, style:_hideBom,
+                                on:{
+                                    click:function(){
+                                        var _index = row.index + 1, _arr = this.$main.tableData;
+                                        this.$main.tableData[_index] = _arr.splice(row.index, 1, _arr[_index])[0];
+                                    }
+                                }
+                            },'↓下移')
+                        ]);
+                    }
+                }
+
+            ],
+            tableData:[],
+            tableTips:$extend.tableLoading
+        },
+
+        methods:{
+
+        },
+        created:function(){
+        },
+        mounted:function(){
+
+            //模拟异步加载
+            window.setTimeout(function(){
+
+                if(_data.length == 0)
+                    $main.tableTips = "<p class='table-data-null-tips'>暂无推荐，<a class='color-green'>点我创建</a></p>";
+                else
+                    $main.tableData = _data;
+
+            },2000);
+
+        }
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/fragment :: header"></head>
+<body>
+
+<!-- 头部-->
+<div class="header-module" th:include="include/fragment :: nav-header">
+</div>
+
+<!--main-->
+<div class="body-module">
+    <div id="recommendation" class="center-module">
+
+        <!--面包屑-->
+        <ol class="breadcrumb-module">
+            <li><a href="http://open.brtbeacon.com/web/building/index">我的建筑列表</a></li>
+            <li><a th:href="'http://open.brtbeacon.com/web/building/manage/' + ${bxId}">建筑管理</a></li>
+            <li><a th:href="'http://open.brtbeacon.com/web/building/plugs/' + ${bxId}">标准插件</a></li>
+            <li>自定义管理</li>
+        </ol>
+
+
+        <div class="button-group" id="toggle-button">
+            <a th:href="@{'/view/setup/'+${buildingID}}" href="#" class="button" color='white' size='large'>查询项推荐</a>
+            <a th:href="@{'/view/setup/'+${buildingID}+ '/share'}" href="#" class="button" color='white' size='large'>分享管理</a>
+            <a href="#" class="button" color='green' size='large'>广告图片</a>
+        </div>
+
+        <div class="content-model">
+
+            <div class="head-box">
+                <div class="l-box">
+                    <img th:src="@{/images/console/icon_01.png}" src="images/console/icon_01.png"/>
+                    <span>室内定位导航(微信版)</span>
+                </div>
+                <div class="r-box">
+                    <a class="button"  @click.stop="create()">+ 新增图片</a>
+                   <!-- <a class="button" :color="!change ? '': 'green'" @click.stop="save()">保存优先级调整</a>-->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="table-model bview-table-wrapper" id="table-model">
+
+            <div class="bview-table-head">
+                <table>
+                    <colgroup>
+                        <col/>
+                        <col width="200"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <!--<th align="center"><span>序号</span></th>-->
+                        <th align="center"><span >图片URL</span></th>
+                        <th align="center"><span>操作</span></th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="bview-table-body">
+                <table>
+                    <colgroup>
+                        <col/>
+                        <col width="200"/>
+                    </colgroup>
+                    <tbody>
+                    <tr v-show="!records.length">
+                        <td align="center" colspan="6">暂无数据</td>
+                    </tr>
+                    <tr v-show="records.length" v-for="(item,index) in records" :key="item.id">
+                        <!--<td align="center"><span v-text="item.sequence"></span></td>-->
+                        <td><span v-text="item.imgUrl"></span></td>
+                        <td align="center">
+                            <a class="button remove" color='off-white' size='small' @click="remove(item.id)">删除</a>
+                           <!-- <a class="button upmove" color="off-white" size='small' @click="moveUp(index)">↑ 上移</a>
+                            <a class="button downmove" color="off-white" size='small' @click="moveDown(index)">↓ 下移</a>-->
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="floor-module">
+    <p>备案号：渝ICP备14003428号 Copyright © 2014-2017 Bright Beacon Inc</p>
+</div>
+
+<script type="text/javascript" src="//cdn.bootcss.com/require.js/2.3.3/require.min.js"></script>
+<script type="text/javascript" th:inline="javascript">
+
+    var buildingID = "[(${buildingID})]";
+
+    $("#switch_site ul li").each(function (i) {
+        if ($(this).attr("type")==buildingID){
+            $("#switch_site button").text($(this).find("a").text());
+            $("#switch_site button").append("&nbsp;&nbsp;<span class='caret'></span>")
+        }
+    });
+
+    require(['/js/config.js'], function () {
+        require(['jquery', 'utils', 'vue'], function ($, Utils, Vue) {
+
+            var $Recommendation; // Vue 对象
+
+            // 初始化数据
+            Utils.get('/data/adImage/select/?buildingID='+buildingID).done(function (data) {
+                if (data.code == 0) {
+                    init$Recommendation(data.data.records);
+                } else {
+                    init$Recommendation([]);
+                }
+            });
+
+            function init$Recommendation(records) {
+                $Recommendation = new Vue({
+                    el: '#recommendation',
+                    data: {
+                        records: records,
+                        change: false
+                    },
+                    methods: {
+                        "remove": function (id) {
+                            var $this = this;
+                            require(['art'], function (art) {
+                                art.confirm('确认删除？', function () {
+                                    Utils.delete('/data/adImage/delete/' + id).done(function (data) {
+                                        if (data.code == 0) {
+                                            // 移除数据
+                                            var records = $this.records;
+                                            for (var i = 0, len = records.length; i < len; i++) {
+                                                var r = records[i];
+                                                if (r.id == id) {
+                                                    $this.records.splice(i, 1);
+                                                    break;
+                                                }
+                                            }
+                                        } else {
+                                            art.error('数据不存在或已删除');
+                                        }
+                                    })
+                                });
+                            });
+                        },
+                        "create": function () {
+                            if (this.records.length < 23) {
+                                window.open('/view/setup/'+buildingID+'/adImageCreate');
+                            }
+                        },
+                        "moveUp": function (index) {
+                            this.records[index] = this.records.splice(index - 1, 1, this.records[index])[0];
+                            this.change = true;
+                        },
+                        "moveDown": function (index) {
+                            this.records[index] = this.records.splice(index + 1, 1, this.records[index])[0];
+                            this.change = true;
+                        },
+                        "save": function () {
+                            var $this = this;
+
+                            if (!this.change) {
+                                return;
+                            }
+
+                            // 调整优先级
+                            var priority = [];
+                            var records = this.records;
+                            for (var i = 0, len = records.length; i < len; i++) {
+                                priority.push(records[i].id);
+                            }
+
+                            // 更新优先级循序
+                            Utils.put('/data/recommendation/priority', {bxId: bxId, priority: priority.join(",")}).done(function (data) {
+                                if (data.code == 0) {
+                                    $this.records = data.data.records;
+                                } else {
+                                    require(['art'], function (art) {
+                                        art.tips('优先级未调整，无需更新');
+                                    });
+                                }
+                                $this.change = false;
+                            });
+                        },
+                        // 渲染时间戳函数
+                        "timestamp": function (timestamp, pattern) {
+                            var that = new Date(timestamp);
+                            pattern = pattern || 'yyyy-MM-dd hh:mm:ss';
+                            if (!that.getTime()) {
+                                return timestamp;
+                            }
+                            return Utils.dateFormat(timestamp, pattern);
+                        },
+                        // 点位渲染
+                        "pointsRender": function (points) {
+                            var ret = "";
+                            if (points) {
+                                try {
+                                    var _points = JSON.parse(points);
+                                    var _poi = [];
+                                    for (var i = 0, len = _points.length; i < len; i++) {
+                                        var p = _points[i];
+                                        p && p.NAME && _poi.push(' ' + p.NAME + ' ' + p.FLOOR_NAME);
+                                    }
+                                    ret = _poi.join(",");
+                                } catch (e) {
+                                    ret = "点位数据读取出错";
+                                }
+                            }
+                            return ret;
+                        }
+                    }
+                });
+            }
+
+            !function () {
+                var wrapperWidth = $('div.bview-table-wrapper')[0].scrollWidth,
+                    tableBodyWidth = $('div.bview-table-body')[0].scrollWidth;
+
+                var _width = $('div.bview-table-body').find('table').find('colgroup').find('col').last().attr('width');
+                $('div.bview-table-body').find('table').find('colgroup').find('col').last().attr('width', parseInt(_width) - (wrapperWidth - tableBodyWidth));
+            }();
+        });
+    });
+</script>
+</body>
+</html>
