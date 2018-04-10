@@ -1,0 +1,27 @@
+<!--图片查看-->
+<div class="page page_imgview">
+    <div class="page__hd">
+        <h1 class="page__title"></h1>
+        <p class="page__desc"></p>
+    </div>
+    <div class="weui-gallery" style="display: block">
+        <span class="weui-gallery__img">
+        </span>
+        <div class="weui-gallery__opr">
+            <a href="javascript:" class="weui-gallery__opr page_imgview_back">
+                返回
+            </a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require(["wxapp.page","mock","jquery"],function(wxappPage,Mock,$){
+        console.dir(history.state);
+        $(".page.page_imgview .weui-gallery__img").css("background-image",history.state.imgviewPage_imgData);
+        wxappPage(".page.page_imgview").
+        bindEvent(".page_imgview_back","click", function (utils) {
+            window.history.back();
+        });
+    });
+</script>

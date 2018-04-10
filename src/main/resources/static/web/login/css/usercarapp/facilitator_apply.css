@@ -1,0 +1,49 @@
+body{
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+}
+
+.imgBox{
+    min-width: 12.42rem;
+}
+.imgBox img{
+    width: 100%;
+}
+.formBox{
+    position: relative;
+    margin-top: 1rem;
+    padding: .55rem 0;
+    background:url("../../img/backgimgxian.png") no-repeat;
+    background-position: 50% 1.4rem;
+    background-size: 80%;
+}
+.formBox input{
+    border: none;
+    outline: none;
+    width: 30%;
+    margin-left: 25%;
+}
+.formBox img{
+    position: absolute;
+    left: 15%;
+    width: .75rem;
+    height: .75rem;
+}
+.formBox .weui-btn_plain-default{
+    position: absolute;
+    border: 1px solid #E60012;
+    border-radius: 0;
+    right: 15%;
+    bottom: 25%;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .4rem;
+    font-weight: bold;
+    color: #E60012;
+}
+.weui-btn_disabled.weui-btn_warn {
+    margin-top: 20%;
+    width: 60%;
+    background-color: #E60012;
+    color: #ffffff;
+}

@@ -1,0 +1,33 @@
+body{
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    font-size: .48rem;
+    background-color: #E8E6E6;
+}
+p {
+    text-align: center;
+    margin-top: 40%;
+}
+.btn_box {
+    justify-content: space-between;
+    bottom: 0;
+    margin-top: 3.46rem;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.weui-btn_warn {
+    border: none;
+    border-radius: 5px;
+    width: 40%;
+    font-size: 16px;
+    line-height: 2;
+    color: #ffffff;
+    background-color: #E90619;
+}
+.btn_noenFlex .weui-btn_warn:last-child {
+    margin-top: 15px;
+    background-color: #E8E6E6;
+    color: #E90619;
+}
+.weui-btn:after {
+    border: none;
+}

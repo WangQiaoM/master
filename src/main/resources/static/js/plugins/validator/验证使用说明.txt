@@ -1,0 +1,53 @@
+������ϵͳ ��֤�����Ӧ��˵����
+
+--- ������ comm.js �ļ�����,������mian.js�ļ�����.
+
+--- ���ṩ null:(����֤)��length:(������֤)��email(������֤)��phone:(�ֻ���֤)��tel:(������֤)��ip:(ip��ַ��֤)��id:(���֤��֤)��ch:(������֤)��password:������֤ ��httpUrl:��ַ��
+
+�÷���
+
+  ����<input type="text" is-yz="true" yz-type="null,length" min='1' max="20" null-message="����Ϊ��" length-message='���ܳ���20λӢ���ַ�(10������)' />
+
+---  is-yz="true" �Ƿ���֤��input   true:��  false���߲���:��
+
+---  yz-type="null"  ��֤����     ע��:�����֤��ע���Ⱥ�˳�� �磺������֤   �ա����ȡ�����
+---  yz-type="null,length,email"  ��null��ǰ��length����email���
+
+---  �ر�ע����֤���
+
+---  ������֤
+---  ����֤���ȼ�����  д�� min="1" ����   ��   max="20" ���
+
+
+---  ������֤
+---  <input id='password1' type="text" is-yz='true' yz-type='null,password' eq-id='password2' null-message='���벻��Ϊ��' password-message='�������벻һ��' placeholder="����" />
+---  <input id='password2' type="text" is-yz='true' yz-type='null,password' eq-id='password1' null-message='���벻��Ϊ��' password-message='�������벻һ��' placeholder="����" />
+
+---  eq-id="ƥ��ID" 
+
+
+
+������ʾ������
+
+��ʾ����
+---  null-message='����Ϊ��'  --->  �յ���֤��ʾ �� -message Ϊ��׺ ǰ��Ϊ��֤������
+
+---  length-message='���Ȳ��ܳ���20��Ӣ���ַ�(10������)' 
+
+
+
+
+//��ʼ����֤ ���� input �����뿪�¼�
+var form1=$("#form1").bbadValidator();
+
+//�ύ��ʱ�� ���� form1.check() ����Ƿ�ͨ�� ����ֵΪ��true��false
+
+$("#submit").click(function(){
+	//form1.check() 
+	if(form1.check()){
+		//��֤ͨ��
+	}
+	else{
+		//��֤ʧ��
+	}
+});

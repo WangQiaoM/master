@@ -1,0 +1,102 @@
+body{
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+}
+.weui-panel__hd {
+    color: #353535;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+}
+.weui-article {
+    padding: 0 15px;
+}
+.weui-article p {
+    margin: 0;
+}
+.weui-article p img{
+    width: 100%;
+}
+
+
+    /*任务要求*/
+.taskRequire{
+    padding: 0 15px;
+    font-size: 14px;
+    color: #626262;
+}
+.taskRequire div{
+}
+.mapBox{
+    padding: 0 15px;
+    height: 100px;
+}
+.mapBox .map{
+    width: 100%;
+    height: 100%;
+    background-color: #ffea70;
+}
+/*安装地点*/
+.installPlace{
+    position: relative;
+    padding: 0 15px;
+    font-size: 14px;
+}
+.installPlace div{
+    margin-bottom: 10px;
+}
+.phone{
+    display: flex;
+}
+.phone div:first-child{
+    display: flex;
+    justify-content: space-between;
+    width: 55px;
+}
+.twoCode{
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 999;
+    left: 50%;
+    top: 50%;
+    width: 170px;
+    height: 202px;
+    box-shadow: 0px 0px 5px 2px #ffffff;
+    border-radius: 3px;
+}
+.twoCode h5{
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-weight: 100;
+    background-color:#E64340;
+    color: #ffffff;
+}
+.twoCode .twoCode-code img{
+    width: 150px;
+    /*height: 150px;*/
+    overflow: hidden;
+}
+.twoCode .twoCode-btn a{
+    position: relative;
+    bottom: -70%;
+}
+.Code{
+    float: right;
+}
+.clzt{
+    padding-left: 10px;
+}
+#mo{
+    position: fixed;
+    background-color: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+#qrcode{
+    width: 150px;
+    margin: 8px auto;
+}
+canvas{
+    /*padding: 5px 5px 0 5px;*/
+}

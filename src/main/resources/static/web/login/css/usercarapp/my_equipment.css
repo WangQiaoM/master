@@ -1,0 +1,87 @@
+body{
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+}
+p,h1{
+    margin: 0;
+    padding: 0;
+}
+.equipmentBack{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right:0;
+    z-index: -1;
+}
+.header .title span{
+    color: #ffffff;
+    vertical-align: .4rem;
+}
+.header .title img{
+    margin: .2rem 0 0 .4rem;
+    width: 1.8rem;
+    height: 1.3rem;
+}
+.money{
+    display: flex;
+    justify-content: space-between;
+    padding: .8rem 1.37rem .8rem 1.16rem;
+    color: #ffffff;
+    text-align: center;
+    font-size: .4rem;
+}
+.money h1{
+    margin-top: .5rem;
+    font-size: 1rem;
+    font-weight: 100;
+}
+.header a.btnA{
+    display: block;
+    margin: 0 auto;
+    border-radius: 25px;
+    width: 7.6rem;
+    line-height: 1.18rem;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #E70012;
+}
+.header{
+    padding-bottom: 1rem;
+}
+.bar {
+    margin-left: .8rem;
+    height: 1.14rem;
+    line-height: 1.14rem;
+    color: #9a9a9a;
+}
+.bar span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .26rem;
+    width: .06rem;
+    height: .4rem;
+    background-color: #e70012;
+}
+.time{
+    border-radius: 3px;
+    margin: .5rem auto;
+    width: 92%;
+    line-height: 1.2rem;
+    background-color: #ffffff;
+    color: #9C9C9C;
+    text-indent: .4rem;
+}
+.time span{
+    color: #000000;
+}
+.introduce{
+    border-radius: 3px;
+    margin: .2rem auto;
+    padding: .2rem .2rem 0 .4rem;
+    line-height: .8rem;
+    width: 87%;
+    background-color: #ffffff;
+}

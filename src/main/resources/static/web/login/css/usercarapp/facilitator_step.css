@@ -1,0 +1,73 @@
+body{
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #F5F5F5;
+}
+.RichScan{
+    display: flex;
+    justify-content: space-between;
+    padding: .48rem .3rem .54rem .7rem;
+    height: 1.09rem;
+    line-height: 1.09rem;
+    background-color: #1C1C20;
+    color: #ffffff;
+}
+.RichScan img{
+    width: 1.16rem;
+    height: 1.09rem;
+}
+.RichScan span.spanLeft{
+    margin-left: -1.2rem;
+}
+
+.indent_padding {
+    padding: .36rem .44rem 0 .44rem;
+    box-sizing: border-box;
+}
+.looks_flex {
+    display: flex;
+}
+.mainBox {
+    padding: 1rem 0 1rem .24rem;
+    background-color: #ffffff;
+}
+.mainBox .stateImg {
+    width: .52rem;
+    height: 9.8rem;
+    background-color: #ffffff;
+}
+.main_text {
+    margin-top: -.12rem;
+    padding-left: .5rem;
+}
+.main_text .reserve_form:first-child {
+    margin: 0;
+}
+.reserve_form {
+    margin-top: 1.52rem;
+    background-color: #ffffff;
+    color: #000000;
+}
+.reserve_form:nth-child(3){
+    margin-top: 1.6rem;
+}
+.reserve_form:nth-child(5){
+    margin-top: .82rem;
+}
+.reserve_form img {
+    width: .47rem;
+    height: .47rem;
+    margin-top: .2rem;
+    margin-right: .5rem;
+}
+.reserve_form .time {
+    color: #000000;
+}
+.reserve_form .time .time_hint {
+    color: #a1a1a1;
+}
+.surplus_time {
+    margin-top: 0;
+    position: relative;
+    padding-left: .8rem;
+}

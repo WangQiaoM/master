@@ -1,0 +1,13 @@
+body {
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+}
+.weui-label{
+    width: 80px;
+}
+.my_header{
+    margin-top: 44px;
+    border-top: 1px solid #eaeaea;
+}
+.my_footer{
+    border-bottom: 1px solid #eaeaea;
+}

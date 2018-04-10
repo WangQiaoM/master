@@ -1,0 +1,148 @@
+body{
+    background-color: #f1f3f5;
+}
+
+.tab-controls{
+    margin: 10px;
+
+}
+
+.tab-controls .menu-items,.tab-controls .menu-items .menu-item{
+    height: 25px;
+    line-height: 25px;
+}
+
+.tab-controls .menu-items .menu-item{
+    color: #0f0f0f;
+    border-top:1px solid #b6b6b6;
+    border-left:1px solid #b6b6b6;
+    border-right:1px solid #b6b6b6;
+    background-image: url("../img/t_b.png");
+}
+
+.tab-controls .menu-items .menu-item{
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+    width: 65px;
+    cursor: pointer;
+}
+
+.tab-controls .menu-items .menu-sel-item{
+    border-top:1px solid #3ba5ce;
+    border-left:1px solid #3ba5ce;
+    border-right:1px solid #3ba5ce;
+    background-image: none;
+    background-color: #3ba5ce;
+    color: #fff;
+}
+
+.tab-controls .tab-pages{
+    background-color: #fff;
+    min-height: 300px;
+    border: 1px solid #d5d5d5;
+    clear: both;
+}
+
+.tab-controls .tab-pages .tab-page{
+    display: none;
+}
+
+.tab-controls .tab-pages .tab-page:first-child{
+    display:block;
+}
+
+/*表格控件*/
+.dialog-grid{
+
+}
+
+.dialog-grid .grid-searchBar{
+
+}
+
+.dialog-grid .grid-searchBar{
+    margin: 10px;
+    margin-bottom: -5px;
+    background-color: #FFFFFF;
+}
+
+.dialog-grid .grid-searchBar .button{
+    margin: 10px 0px 10px 0px;
+    padding: 0px;
+    width: 70px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+}
+
+.dialog-grid .grid-searchBar .queryItem{
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.dialog-grid .grid-searchBar .queryItem .titTxt{
+    float: left;
+    width: 75px;
+    line-height: 25px;
+    height: 25px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 13px;
+}
+.dialog-grid .grid-searchBar .queryItem input,
+.dialog-grid .grid-searchBar .queryItem select
+{
+    float: left;
+    width: 140px;
+    height: 25px;
+    padding: 3px 10px;
+}
+
+.dialog-grid .grid-searchBar .button{
+    float: left;
+    margin-left: 20px;
+}
+
+.dialog-grid .grid-bodyCenter{
+    margin: 10px;
+    background-color: #FFFFFF;
+}
+
+.dialog-grid .grid-bodyCenter .gridPanle{
+
+    margin-top: 10px;
+}
+
+.dialog-grid .grid-bodyCenter .gridPanle .datagrid{
+
+}
+
+.dialog-grid .panle-body{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.dialog-grid .grid-bodyCenter .panel-header{
+    display: none;
+    height: 0px;
+    line-height: 0px;
+}
+
+.dialog-grid .grid-bodyCenter .datagrid-header-row, .datagrid-row{
+    height: 30px;
+    line-height: 30px;
+}
+
+.dialog-grid .grid-bodyCenter .panel-header, .panel-body{
+    border: 1px solid #dddddd;
+}
+
+.dialog-grid .pagination-info, .pagination span, .datagrid-header .datagrid-cell span, .datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber{
+    font-size: 13px;
+}

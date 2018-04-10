@@ -1,0 +1,195 @@
+.login-top,.reg-top {
+    height: 220px;
+    background: url("../img/keyboard.jpg") center no-repeat;
+    background-size: cover;
+}
+.login-top p,.reg-top p {
+    padding: 20px;
+}
+.login-top .title,.reg-top .title {
+    text-align: center;
+    font-size: 24px;
+    color: #FFFFFF;
+    padding-top: 50px;
+}
+
+.login-top .title-txt{
+	font-size: 28px;
+}
+
+.login-top .title-txt i{
+	padding-right: 5px;
+}
+
+.login-top .title img,.reg-top .title img {
+    height: 66px;
+    padding-bottom: 10px;
+}
+
+.login-top .title a,.reg-top .title a {
+    color: #FFFFFF;
+    text-underline: none;
+}
+
+.login-form,.reg-form {
+	/*position: absolute;
+	bottom: 30%;
+	left: 10%; 
+    width: 80%;*/
+    margin: 0 auto;
+}
+.login-form .form-behavior span ,
+.reg-form .form-behavior span {
+    font-size: 20px;
+    letter-spacing: 0.2em;
+}
+.login-form .divider:before, .login-form .divider:after,
+.reg-form .divider:before, .reg-form .divider:after{
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    height: 1px;
+    background-color: #BABFC3;
+    margin: 0 0% 0 -50%;
+}
+.login-form .divider:after,
+.reg-form .divider:after{
+    margin: 0 -50% 0 0%;
+}
+.login-form .divider,
+.reg-form .divider{
+    text-align: center;
+}
+.login-form .divider span,
+.reg-form .divider span{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 8px 40px;
+}
+.login-form .form-inner,
+.reg-form .form-inner{
+    max-width: 330px;
+    margin: 0 auto;
+    padding: 40px 0px;
+}
+.login-form .form-inner form,
+.reg-form .form-inner form{
+    padding: 0 15px;
+}
+.login-form .form-control,
+.reg-form .form-control{
+    box-shadow:none;
+    -webkit-box-shadow:none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+}
+.login-form .button,
+.reg-form .button{
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+}
+.login-form .horizontal-line,
+.reg-form .horizontal-line{
+    width: 100%;
+    height: 1px;
+    background-color: #d9d9d9;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.login-form .tb-auth a,
+.reg-form .tb-auth a{
+    margin-bottom: 10px;
+}
+.login-form .tb-auth .button,
+.reg-form .tb-auth .button{
+    text-indent: -10px;
+}
+.login-form .tb-auth .button i,
+.reg-form .tb-auth .button i{
+    /*-webkit-transition-property: display;*/
+    /*transition-property: display;*/
+    /*-webkit-transition-duration: .3s;*/
+    /*transition-duration: .3s;*/
+    visibility: hidden;
+}
+.login-form .tb-auth .button:hover,
+.reg-form .tb-auth .button:hover{
+    text-indent: 10px;
+}
+.login-form .tb-auth .button:hover i,
+.reg-form .tb-auth .button:hover i{
+    visibility: visible;
+}
+.login-form .tb-auth .anim-grey,
+.reg-form .tb-auth .anim-grey{
+    color: #aaa;
+    border-color: #aaa;
+}
+.login-form .tb-auth .anim-grey:hover,
+.reg-form .tb-auth .anim-grey:hover{
+    color: #FFFFFF;
+    background-color: #aaa;
+}
+.form-inner .or {
+    content: '切换用户登录';
+    text-align: center;
+}
+.goToConsole {
+    text-align: center;
+    padding-top: 5px;
+}
+.currUserInfo {
+    font-size: 16px;
+}
+.currUserInfo span {
+    max-width: 100px;
+}
+.currUserInfo em {
+    font-style: normal;
+    display: inline-block;
+    float: right;
+    padding-top: 7px;
+}
+.currUserInfo span,
+.currUserInfo a {
+    color: #FFFFFF;
+    vertical-align: top;
+}
+.currUserInfo a:hover {
+    color: #0088CC;
+}
+.currUserInfo .headImage {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
+    vertical-align: middle;
+}
+.reg-login .currUserInfo .logout {
+    display: inline-block;
+    padding: 0 10px 0 10px;
+    vertical-align: top;
+    cursor: pointer;
+}
+.reg-login .currUserInfo .logout:hover {
+    color: #00aeef;
+    padding: 0 10px;
+}
+#loginInfo .currUserInfo span {
+    vertical-align: middle;
+}
+
+.login-bottom{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 40px;
+	background-color: #6c6c6c;
+	color: #FFFFFF;
+	
+}

@@ -1,0 +1,104 @@
+body{
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #F5F5F5;
+}
+.looks_space-between {
+    justify-content: space-between;
+}
+.looks_flex {
+    display: flex;
+}
+.RichScan{
+    display: flex;
+    justify-content: space-between;
+    padding: .48rem .3rem .54rem .7rem;
+    height: 1.09rem;
+    line-height: 1.09rem;
+    background-color: #1C1C20;
+    color: #ffffff;
+}
+.RichScan img{
+    width: 1.16rem;
+    height: 1.09rem;
+}
+.RichScan span.spanLeft{
+    margin-left: -1.2rem;
+}
+.hint{
+    border-bottom: 1px solid #dddddd;
+    height: 1.38rem;
+    line-height: 1.38rem;
+    font-size: .36rem;
+    color: #999999;
+    text-align: center;
+}
+.title {
+    margin-left: .64rem;
+    height: 1.14rem;
+    line-height: 1.14rem;
+    color: #9a9a9a;
+}
+.title span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .26rem;
+    width: .06rem;
+    height: .4rem;
+    background-color: #e70012;
+}
+.bodyPadding{
+    padding: 0 .44rem;
+}
+.main{
+    position: relative;
+}
+.main button{
+    position: absolute;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 3.22rem;
+    height: 1.19rem;
+    right: .48rem;
+    top: 38%;
+}
+.main button.btnRed{
+    background-color: #E70012;
+    color: #ffffff;
+}
+.main button.btnGray{
+    background-color: #969696;
+    color: #ffffff;
+}
+.main button.btnBorder{
+    border: 1px solid #E70012;
+    background-color: #ffffff;
+    color: #E70012;
+}
+.reserve_form {
+    border-bottom: 1px solid #f5f5f5;
+    padding: .43rem .44rem .43rem .3rem;
+    background-color: #ffffff;
+    color: #9b9b9b;
+}
+.reserve_form .looks_flex>div:first-child {
+    width: 3.4rem;
+}
+.reserve_form img {
+    width: .52rem;
+    height: .42rem;
+    vertical-align: -.1rem;
+    margin-right: .21rem;
+}
+.reserve_form span {
+    color: #000000;
+}
+.reserve_form .borderSpan span {
+    display: inline-block;
+    border: 1px solid #E90619;
+    color: #E90619;
+}
+.reserve_form .borderSpan span:first-child {
+    padding: .06rem .18rem;
+}

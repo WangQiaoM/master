@@ -1,0 +1,388 @@
+body{
+		background-color: #9b9b9b;
+		font-family: "微软雅黑","Hiragino Sans GB",tahoma,arial;
+	}
+
+
+	.view-header{
+		height: 50px;
+		background-color: #00aad6;
+	}
+
+.view-header-title i{
+	float: left;
+	margin-left: 10px;
+	height: 50px;
+	line-height: 50px;
+	color: #FFFFFF;
+	font-size: 38px;
+}
+
+.view-header-title .txt{
+	float: left;
+	margin-left: 10px;
+	height: 50px;
+	line-height: 50px;
+	color: #FFFFFF;
+	font-size: 24px;
+	font-weight: bold;
+}
+	.view-body-menu{
+		position: absolute;
+		top: 50px;
+		left: 0px;
+		bottom: 0px;
+		width: 240px;
+		overflow: hidden;	
+		
+		background-color:#f0f9fd;
+
+	}
+	
+	.view-header .btn-group{
+		float: right;
+		margin-right: 30px;
+		
+		height: 50px;
+		line-height: 50px;
+		font-size: 18px;
+		color: #FFFFFF;
+	}
+	
+	.view-header .btn-group.open .dropdown-toggle{
+		background-color: #00b2d6;
+		color: #F7FDFF;
+	}
+	
+	.login-gourp .loginName{
+		min-width: 160px;
+		padding-left: 10px;
+		font-size: 16px;
+		font-weight: bold;
+		
+		cursor: pointer;
+	}
+	
+	.login-gourp .loginName .fa-user{
+		float: left;
+		line-height: 50px;
+	}
+	
+	.login-gourp .loginName span{
+		float: left;
+		padding-left: 10px;
+	}
+	
+	.login-gourp .loginName .fa-angle-down{
+		float: left;
+		margin-left: 10px;
+		line-height: 50px;
+		height: 50px;
+	}
+	
+	.view-body-menu-split{
+		position:absolute;
+		top: 0px;
+		right: 0px;
+		width: 10px;
+		height: 100%;
+		border-left: 1px solid #bdd4e6;
+		border-right: 1px solid #bdd4e6;
+		background-color:#f0f9fd;
+		
+		cursor: pointer;
+		
+		justify-content:center;//子元素水平居中
+		align-items:center;//子元素垂直居中
+		display:-webkit-flex;
+	}
+	
+	.view-body-menu-split:hover{
+		background-color: #f7fdff;
+	}
+	
+	.view-body-menu-split:hover .split-btn{
+		color: #bddeff;
+	}
+	
+	.view-body-menu-split .split-btn i{
+		position:fixed;
+		top:45%;
+		width: 10px;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		background-color: #00aad6;
+		font-size: 20px;
+		color: #FFFFFF;
+	}
+	
+	.view-body-content{
+		position: absolute;
+		top: 50px;
+		left: 240px;
+		right: 0px;
+		bottom: 0px;
+		overflow: hidden;
+		overflow-y: auto;
+		
+		background-color: #eef0f3;
+	}
+	
+	.view-body-content .breadcrumb{
+		background-color: #d9ecf3;
+		color:#000000;
+		
+		border-bottom: 1px solid #bdd4e6;
+		border-radius: 0px;
+	}
+	
+	.view-body-content .breadcrumb li:first-child{
+		font-weight: bold;
+		color: #297fb8;
+	}
+	
+	.view-body-content .breadcrumb li i{
+		margin-right: 10px;
+	}
+	
+	.view-body-content .content-iframe{
+		position: absolute;
+		top: 35px;
+		bottom: 0px;
+		width: 100%;
+	}
+	
+	.view-body-content .iframe-mask{
+		display: none;
+		position: absolute;
+		z-index: 1002;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		text-align: center;
+		background-color: #f1f3f5;
+	}
+	.view-body-content .iframe-mask i{
+		margin-top: 25%;
+	}
+	
+	
+	
+	
+	.view-body-content .content-iframe iframe{
+		height: 99.5%;
+		width: 100%;
+		background-color: #FFFFFF;
+		margin: 0px;
+	}
+	
+	
+	.view-body-menu .menu-control-lv1{
+		position: absolute;
+	left: 0px;    			
+		width:41px;
+	height: 100%;
+	background-color: #ebf4f4;
+	border-right:1px solid #bdd4e6;
+	}
+	
+	.view-body-menu .menu-control-lv1-item{
+		margin-top:2px;
+		margin-bottom: 8px;
+	height:135px;
+	background-color:#d4e7f0;
+	border:1px solid #bdd4e6;
+	cursor:pointer;
+	text-align:center;
+	padding-top: 10px;
+	}
+	
+	.view-body-menu .menu-control-lv1-item .lv1-item-txt{
+	width:20px;
+	font-size:14px;
+	font-weight:bold;
+	color:#4ca6cd;
+	margin-top:5px;
+	padding-left: 12px;
+}
+	
+	.view-body-menu .menu-control-lv1-item .lv1-item-icon{
+		width: 20px;
+	font-size: 23px;
+	color:#4ca6cd;
+	}
+	
+	.view-body-menu .menu-control-lv1-sel{
+	background-color:#4364a7;
+	cursor:pointer;
+	}
+	
+	.view-body-menu .menu-control-lv1-sel .lv1-item-txt{
+	color:#FFFFFF;
+}
+	
+	.view-body-menu .menu-control-lv1-sel .lv1-item-icon{
+	color:#FFFFFF;
+	}
+	
+	.menu-control-group{
+	position: absolute;
+	left: 41px;
+	width:188px;
+	display:none;
+}
+
+.menu-control-group .L2Header{
+	background-color:#d9ecf3;
+	border-bottom:1px solid #bdd4e6;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	color:#3c3c3c;
+	font-size:14px;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.menu-control-group .L2Header:hover{
+	color:#4364a7;
+}
+
+.menu-control-group .L3CC{
+	display:none;	
+}
+
+.menu-control-group .L3Item{
+	height:30px;
+	line-height:30px;
+	color:#373737;
+	padding-left:20px;
+	border-left:5px solid #f0f9fd;
+	cursor:pointer;
+}
+
+.menu-control-group .L3ItemSel{
+	border-left:5px solid #ea2020;
+	background-color:#3eafe0;
+	color: #FFFFFF;
+	cursor:pointer;
+}
+
+
+.menu-control-group .L3Item i{
+	margin-right:10px;
+	font-size:16px;
+	
+	width: 20px;
+	line-height: 30px;
+}
+
+.menu-control-group .L3Item:hover{
+	height:30px;
+	line-height:30px;
+	background-color:#47c7ff;
+	color: #FFFFFF;
+	padding-left:20px;
+	border-left:5px solid #eb7400;
+}
+
+.dropdown-menu li{cursor: pointer;}
+
+#MaskDiv{
+	position:absolute;
+	left:0px;
+	top:0px;
+	right: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	
+	background-color:#000;
+	display:none;
+	z-index:999;
+}
+
+.mDialog{
+	position: absolute;
+	z-index: 1000;
+	display: none;
+	background-color: #FFFFFF;
+	border-left: 1px solid #aaaaaa;
+	border-bottom: 1px solid #aaaaaa;
+	border-right: 1px solid #aaaaaa;
+	
+}
+
+.mDialog .mDialog-title{
+	
+	height: 30px;
+	line-height: 30px;
+	
+	padding-left: 10px;
+	background-image: url(../img/t_b.png);
+}
+
+.mDialog .fa-remove{
+	float: right;
+	
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	padding-right: 10px;
+	
+	cursor: pointer;
+}
+.mDialog .fa-remove:hover{
+	color: #00aad6;
+}
+
+.mDialog .mDialog-body{
+	position: absolute;
+	bottom: 0px;
+	top: 30px;
+	right: 0px;
+	left: 0px;
+	
+}
+
+.mDialog .mDialog-body iframe{
+	
+	width: 100%;
+	height: 100%;
+}
+
+.mDialog .mDialog-body .dragDiv{
+	position: absolute;
+	
+	left: 0px;
+	bottom: 0px;
+	top: 30px;
+	right: 0px;
+	/*width: 100%;*/
+	z-index: 1002;
+	
+	display: none;
+}
+
+.mDialog .mDialog-mask{
+	display: none;
+	
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	top: 30px;
+	right: 0px;
+	text-align: center;
+	background-color: #f1f3f5;
+}
+
+.mDialog .mDialog-mask i{
+	line-height: 50px;
+}
+
+
+.selFromControl{
+	display: none;
+}

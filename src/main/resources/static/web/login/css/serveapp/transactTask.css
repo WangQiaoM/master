@@ -1,0 +1,51 @@
+body{
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #EEEEEE;
+}
+.scan{
+    display: flex;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #ffffff;
+    font-size: 12px;
+    color: black;
+}
+.scan div{
+    text-align: center;
+}
+.scan .scan-font{
+    flex-grow: 2;
+    text-align: right;
+    line-height: 55px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.scan .scan-triangle{
+    margin: 0 -5px 0 5px;
+}
+.weui-panel__bd{
+    background-color: #ffffff;
+    border-top: 1px solid #dddddd;
+}
+.weui-panel__bd:last-child{
+    border-bottom: 1px solid #dddddd;
+}
+.weui-panel__bd .weui-media-box .weui-media-box__hd{
+    width: 100px;
+}
+.weui-panel__bd .weui-media-box .weui-media-box__bd{
+    position: relative;
+}
+.weui-panel__bd .weui-media-box__hd .weui-media-box__title,h4 span{
+    font-size: 14px;
+    color: #6f6f6f;
+}
+.weui-panel__bd .weui-media-box .weui-media-box__bd b{
+    position: absolute;
+    right:0;
+    bottom: 0;
+    font-size: 12px;
+    color: #828282;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.button{ text-align:center; margin-top:100px;}
+.button span{ display:inline-block; width:100px; height:45px; line-height:45px; margin:0 10px; background:#f63; color:#fff; font-size:15px; cursor:pointer;}
+</style>
+</head>
+
+<body>
+
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="webAlert.css"/>
+<script type="text/javascript" src="webAlert.js"></script>
+
+
+<div class="button">
+	<span class="alert">alert</span>
+    <span class="confirm">confirm</span>
+    <span class="success">成功提示</span>
+    <span class="error">错误提示</span>
+    <span class="warning">警告提示</span>
+    <!--<span class="timeout">倒计时</span>-->
+</div>
+
+<script type="text/javascript">
+$(function(){
+	//alert
+	$(".alert").click(function(){
+		webAlert({
+			type:"alert",
+			content:"提示内容，单纯的提示内容！",
+			callback:function(){
+				//回调	
+			}
+		});	
+	});	
+	
+	//confirm
+	$(".confirm").click(function(){
+		webAlert({
+			type:"confirm",
+			content:"您确定删您确定删除该信息吗您确定删除该信息吗除该信息吗？",
+			callback:function(){
+				//回调
+			}
+		});	
+	});
+	
+	//成功
+	$(".success").click(function(){
+		webAlert({
+			type:"success",						
+			content:"广告投放成功！",
+			subcontent:"需要流量主进行审核，审核成功方可进行投放，你可以到<a href='#'>我的订单</a>查看审核状态"
+		});	
+	});
+	
+	//错误
+	$(".error").click(function(){
+		webAlert({
+			type:"error",						
+			content:"广告投放失败！",
+			subcontent:"需要流量主进行审核，审核成功方可进行投放，请查看审核状态。"
+		});	
+	});	
+	
+	//警告
+	$(".warning").click(function(){
+		webAlert({
+			type:"warning",						
+			content:"警告！",
+			subcontent:"该信息已存在！请修改后操作！"
+		});	
+	});	
+	
+	
+	//倒计时
+	/*$(".timeout").click(function(){
+		webAlert({
+			type:"timeout",
+			speed:2,					
+			content:"你还有{time}秒！",
+			callback:function(){
+				alert(1);	
+			}
+		});	
+	});	*/
+});
+
+</script>
+</body>
+</html>

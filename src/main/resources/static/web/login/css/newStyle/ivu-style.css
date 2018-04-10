@@ -1,0 +1,139 @@
+
+/*breadcrumb-面包屑*/
+.ivu-breadcrumb{ font-size: 12px;}
+.ivu-breadcrumb a{ color: #9ea7b4;}
+.ivu-breadcrumb a:hover{ color: #21B393;}
+.ivu-breadcrumb>span:last-child{ font-weight: normal; color: #21B393;}
+.ivu-breadcrumb-item-separator{ margin: 0 5px;}
+
+
+/*button-按钮*/
+.ivu-btn:not(.ivu-btn-text):not(.ivu-btn-green):hover{
+    color: #21B393;
+    background-color: #fff;
+    border-color: #21B393;
+}
+.ivu-btn-text:hover{ color: #21B393 !important;}
+.ivu-btn-green{ border-color: #21B393; background:#21B393; color: #FFFFFF;}
+.ivu-btn-green:hover{ border-color: #36C1A5; background: #36C1A5; color: #FFFFFF;}
+
+.ivu-color-picker-picker .ivu-btn-primary,
+.ivu-modal-body .ivu-btn-primary{ background-color: #21B393; border-color: #21B393;}
+.ivu-color-picker-picker .ivu-btn-primary:hover,
+.ivu-modal-body .ivu-btn-primary:hover{ background-color: #14C3A1 !important; color: #FFFFFF !important;}
+
+
+/*radio*/
+.ivu-radio-checked .ivu-radio-inner { border-color: #21B393 !important;}
+.ivu-radio-inner:after{ background-color: #21B393;}
+
+/*checkbox*/
+.ivu-checkbox-checked .ivu-checkbox-inner{ background-color: #21B393; border-color: #21B393;}
+
+/*input*/
+.ivu-input:hover{ border-color: #21B393;}
+.ivu-input:focus{ border-color: #21B393; outline: 0; box-shadow: 0 0 0 2px rgba(14,180,147,.2);}
+
+
+/*select*/
+.ivu-select-selection:hover{ border-color: #21B393;}
+.ivu-select-visible .ivu-select-selection{ border-color: #21B393; outline: 0; box-shadow: 0 0 0 2px rgba(14,180,147,.2);}
+.ivu-select-item-selected,.ivu-select-item-selected:hover {
+    color: #fff;
+    background: #21B393
+}
+.ivu-select-item-selected.ivu-select-item-focus {
+    background: #21B393
+}
+
+/*page*/
+.ivu-page-item:hover {
+    border-color: #21B393;
+}
+.ivu-page-item:hover a {
+    color: #21B393;
+}
+.ivu-page-item-active {
+    background-color: #21B393;
+    border-color: #21B393;
+}
+.ivu-page-item-active:hover a {
+    color: #FFFFFF;
+}
+.ivu-page-next:hover,.ivu-page-prev:hover {
+    border-color: #21B393;
+}
+.ivu-page-next:hover a,.ivu-page-prev:hover a {
+    color: #21B393;
+}
+
+/*dropdown*/
+.ivu-dropdown-item:hover {
+    background: #21B393; color: #FFFFFF;
+}
+
+.ivu-dropdown-item:focus {
+    background: #21B393; color: #FFFFFF;
+}
+
+/*number*/
+.ivu-input-number-input{ padding:0 10px;}
+.ivu-input-number:hover {
+    border-color: #21B393
+}
+
+.ivu-input-number-focused,
+.ivu-input-number:focus {
+    border-color: #21B393;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(14,180,147,.2);
+}
+.ivu-input-number-disabled:hover{ border-color: #dddee1;}
+
+
+/*icon*/
+.ivu-icon-new-up{ width: 20px; height: 20px; background: url(../images/u536.png) center no-repeat; vertical-align: middle;}
+.ivu-icon-new-down{ width: 20px; height: 20px; background: url(../images/u537.png) center no-repeat; vertical-align: middle;}
+
+.ivu-icon:hover{ color: #21B393;}
+
+
+/*slider*/
+.ivu-slider-button,
+.ivu-slider-button:hover{ border-color: #0EB493;}
+.ivu-slider-bar{ background-color: #0EB493;}
+.ivu-slider-wrap{ margin: 5px 0;}
+
+
+/*poptip*/
+.ivu-poptip-inner{ white-space: normal;}
+
+
+/*ivu-modal*/
+.ivu-modal .ivu-modal-footer .button{ min-width: 70px; margin-left: 10px;}
+.ivu-modal-wrap.hide-floor .ivu-modal-footer{ display: none;}
+.vertical-center-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vertical-center-modal .ivu-modal{
+    top: 0;
+}
+
+/*tag*/
+.ivu-tag-group{
+	position: relative; 
+	padding: 10px;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.ivu-tag-group .ivu-tag{ position: relative;}
+.ivu-tag-group .ivu-tag.active{ z-index: 2; cursor: move;}
+
+
+/*阻止button下span触发click*/
+button > span{ pointer-events: none;}

@@ -1,0 +1,109 @@
+body{
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    /*padding: 0 .44rem;*/
+    background-color: #f5f5f5;
+}
+p,h5{
+    margin: 0;
+    padding: 0;
+}
+.looks_flex{
+    display: flex;
+}
+.looks_space-between {
+    justify-content: space-between;
+}
+.indent_padding{
+    padding: .36rem .44rem 0 .44rem;
+    box-sizing: border-box;
+}
+.indent_padding .accountBox{
+    display: none;
+}
+.indent_box{
+    margin-bottom: .3rem;
+    padding: .36rem .37rem .45rem .35rem;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+.advertisement_information img{
+    margin-right: .38rem;
+    width: 2.82rem;
+    height: 2.24rem;
+}
+.information_main{
+    padding-top: .4rem;
+    max-width: 7.55rem;
+}
+.information_main h5{
+    font-size: .48rem;
+}
+.information_main p{
+    margin-top: .3rem;
+    font-size: .4rem;
+    color: #9A9A9A;
+    word-break: break-all;
+}
+.mainBox{
+    padding: .5rem .45rem .65rem .22rem;
+    background-color: #ffffff;
+}
+.mainBox .stateImg{
+    width: .52rem;
+    height: 9.8rem;
+    background-color: #ffffff;
+}
+.main_text{
+    padding-left: .5rem;
+}
+.main_text .reserve_form:first-child{
+    margin: 0;
+}
+.reserve_form{
+    margin-top: .39rem;
+    background-color: #ffffff;
+    color: #000000;
+}
+.reserve_form .time{
+    color: #9A9A9A;
+}
+.reserve_form .time .time_hint{
+    color: #000000;
+}
+.surplus_time{
+    position: relative;
+    padding-bottom: .4rem;
+    padding-left: 1rem;
+}
+.borderNone{
+    padding-left: 1rem;
+}
+.reserve_form img{
+    width: .47rem;
+    height: .47rem;
+    margin-top: .12rem;
+    margin-right: .5rem;
+}
+.reserve_form .navigation_img img{
+    margin-right: 0;
+}
+.reserve_form i{
+    font-size: .7rem;
+    color: #E40011;
+}
+.surplus_time:before {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    right: -1rem;
+    height: 1px;
+    border-top: 1px solid #d3d3d3;
+    color: #E1E1E1;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    left: 15px;
+    z-index: 2;
+}

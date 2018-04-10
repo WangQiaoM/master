@@ -1,0 +1,324 @@
+body{
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+}
+.body_padding{
+    padding: 0 .44rem;
+}
+p,ul,li,h5{
+    margin: 0;
+    padding: 0;
+}
+.hint{
+    font-size: .36rem;
+    text-align: center;
+    color: #9a9a9a;
+}
+li{
+    list-style: none;
+}
+button{
+    border: none;
+    outline: none;
+}
+.course_light{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .7rem;
+    padding: 0 .5rem;
+    box-sizing: border-box;
+}
+.course_light div{
+    border-radius: 50%;
+    width: .7rem;
+    height: .7rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 0.2rem #D6D6D6 inset;
+}
+.course_light div.color{
+    box-shadow: 0 0 0 0.2rem #E70012 inset;
+}
+.course_light span{
+    display: block;
+    width: 1.7rem;
+    height: .22rem;
+    background-color: #D6D6D6;
+}
+.course_light span.color{
+    background-color: #E70012;
+}
+.course_lightText{
+    display: flex;
+    justify-content: space-between;
+    padding: .3rem .26rem .96rem .4rem;
+    font-size: .36rem;
+    color: #9F9F9F;
+}
+.main_content{
+    padding: .5rem .42rem .47rem .4rem;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+.main_content h5{
+    margin-bottom: .7rem;
+    color: #1c1b20;
+    font-size: .48rem;
+}
+.main_content div{
+    color: #9C9C9C;
+}
+.main_content .task_title{
+    position: relative;
+    margin-bottom: .6rem;
+    word-break: break-all;
+}
+.main_content .task_title i{
+    position: absolute;
+    right: 0;
+    top:10%;
+    font-size: .7rem;
+}
+.main_content .ul_box ul li {
+    list-style: none;
+    float: left;
+    margin-right: .78rem;
+}
+.ul_box ul{zoom:1;}    /*==for IE6/7 Maxthon2==*/
+.ul_box ul:after {clear:both;content:'';display:block;width: 0;height: 0;visibility:hidden;}
+.title{
+    margin-left: .45rem;
+    height: 1.14rem;
+    line-height: 1.14rem;
+    color: #9a9a9a;
+}
+.title span{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .26rem;
+    width: .06rem;
+    height: .4rem;
+    background-color: #e70012;
+}
+.looks_flex{
+    display: flex;
+}
+.looks_space-between{
+    justify-content: space-between;
+}
+.reserve_form{
+    border-bottom: 1px solid #f5f5f5;
+    padding: .43rem .44rem .43rem .5rem;
+    background-color: #ffffff;
+    color: #000000;
+}
+.reserve_form span{
+    color: #9b9b9b;
+}
+.reserve_form img{
+    width: .47rem;
+    height: .47rem;
+    margin-top: .12rem;
+    margin-right: .5rem;
+}
+.reserve_form .navigation_img img{
+    margin-right: 0;
+}
+.reserve_form i{
+    font-size: .7rem;
+    color: #E40011;
+}
+.indent_code{
+    border-radius: 6px;
+    margin-top: .36rem;
+    margin-bottom: .35rem;
+    width: 100%;
+    height: 5.15rem;
+    background-color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+    font-size: .4rem;
+}
+.indent_code p{
+    color: #000000;
+}
+.indent_code_img{
+    position: relative;
+    left: 50%;
+    margin-top: .45rem;
+    margin-left: -1.7rem;
+    border-radius: 5px;
+    width: 3.4rem;
+    height: 3.4rem;
+}
+footer{
+    margin-top: .35rem;
+    padding-right: .9rem;
+    width: 100%;
+    height: 1.54rem;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    bottom: 0;
+}
+footer a{
+    float: right;
+    margin-top: .39rem;
+    margin-left: .66rem;
+    border: 1px solid #A7A7A7;
+    height: .7rem;
+    line-height: .7rem;
+    border-radius: 5px;
+    outline: none;
+    background-color: #ffffff;
+    font-size: .36rem;
+    color: #989898;
+    text-decoration: none;
+}
+footer a:first-child{
+    padding: 0 .36rem;
+}
+footer a:last-child{
+    padding: 0 .5rem;
+}
+.hint_frame_vehicle{
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    margin: -2.61rem 0 0 -4.65rem;
+    border-radius: 5px;
+    width: 9.78rem;
+    background-color: #ffffff;
+    z-index: 99;
+}
+.hint_frame_vehicle p{
+    line-height: 1.42rem;
+    text-align: center;
+}
+.hint_frame_vehicle button{
+    width: 100%;
+    line-height: 1.35rem;
+    color: #E60012;
+    background-color: #ffffff;
+    text-align: center;
+}
+.hint_frame_vehicle div{
+    border-top: 1px solid #E8E6E6;
+    border-bottom: 1px solid #E8E6E6;
+    padding: .87rem 0;
+    color: #9A9A9A;
+}
+.hint_frame_vehicle div ul li{
+    margin-bottom: .68rem;
+}
+.hint_frame_vehicle div ul li:last-child{
+    margin-bottom: 0;
+}
+.hint_frame_vehicle div ul li img{
+    display: inline-block;
+    margin-right: .44rem;
+    margin-left: 3.2rem;
+    border-radius: 50%;
+    width: .5rem;
+    height: .5rem;
+    vertical-align: -.08rem;
+}
+.hint_frame_vehicle div ul li.colour{
+    color: #E60012;
+}
+
+.appointmenTime{
+    opacity: 0;
+    display: none;
+    position: fixed;
+    bottom: -60%;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 999;
+}
+.appointmenTime .appointmenTime_headline{
+    border-bottom: 1px solid #E8E6E7;
+    height: 1.65rem;
+    line-height: 1.65rem;
+    text-align: center;
+    background-color: #ffffff;
+}
+.appointmenTime_Time{
+    padding: .44rem .42rem .5rem .44rem;
+    background-color: #E8E6E7;
+}
+.appointmenTime ul{
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #dfdfdf;
+    margin-bottom: 1.3rem;
+}
+.appointmenTime ul li{
+    list-style: none;
+    border-bottom: 1px solid #dfdfdf;
+    height: 2.46rem;
+    line-height: 2.46rem;
+    width: 3.85rem;
+    text-align: center;
+    background-color: #ffffff;
+    color: #BFBFBF;
+    font-size: .36rem;
+    box-sizing: border-box;
+}
+.appointmenTime ul li.color{
+    color: #fba81c;
+}
+.appointmenTime ul li:nth-child(1),.appointmenTime ul li:nth-child(4){
+    border-left:  1px solid #dfdfdf;
+}
+.appointmenTime ul li:nth-child(2),.appointmenTime ul li:nth-child(5){
+    border-left:  1px solid #dfdfdf;
+    border-right:  1px solid #dfdfdf;
+}
+.appointmenTime ul li:nth-child(3),.appointmenTime ul li:nth-child(6){
+    border-right:  1px solid #dfdfdf;
+}
+.week_Time{
+    position: relative;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: .18rem .6rem .34rem .44rem;
+}
+.week_Time div{
+    position: relative;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+    padding: .1rem 0 .15rem 0;
+    width: 2.5rem;
+    height: 1.65rem;
+    text-align: center;
+    font-size: .4rem;
+    box-sizing: border-box;
+}
+.week_Time div img{
+    position: absolute;
+    bottom: -.27rem;
+    left: .9rem;
+    width: .6rem;
+    height: .3rem;
+}
+.week_Time div.color{
+    border: 1px solid #E90619;
+}
+.appointmenTime .weui-btn{
+    margin-bottom: .45rem;
+    width: 60%;
+}
+.appointmenTime .weui-btn_disabled {
+    background-color: #bbbbbb;
+}
+#mo{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    z-index: 99;
+}

@@ -1,0 +1,131 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #F3F3F3;
+    font-size: 12px;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+.zyui-navbar{
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    width: 100%;
+    background-color: #fff;
+    display: table;
+    table-layout: fixed;
+    border-top: 1px solid #c3c3c3;
+     background-color: #FFFFFF;
+}
+
+.zyui-navbar .zyui-navbar-item{
+
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;
+}
+
+.zyui-navbar .zyui-navbar-active{
+    color: #007aff;
+}
+
+.zyui-navbar .zyui-navbar-item .zyui-icon{
+    top: 3px;
+    width: 24px;
+    height: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    color: #8F8F94;
+}
+
+.zyui-navbar .zyui-navbar-item .zyui-tab-label{
+    font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #8F8F94;
+}
+
+
+.zyui-headerbar{
+    position: fixed;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 0;
+    right: 0;
+    left: 0;
+    height: 44px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0,.85);
+    box-shadow: 0 0 1px rgba(0,0,0,.85);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 10;
+    background-color: #00B4A7;
+}
+
+
+.zyui-headerbar .zyui-pull-left{
+    float: left;
+    line-height: 45px;
+    font-size: 18px;
+    color: #555555;
+}
+
+.zyui-headerbar .zyui-pull-right{
+    float: right;
+    line-height: 45px;
+    font-size: 18px;
+    color: #555555;
+}
+
+.zyui-headerbar .zyui-title{
+    position: absolute;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    right: 40px;
+    left: 40px;
+
+    line-height: 44px;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #00B4A7;
+    color: #FFFFFF;
+    overflow: hidden;
+    font-family: Microsoft YaHei;
+}
+
+
+.zyui-body{
+    position: absolute;
+    top:44px;
+    left: 0px;
+    right: 0px;
+    bottom: 40px;
+
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.zyui-body-content{
+    margin: 0 auto;
+    max-width: 600px;
+    padding-bottom: 30px;
+}

@@ -1,0 +1,159 @@
+
+html{ height: 100%;}
+
+body{ min-height: 100%; position: relative; background-color: #F2F2F2; padding: 41px 0 50px 0;}
+
+.file-div{ position: fixed; top: -999px; height: 0; overflow: hidden;}
+
+.center-module{ min-width: 1000px; max-width: 1200px; margin: 0 auto; position: relative;}
+.center-module:after{ content: ''; display: block; visibility: hidden; clear: both;}
+
+/*header*/
+.header-module{ position: fixed; left: 0; right: 0; top: 0; z-index: 100; background-color: #FFFFFF; height: 41px; border-bottom: 1px solid #0EB493;}
+.header-module .logo{ float: left; height: 40px; width: 106px;}
+.header-module .logo > a{ display: block; font-size: 0; padding: 5px 10px;}
+.header-module .logo > a > img{ height: 30px;}
+.header-module .nav{ float: left;}
+.header-module .nav li{ float: left; margin-left: 0px;}
+.header-module .nav li > a{ display: block; line-height: 40px; font-size: 12px; color: #0EB493; font-weight: bold;}
+.header-module .nav li > a:hover{ color: #0EB493;}
+.header-module .user{ float: right;}
+.header-module .user > span,a,i{ display: inline-block; line-height: 40px; font-size: 12px; color: #0EB493; }
+.header-module .user > a:hover{ text-decoration: underline; cursor: pointer;}
+
+/*breadcrumb - 面包屑*/
+.breadcrumb-module{ overflow: hidden;}
+.breadcrumb-module > li{ float: left; font-size: 12px; color: #0EB493; cursor: default; line-height: 50px;}
+.breadcrumb-module > li > a{ color: #666666;}
+.breadcrumb-module > li > a:hover{ text-decoration: underline; color: #0EB493;}
+.breadcrumb-module > li + li:before{ content: '/'; color: #CCCCCC; padding: 0 5px;}
+
+
+.content-model{ background-color: #FFFFFF; border: 1px solid #CCCCCC; margin-top: -1px;}
+.content-model > .head-box{ overflow: hidden; padding: 15px 20px;}
+.content-model > .head-box > .l-box{ float: left;}
+.content-model > .head-box > .l-box > img{ width: 35px; height: 35px; vertical-align: middle;}
+.content-model > .head-box > .l-box > span{ font-size: 12px; color: #333333; font-weight: bold; margin-left: 10px;}
+.content-model > .head-box > .r-box{ float: right;}
+.content-model > .head-box > .r-box > span{ font-size: 12px; color: #666666; margin-right: 10px;}
+.content-model > .head-box > .r-box > span > b{ color: #0D9E81;}
+
+.table-model{ background-color: #FFFFFF; margin-top: -1px;}
+.table-model .bview-table-body table tr:nth-child(2) .button.upmove{ visibility: hidden;}
+.table-model .bview-table-body table tr:last-child .button.downmove{ visibility: hidden;}
+
+.main-module{ background-color: #FFFFFF; border: 1px solid #DDDDDD;}
+
+.right-tips{ font-size: 12px; line-height: 35px; margin-top: -40px; color: #666666; position: absolute; right: 0;}
+.right-tips > span{ color: #FF3300;}
+
+/*floor*/
+.floor-module{ position: absolute; left: 0; right: 0; bottom: 0; height: 50px; line-height: 50px; text-align: center; font-size: 12px; color: #999999;}
+
+
+/*分页*/
+.page-table-box{ background-color: #FFFFFF; border: 1px solid #CCCCCC; margin-top: -1px; height: 80px; padding: 0 10px;}
+
+
+/*步骤指引*/
+.guide-module{ overflow: hidden; font-size: 0; text-align: center;}
+.guide-module > li{ display: inline-block; font-size: 12px; color: #333333; height: 40px; line-height: 40px; background-color: #CCCCCC; min-width: 200px; padding: 0 50px; text-align: center; position: relative; z-index: 10; cursor: default;}
+.guide-module > li:before{ content: ''; border-left: 20px solid #CCCCCC; border-top: 20px solid transparent; border-bottom: 20px solid transparent; position: absolute; left:0; top: 0;}
+.guide-module > li:first-child:before{ border-left-color: #F2F2F2;}
+.guide-module > li:after{ content: ""; border-left: 20px solid #CCCCCC; border-top: 20px solid transparent; border-bottom: 20px solid transparent; position: absolute; right: -20px; top: 0;}
+.guide-module > li.active{ background-color: #0EB493; color: #FFFFFF; z-index: 20;}
+.guide-module > li.active:after{ border-left-color: #0EB493;}
+
+.title-label{ font-size: 12px; line-height: 40px; color: #333333; position: relative; margin-top: -40px;}
+
+
+/*form-module*/
+.form-module{ width: 600px; margin: 0 auto; padding: 50px 0;}
+.form-module > .tab-tr{ margin-top: 20px;}
+.form-module > .tab-tr:after{ content: ''; display: block; visibility: hidden; clear: both;}
+.form-module > .tab-tr > .label{ float: left; width: 100px; margin-right: -100px; text-align: right; padding-right: 10px; line-height: 35px;}
+.form-module > .tab-tr > .input,
+.form-module > .tab-tr > .textarea,
+.form-module > .tab-tr > .upload{ margin-left: 100px;}
+.form-module > .tab-tr > .upload{ overflow: hidden;}
+.form-module > .tab-tr > .upload > .img{ float: left; width: 80px; height: 80px; overflow: hidden; margin-right: 10px;}
+.form-module > .tab-tr > .upload > .img > img{ width: 100%;}
+.form-module > .tab-tr > .upload > .btn{ float: left; display: block; width: 80px; height: 80px; line-height: 80px; text-align: center; font-size: 12px; color: #999999; border: 1px dashed #CCCCCC;}
+.form-module > .tab-tr > .upload > .btn:hover{ border-color: #0EB493; color: #0EB493;}
+.form-module > .tab-tr .tips{ float: left; font-size: 12px; color: #999999; margin-left: 10px;}
+
+.button-box{ text-align: center;}
+.button-box > .button{ margin: 0 20px; min-width: 80px;}
+
+
+/*default-image-list*/
+.default-image-list{ border: 1px solid #CCCCCC; overflow: auto; height: 360px; margin-left: 100px; padding-bottom: 5px;}
+.default-image-list > ul{ overflow: hidden; padding: 0 5px;}
+.default-image-list > ul > li{ float: left; width: 64px; height: 64px; border: 1px solid #CCCCCC; overflow: hidden; margin: 5px 5px 0 0; padding: 5px;}
+.default-image-list > ul > li > img{ width: 100%;}
+.default-image-list > ul > li:hover{ cursor: pointer; border-color: #0EB493;}
+
+.search-module{ width: 500px; margin: 0 auto; overflow: hidden; padding: 30px 0;}
+.search-module > .input{ float: left; margin-right: 20px; width: 400px;}
+.search-module > .button{ width: 80px; text-align: center;}
+
+.selected-box{ width: 800px; margin: 0 auto; height: 100px; overflow-y:auto; border: 1px solid #CCCCCC; font-size: 12px; color: #666666; line-height: 30px; padding: 0 10px;}
+.selected-box > label b{ color: #0EB493; font-weight: bold;}
+.selected-box > label,
+.selected-box > span{ float: left; margin-right: 10px;}
+.selected-box > span{ color: #0EB493;}
+.selected-box > span > .close{ display: inline-block; width: 15px; height: 15px; text-align: center; line-height: 15px; border-radius: 50%; background-color: #FF3300; color: #FFFFFF; font-size: 12px; vertical-align: middle; cursor: pointer;}
+.selected-box > span > .close:hover{ background-color: #de2c00;}
+
+/*button*/
+.button{ display: inline-block; height: 35px; line-height: 34px; font-size: 12px; color: #333333; border-radius: 3px; border: 1px solid #CCCCCC; padding: 0 20px;}
+.button:hover{ background-color: #F2F2F2;}
+.button[size='large']{ height: 40px; line-height: 39px; font-size: 12px;}
+.button[size='small']{ height: 30px; line-height: 29px; font-size: 12px; padding: 0 15px;}
+.button[color='white']{ background-color: #FFFFFF;}
+.button[color='white']:hover{ background-color: #F2F2F2;}
+.button[color='green']{ background-color: #0EB493; color: #FFFFFF; border-color: #0ea789;}
+.button[color='green']:hover{ background-color: #0d9e81; border-color: #0d9e81;}
+.button[color='orange']{ background-color: #e0b720; color: #FFFFFF; border-color: #d0a91b;}
+.button[color='orange']:hover{ background-color: #cca310; border-color: #cca310;}
+.button[color='red']{ background-color: #FF3300; color: #FFFFFF; border-color: #ea370a;}
+.button[color='red']:hover{ background-color: #e42f02; border-color: #e42f02;}
+.button[color='gray']{ background-color: #888888; color: #FFFFFF; border-color: #777777;}
+.button[color='gray']:hover{ background-color: #666666; border-color: #666666;}
+
+/*button-group*/
+.button-group{ font-size: 0;}
+.button-group > .button{ border-radius: 0; border-left-width: 0;}
+.button-group > .button:first-child{ border-radius: 3px 0 0 3px; border-left-width: 1px;}
+.button-group > .button:last-child{ border-radius: 0 3px 3px 0;}
+
+
+/*table*/
+.bview-table-wrapper{ position: relative;}
+.bview-table-wrapper > .bview-table-head{ background-color: #E4E4E4; position: relative; z-index: 20;}
+.bview-table-wrapper > .bview-table-head > table,
+.bview-table-wrapper > .bview-table-body > table{ border-collapse: collapse; border: 0; width: 100%;}
+
+.bview-table-wrapper > .bview-table-head > table th{ font-size: 12px; font-weight: normal; color: #333333; border: 1px solid #CCCCCC; height: 40px; text-align: left; padding: 0 10px;}
+.bview-table-wrapper > .bview-table-body{ overflow: auto; position: relative; z-index: 10; margin-top: -1px;}
+.bview-table-wrapper > .bview-table-body > table{ table-layout: fixed;}
+.bview-table-wrapper > .bview-table-body > table tr{ cursor: default;}
+.bview-table-wrapper > .bview-table-body > table tr:hover{ background-color: #F5F5F5;}
+.bview-table-wrapper > .bview-table-body > table td{ font-size: 12px; color: #666666; border: 1px solid #CCCCCC; height: 45px; text-align: left; padding: 0 10px; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.bview-table-wrapper > .bview-table-body > table td > span{ display: inline-block;}
+.bview-table-wrapper > .bview-table-head > table th[align='center'],
+.bview-table-wrapper > .bview-table-body > table td[align='center']{ text-align: center;}
+.bview-table-wrapper > .bview-table-head > table th input[type='checkbox'],
+.bview-table-wrapper > .bview-table-body > table td input[type='checkbox']{ width: 16px; height: 16px; vertical-align: middle;}
+
+/*label*/
+.label{ font-size: 12px; color: #666666;}
+.label > i{ color: #FF3300;}
+
+/*input*/
+.input{ position: relative;}
+.input > input{ height: 35px; width: 100%; border: 1px solid #CCCCCC; border-radius: 3px; padding: 0 10px;}
+.input > input:focus{ border-color: #0EB493;}
+/*textarea*/
+.textarea{ position: relative;}
+.textarea > textarea{ width: 100%; height: 100%; border: 1px solid #CCCCCC; border-radius: 3px; padding: 10px;}

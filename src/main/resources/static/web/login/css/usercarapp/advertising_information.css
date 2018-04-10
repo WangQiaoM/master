@@ -1,0 +1,192 @@
+body{
+    padding-bottom: 3rem;
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+}
+img{
+    width: 100%;
+    /*height: 5.92rem;*/
+}
+p,ul,li{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+button{
+    border: none;
+    outline: none;
+}
+.title{
+    margin-left: .76rem;
+    height: 1.14rem;
+    line-height: 1.14rem;
+    color: #1c1b20;
+}
+.title span{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .26rem;
+    width: .06rem;
+    height: .4rem;
+    background-color: #e70012;
+}
+.advertisement_content,.indent_information,.task_explain{
+    padding: 0 .42rem;
+    color: #9b9b9b;
+}
+.advertisement_content div.main_content,.indent_information div.main_content,.task_explain div.main_content{
+    border-radius: 6px;
+    padding-left: .32rem;
+    height: 100%;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.advertisement_content{
+    height: 1.3rem;
+    line-height: 1.3rem;
+}
+.indent_information div.main_content,.task_explain div.main_content{
+    padding: .6rem .32rem .6rem .32rem;
+}
+.indent_information div.main_content .ul_box ul li{
+    list-style: none;
+    float: left;
+    margin-right: .78rem;
+}
+.ul_box ul{zoom:1;}    /*==for IE6/7 Maxthon2==*/
+.ul_box ul:after {clear:both;content:'';display:block;width: 0;height: 0;visibility:hidden;}
+.indent_information div.main_content .span_box{
+    margin-top: .57rem;
+}
+.indent_information div.main_content .span_box span{
+    display: inline-block;
+    border-radius: 10px;
+    margin-right: .05rem;
+    width: 1.2rem;
+    height: .56rem;
+    line-height: .56rem;
+    font-size: .3rem;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+.task_explain div.main_content p{
+    line-height: .9rem;
+    word-break: break-all;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #E0E0E0;
+    width: 100%;
+    height: 1.6rem;
+    background-color: #ffffff;
+}
+footer a{
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    margin-left: -1.185rem;
+    margin-top: -1.185rem;
+    left: 50%;
+    width: 2.37rem;
+    height: 2.37rem;
+    line-height: 2.37rem;
+    text-align: center;
+    color: #ffffff;
+    background-color: #e70012;
+    text-decoration: none;
+}
+footer a.past{
+    background-color: #808080;
+}
+#mo{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    z-index: 99;
+}
+.hint_frame{
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    margin: -2.61rem 0 0 -4.65rem;
+    border-radius: 5px;
+    width: 9.37rem;
+    background-color: #ffffff;
+    z-index: 99;
+}
+.hint_frame p{
+    line-height: 3.8rem;
+    text-align: center;
+}
+.hint_frame_btn{
+    display: flex;
+    box-sizing: border-box;
+}
+.hint_frame_btn button{
+    width: 50%;
+    height: 1.31rem;
+    color: #666666;
+}
+.hint_frame_btn button:first-child{
+    border-radius: 0 0  0 5px;
+}
+.hint_frame_btn button:last-child{
+    border-radius: 0 0 5px 0;
+    color: #ffffff;
+    background-color: #E60012;
+}
+.hint_frame_vehicle{
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    margin: -2.61rem 0 0 -4.65rem;
+    border-radius: 5px;
+    width: 9.78rem;
+    background-color: #ffffff;
+    z-index: 99;
+    text-align: center;
+}
+.hint_frame_vehicle p{
+    line-height: 1.42rem;
+}
+.hint_frame_vehicle button{
+    width: 100%;
+    line-height: 1.35rem;
+    color: #E60012;
+    background-color: #ffffff;
+}
+.hint_frame_vehicle div{
+    border-top: 1px solid #E8E6E6;
+    border-bottom: 1px solid #E8E6E6;
+    padding: .87rem 0;
+    height: 3.5rem;
+    overflow: auto;
+    color: #9A9A9A;
+}
+.hint_frame_vehicle div ul li{
+    margin-bottom: .68rem;
+}
+.hint_frame_vehicle div ul li:last-child{
+    margin-bottom: 0;
+}
+.hint_frame_vehicle div ul li img{
+    display: inline-block;
+    margin-right: .44rem;
+    border-radius: 50%;
+    width: .5rem;
+    height: .5rem;
+    vertical-align: -.08rem;
+}
+.hint_frame_vehicle div ul li.colour{
+    color: #E60012;
+}

@@ -1,0 +1,6 @@
+.validator-icon{ position: absolute; right: 0; top: 0; display: inline-block; width: 20px; height: 20px; background: top right no-repeat; z-index: 50; font-style: normal;}
+.validator-icon.success{ background-image: url(success.png);}
+.validator-icon.error{ background-image: url(error.png);}
+.validator-icon > p{ background-color: #FF3300; color: #FFFFFF; position: absolute; bottom: 26px; right: 0; word-break:keep-all; white-space:nowrap; font-size: 12px; line-height: 30px; padding: 0 15px; border-radius: 2px; display: none;}
+.validator-icon > p:before{ content: ""; border-top: 5px solid #FF3300; border-left: 4px solid transparent; border-right: 4px solid transparent; position: absolute; bottom: -5px; right: 4px;}
+.validator-icon:hover > p{ display: block;}

@@ -1,0 +1,159 @@
+body{
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+}
+/*全局样式*/
+.weui-cells {
+    font-size: 14px;
+}
+.weui-btn_warn {
+    border: none;
+    border-radius: 15px;
+    width: 60%;
+    color: #ffffff;
+    background-color: #E90619;
+}
+.weui-label {
+    width: 80px;
+}
+.weui-cells {
+    margin-top: 0;
+}
+.weui-cell:before {
+    left: 0;
+}
+.looks_color{
+    color: #FEB241;
+}
+.looks_flxd_end{
+    justify-content: flex-end;
+}
+.looks_flxd_spaceBetween{
+    justify-content: space-between;
+}
+/*activity页面下*/
+.imgBox{
+    width: 100%;
+}
+.imgBox img{
+    width: 100%;
+}
+.btn_footer_fixed{
+    position: fixed;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+}
+.btn_box{
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    background: rgba(255,255,255,.9);
+}
+.btn_noenFlex{
+    display: block;
+}
+.btn_box .weui-btn_warn{
+    width: 48%;
+    height: 45px;
+    line-height: 43px;
+    font-size: 16px;
+}
+.btn_box .weui-btn_warn.fromgray{
+    border: 1px solid #dbdbdb;
+    background: #dbdbdb;
+}
+.weui-btn+.weui-btn {
+    border: 1px solid #F3515E;
+    margin-top: 0;
+}
+.btn_noenFlex{
+    margin-top: 45%
+}
+.btn_box .weui-btn_warn:first-child{
+    border: 1px solid #e5e5e5;
+    background-color: #ffffff;
+    color: #F3515E;
+}
+.btn_noenFlex .weui-btn_warn:first-child{
+    display: block;
+    border: none;
+    color: #ffffff;
+    background-color: #F3515E;
+}
+.btn_noenFlex .weui-btn_warn:last-child{
+    margin-top: 15px;
+    background-color: #ffffff;
+    color: #F3515E;
+    : ;
+}
+.btn_noenFlex .weui-btn:after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    -webkit-transform: scale(.5);
+    transform: scale(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.consult_particulars a{
+    color: black;
+}
+
+.weui-btn:after {
+     border: none;
+}
+.consult{
+    margin-top: .5rem;
+    display: flex;
+    padding: 0 50px;
+    height: 30px;
+}
+.consult img{
+    width: 16px;
+    vertical-align: -2px;
+}
+/*activity_join页面下的样式*/
+.weui-cells{
+    margin-bottom: 20px;
+}
+.weui-vcode-btn {
+    color: #FEB241;
+}
+.residue_Places{
+    color: #FEB241;
+}
+
+
+/*OBD_predict页面下的样式*/
+.modification{
+    color: #C1C1C2;
+}
+.modification img{
+    width: 20px;
+    vertical-align: -3px;
+}
+
+
+#mo{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    z-index: 99;
+}
+#mo img{
+    position: absolute;
+    width: 70%;
+    right: 4%;
+    top: 0;
+}

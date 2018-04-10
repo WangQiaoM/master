@@ -1,0 +1,65 @@
+body{
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #EEEEEE;
+}
+.weui-panel .weui-panel__bd .weui-media-box .weui-media-box__hd{
+    width: 100px;
+}
+.weui-panel .weui-panel__bd .weui-media-box__hd .weui-media-box__title,h4{
+    display: flex;
+    justify-content: space-between;
+}
+.weui-panel .weui-panel__bd .weui-media-box__hd .weui-media-box__title,h4 span{
+    right: 0;
+    font-size: 12px;
+    color: #6f6f6f;
+    margin-top: 5px;
+}
+.carInfo{
+    margin-top: 15px;
+    background-color: #ffffff;
+}
+.carInfo-userInfo{
+    padding: 15px;
+    line-height: 40px;
+    display: flex;
+}
+.carInfo-userInfo div{
+    margin-right: 10px;
+}
+.carInfo-userInfo .userInfo-img{
+    width: 40px;
+    height: 40px;
+}
+.carInfo-userInfo .userInfo-img img{
+    width: 100%;
+    height: 100%;
+}
+.weui-cell .weui-uploader__title{
+    font-size: 13px;
+    color: #999;
+}
+.weui-check__label .weui-cell__bd p{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.carInfo .weui-cells {
+    margin-top: 0;
+}
+.my_weui_cells{
+    margin-top: 15px;
+}
+.storageImg {
+    float: left;
+    position: relative;
+    margin-right: 9px;
+    margin-bottom: 9px;
+    width: 77px;
+    height: 77px;
+    border: 1px solid #d9d9d9;
+}
+.storageImg img{
+    width: 100%;
+    height: 100%;
+}

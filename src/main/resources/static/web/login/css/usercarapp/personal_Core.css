@@ -1,0 +1,209 @@
+body{
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #EEEEEE
+}
+.weui-cell .weui-cell__bd p span{
+    font-size: 12px;
+    color: #F31113;
+}
+header{
+    margin-bottom: 10px;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #ffffff;
+    color: #5e5e5e;
+}
+.my_weui-cell{
+    padding: 20px 15px;
+    background-color: #ffffff;
+}
+.dataInformation{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #DEDEDE;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    font-size: 12px;
+    background-color: #ffffff;
+}
+.dataInformation div{
+    flex-grow: 1;
+    border-right: 1px solid #DEDEDE;
+    text-align: center;
+}
+.dataInformation div:last-child{
+    border: none;
+}
+.dataInformation div p{
+    margin-top: 5px;
+    color: #CA0000;
+    font-size: 18px;
+}
+
+/*车辆信息*/
+.vehicleData{
+    position: relative;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+.vehicleData .weui-panel__hd{
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #272727;
+}
+.vehicleData .xin{
+    color: #F31113;
+    vertical-align: -2px;
+    margin-right: 3px;
+}
+.weui-panel__bd .weui-media-box .weui-media-box__hd {
+    width: 100px;
+}
+.weui-panel__bd .weui-media-box__hd .weui-media-box__title, h4 span {
+    font-size: 14px;
+    color: #6f6f6f;
+}
+.during-task{
+    color: #E64340;
+}
+.weui-picker-modal.weui-picker-modal-visible .toolbar {
+    background-color: white;
+    font-size: 16px;
+}
+.weui-picker-modal.weui-picker-modal-visible .toolbar:after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid #E5E5E5;
+    color: #E5E5E5;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+.weui-picker-modal.weui-picker-modal-visible .toolbar .title {
+    font-size: 16px;
+}
+.weui-picker-modal .picker-items{
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+#mo{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    z-index: 99;
+}
+
+.storageImg{
+    float: left;
+    position: relative;
+    margin-right: 9px;
+    margin-bottom: 9px;
+    width: 77px;
+    height: 77px;
+    border: 1px solid #d9d9d9;
+}
+
+.prompt{
+    outline: thin dotted \9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px #d5d5d6;
+}
+.gifts{
+    align-self: stretch;
+    font-size: 14px;
+    padding: 2px 10px;
+    height: 21px;
+    border-radius: 30px;
+    background-color: #E64340;
+    color: #ffffff;
+}
+.gifts img{
+    vertical-align: -2px;
+    animation: mySecond 1s infinite;
+}
+
+.picker-item span{
+    display: inline-block;
+    border-radius: 3px;
+    /*border: 1px solid #c20000;*/
+    width: 12px;
+    height: 12px;
+    /*background: #ff0000;*/
+    vertical-align: -1px;
+    margin-right: 5px;
+}
+.picker-item:nth-child(1) span{
+    border: 1px solid #c20000;
+    background: #ff0000;
+}
+.picker-item:nth-child(2) span{
+    border: 1px solid #d8d800;
+    background: #ffff00;
+}
+.picker-item:nth-child(3) span{
+    border: 1px solid #0000cb;
+    background: #0000ff;
+}
+.picker-item:nth-child(4) span{
+    border: 1px solid #00cb00;
+    background: #00ff00;
+}
+.picker-item:nth-child(5) span{
+    border: 1px solid #a6a6a6;
+    background: #ffffff;
+}
+.picker-item:nth-child(6) span{
+    border: 1px solid #000000;
+    background: #000000;
+}
+.picker-item:nth-child(7) span{
+    border: 1px solid #855f35 ;
+    background: #9c7833;
+}
+.picker-item:nth-child(8) span{
+    border: 1px solid #a5a5a5;
+    background: #b3b3b3;
+}
+.picker-selected{
+    font-size: 18px;
+}
+.picker-selected span{
+    width: 15px;
+    height: 15px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px #bababa;
+}
+.vehicleData .weui-panel__bd .weui-media-box {
+    border-bottom: 1px solid #DEDEDE
+}
+
+@keyframes mySecond {
+    20% {
+         -webkit-transform: rotate3d(0,0,1,15deg);
+         transform: rotate3d(0,0,1,15deg);
+    }
+    40% {
+         -webkit-transform: rotate3d(0,0,1,-10deg);
+         transform: rotate3d(0,0,1,-10deg);
+    }
+    60% {
+         -webkit-transform: rotate3d(0,0,1,5deg);
+         transform: rotate3d(0,0,1,5deg);
+    }
+    80% {
+         -webkit-transform: rotate3d(0,0,1,-5deg);
+         transform: rotate3d(0,0,1,-5deg);
+    }
+    100% {
+         -webkit-transform: rotate3d(0,0,1,0deg);
+         transform: rotate3d(0,0,1,0deg);
+    }
+}

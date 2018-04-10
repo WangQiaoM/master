@@ -1,0 +1,85 @@
+body{
+    padding: 0 .44rem;
+    padding-bottom:  2rem;
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #F5F5F5;
+}
+.title {
+    margin-left: .2rem;
+    height: 1.14rem;
+    line-height: 1.14rem;
+    color: #9a9a9a;
+}
+.title span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .26rem;
+    width: .06rem;
+    height: .4rem;
+    background-color: #e70012;
+}
+.looks_flex{
+    display: flex;
+}
+.looks_space-between{
+    justify-content: space-between;
+}
+.reserve_form{
+    border-bottom: 1px solid #f5f5f5;
+    padding: .43rem .44rem .43rem .3rem;
+    background-color: #ffffff;
+    color: #9b9b9b;
+}
+.reserve_form .looks_flex>div:first-child{
+    min-width: 3.4rem;
+}
+.reserve_form span{
+    color: #000000;
+}
+.reserve_form .borderSpan span{
+    display: inline-block;
+    border: 1px solid #E90619;
+    color: #E90619;
+}
+.reserve_form .borderSpan span:first-child{
+    padding: .06rem .18rem;
+}
+.reserve_form .borderSpan span:last-child{
+    margin-left: .3rem;
+    padding: .06rem .4rem;
+}
+.reserve_form img{
+    width: .52rem;
+    height: .42rem;
+    vertical-align: -.1rem;
+    margin-right: .21rem;
+}
+.reserve_form .navigation_img img{
+    margin-right: 0;
+}
+.reserve_form i{
+    font-size: .7rem;
+    color: #E40011;
+}
+.btn_box {
+    justify-content: space-between;
+    bottom: 0;
+    margin-top: 1.6rem;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #989898;
+    font-size: .42rem;
+}
+.weui-btn_warn {
+    margin-top: .2rem;
+    border: none;
+    border-radius: 5px;
+    width: 60%;
+    color: #ffffff;
+    background-color: #E90619;
+}
+.weui-btn:after {
+    border: none;
+}

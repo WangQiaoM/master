@@ -1,0 +1,218 @@
+body{
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    font-size: .48rem;
+}
+.carousel_box .swiper-container,.carousel_box .swiper-container img{
+    width: 100%;
+    height: 100%;
+}
+.swiper-pagination{
+    width: 100%;
+    bottom: .3rem;
+}
+.swiper-pagination span{
+    margin-right: 0.2rem;
+}
+.btn_box{
+    /*padding-bottom: 16px;*/
+    box-sizing: border-box;
+    background-color: #ffffff;
+    width: 100%;
+}
+.btn_box.pstFixed{
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+.btn_box .click_box{
+    display: flex;
+    text-align: center;
+}
+.btn_box .click_box p{
+    width: 50%;
+    height: 1.24rem;
+    line-height: 1.24rem;
+    text-align: center;
+    border-bottom: 1px solid #dedede;
+    color: #b9b9b9;
+    font-size: .48rem;
+}
+.btn_box .click_box p.praise_color span.column{
+    display: inline-block;
+    height: 95%;
+    border-bottom: 2px solid #F3515E;
+}
+.btn_box .click_box p:last-child{
+    border-left: none;
+}
+.btn_box .click_box p .informImg{
+    position: relative;
+    right: -1rem;
+    display: inline-block;
+    vertical-align: -.18rem;
+    width: .53rem;
+}
+.btn_box .click_box p .informImg img{
+    width: 100%;
+}
+.btn_box .click_box p .informImg .inform_number{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -.2rem;
+    border-radius: 50%;
+    width: .45rem;
+    min-width: 13px;
+    min-height: 13px;
+    height: .45rem;
+    line-height: .45rem;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: .3rem;
+    text-align: center;
+}
+.btn_ranking_color{
+    color: #ffa500;
+}
+.mileage,.popularity,.btn_box ul{zoom:1;}    /*==for IE6/7 Maxthon2==*/
+.mileage:after,.popularity:after,.btn_box ul:after{clear:both;content:'';display:block;width: 0;height: 0;visibility:hidden;}
+.mileage_left,.mileage_right,.popularity_left,.popularity_right{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.btn_ranking{
+    margin-top: .48rem;
+    margin-bottom: .72rem;
+    font-size: .48rem;
+}
+.popularity{
+    display: none;
+}
+
+.ranking_data{
+    padding: 0px 15px;
+}
+.ranking_data_ranking{
+    position: relative;
+    min-width: .74rem;
+    text-align: center;
+    font-size: .6rem;
+}
+.ranking_data_ranking:nth-child(1) span,.ranking_data_ranking:nth-child(2) span,.ranking_data_ranking:nth-child(3) span{
+    position: absolute;
+    font-size: .3rem;
+    left: 35%;
+    top: 20%;
+}
+.ranking_data_ranking img{
+    width: .74rem;
+}
+
+.ranking_data_box{
+    display: flex;
+    justify-content: space-between;
+}
+.ranking_data_box .ranking_data_head img:first-child{
+    border-radius: 50%;
+    width: 1.55rem;
+    height: 1.55rem;
+    margin: 0 .5rem;
+}
+.ranking_data_box .ranking_data_head{
+    position: relative;
+}
+.ranking_data_box .ranking_data_head img:last-child{
+    position: absolute;
+    right: .3rem;
+    bottom: .2rem;
+    width: .48rem;
+    height: .48rem;
+    transform: rotate(-15deg);
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+.ranking_data_name span:first-child{
+    font-size: .36rem;
+    position: relative;
+    top: .1rem;
+}
+.ranking_data_name span:nth-child(2),.ranking_data_name span:nth-child(3){
+    font-family: Arial Regular;
+    font-size: .6rem;
+}
+.ranking_data_left,.ranking_data_right,.ranking_data_centre{
+    margin-bottom: .3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ranking_data_centre{
+    flex-grow: 1;
+    justify-content: flex-end;
+    padding-right: .45rem;
+}
+.ranking_data_right,.ranking_data_centre{
+    /*min-width: 3.33rem;*/
+    color: #CDCDCD;
+}
+.ranking_data_right div,.ranking_data_centre div{
+    position: relative;
+    bottom: -.32rem;
+}
+.ranking_data_right span,.ranking_data_centre span{
+    display: inline-block;
+    width: .68rem;
+    font-size: .36rem;
+}
+.ranking_data_right img,.ranking_data_centre img{
+    width: .48rem;
+}
+.ranking_data_centre div img{
+    position: relative;
+    bottom: -.04rem;
+}
+.ranking_data_right div:last-child img{
+    position: relative;
+    bottom: -.1rem;
+}
+.btn_box .click_box .praise_color,.ranking_data_right i.praise_color{
+    color: #F3515E;
+}
+.hits_ranking_data{
+    display: none;
+}
+
+
+.mo{
+    position: fixed;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 255px;
+    padding: 10px 15px;
+    top: 50%;
+    left: 50%;
+    background: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    color: #616161;
+    display: none;
+    z-index: 999;
+}
+.mo p{
+    margin: 8px 0;
+}
+.mo img{
+    display: block;
+    width: 50%;
+    margin: 0% auto;
+}
+#mo{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    z-index: 99;
+}

@@ -1,0 +1,49 @@
+body{
+    padding-top: .38rem;
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #F5F5F5;
+}
+.formBox input{
+    border: none;
+    outline: none;
+}
+.formBox{
+    position: relative;
+    line-height: 1.6rem;
+    background-color: #ffffff;
+}
+.formBox{
+    border-bottom: 1px solid #e8e8e8;
+}
+.formBox .formBox_imgName{
+    margin: 0 .68rem 0 .86rem;
+    width: .5rem;
+    height: .5rem;
+    vertical-align: -.07rem;
+}
+.formBox .formBox_imgServic{
+    margin: 0 .6rem 0 .8rem;
+    width: .65rem;
+    height: .5rem;
+    vertical-align: -.05rem;
+}
+.formBox .sanjiao{
+    position: absolute;
+    right: .85rem;
+    top: .6rem;
+    width: .5rem;
+}
+.weui-btn_disabled.weui-btn_warn {
+    margin-top: 20%;
+    width: 60%;
+    background-color: #E60012;
+    color: #ffffff;
+}
+.select{
+    display: none;
+    text-align: center;
+}
+#select input{
+    color: #b1b1b1;
+}

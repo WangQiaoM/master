@@ -1,0 +1,202 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+.dialog-body-center{
+	position: absolute;
+	top: 0px;	
+	left:0px;
+	right:0px;
+	
+	background-color:#f9fdff;
+	border-bottom: 1px solid #cccccc;
+}
+
+.dialog-body-center form{
+	margin-top: -10px;
+}
+
+.dialog-body-center ul{
+	
+	margin-left: 0px;
+	padding-left: 0px;
+	list-style: none;
+	
+}
+.dialog-body-center ul li{
+	border-top: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	line-height: 40px;
+	
+	background-color: #f9fdff;
+}
+
+
+.dialog-body-center ul li .title{
+	float: left;
+	width: 120px;
+	padding-right: 10px;
+	
+	font-size: 14px;
+	text-align: right;
+	
+}
+
+.dialog-body-center ul li .fa-calendar{
+	margin-left:-20px;
+	color: #6e90b8;
+		
+}
+
+.dialog-body-center ul li .htmlControl{
+	float: left;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.dialog-body-center ul li input{
+	float: left;
+	margin-top: 5px;
+	width: 278px;
+	border: 1px solid #ccc;
+}
+
+.dialog-body-center ul li select{
+	float: left;
+	margin-top: 5px;
+	height: 30px;
+	width: 278px;
+}
+
+.dialog-body-center ul li i[for]{
+	float: left;
+	margin-top: -30px;
+	margin-left: 80px;
+	padding-left: 10px;
+	
+	width:200px;
+	height: 30px;
+	line-height: 30px;
+	
+	background-color: #cc6500;
+	color: #FFFFFF;
+	
+	border-radius: 5px;
+	overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+
+ul li:nth-child(odd){
+	background-color: #f9fdff;
+}
+
+.double-td li{
+	float: left;
+	width: 50%;
+	min-width: 220px;
+	background-color: #f9fdff;
+	
+}
+
+
+.single-td li{
+	clear: both;
+	
+	background-color: #f9fdff;
+}
+
+.single-td{
+	margin-top:10px;
+}
+
+ul .colspan{
+	width: 100%;
+}
+
+ul .colspan .ke-container{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.mapControl{
+	float: left;
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 692px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.mapControl:after{
+
+}
+
+.mapControl #map-content{
+	height: 240px;
+	margin: 3px;
+}
+
+.mapControl .map-des{
+	height: 25px;
+	line-height: 25px;
+}
+
+.mapControl .map-des .rTxt{
+	float: right;
+}
+
+.mapControl .map-des .latTxt{
+	margin-right: 10px;
+}
+
+.textareaDiv{
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	
+	border: 1px solid transparent;
+	width: 692px;
+}
+
+.textareaDiv-blank{
+	border: 1px solid #ccc;
+	background-color: #FFFFFF;
+	
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.upload-single-control{
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height: 140px;
+	width: 278px;
+
+	border:1px solid #ccc;
+	background-color: #ffffff;
+}
+
+.upload-single-control .upload-single-control-content{
+	margin: 5px;
+	line-height: 110px;
+	border: 1px dashed #cccccc;
+	text-align: center;
+	cursor: pointer;
+}
+
+.upload-single-control .upload-single-control-content:hover{
+	border: 1px dashed #5c5c5c;
+}
+
+.upload-single-control .upload-single-control-content:hover i{
+	color: #5c5c5c;
+}
+
+.upload-single-control .upload-single-control-content i{
+	color: #9d9d9d;
+	font-size: 125px;
+}
+
+

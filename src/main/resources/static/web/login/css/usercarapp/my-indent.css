@@ -1,0 +1,108 @@
+body{
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    /*padding: 0 .44rem;*/
+    background-color: #f5f5f5;
+}
+p,h5{
+    margin: 0;
+    padding: 0;
+}
+.looks_flex{
+    display: flex;
+}
+.looks_space-between {
+    justify-content: space-between;
+}
+.portraitBox {
+    padding: .96rem 0 .9rem 0;
+    background-color: #E70012;
+    max-height: 127px;
+    color: #ffffff;
+}
+.portraitBox img {
+    display: block;
+    border: 1px solid white;
+    margin: 0 auto;
+    margin-bottom: .45rem;
+    border-radius: 50%;
+    width: 2.28rem;
+    height: 2.28rem;
+    max-height: 75px;
+    max-width: 75px;
+}
+.portraitBox p {
+    text-align: center;
+    font-size: .36rem;
+}
+.switcher{
+    background-color: #ffffff;
+}
+.switcher p{
+    padding: .32rem 0;
+    width: 50%;
+    text-align: center;
+}
+.switcher p span{
+    display: block;
+    height: .85rem;
+    line-height: .85rem;
+}
+.switcher p.now{
+    border-bottom: 2px solid #E70012;
+    color: #E70012;
+}
+.switcher p:first-child span{
+    border-right: 1px solid #9A9A9A;
+}
+.indent_padding{
+    padding: .36rem .44rem 0 .44rem;
+    box-sizing: border-box;
+}
+.indent_padding .accountBox{
+    display: none;
+}
+.indent_box{
+    margin-bottom: .3rem;
+    padding: .36rem .37rem .45rem .35rem;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+.advertisement_information img{
+    margin-right: .38rem;
+    width: 2.82rem;
+    height: 2.24rem;
+}
+.information_main{
+    padding-top: .4rem;
+    max-width: 7.55rem;
+}
+.information_main h5{
+    font-size: .48rem;
+}
+.information_main p{
+    margin-top: .3rem;
+    font-size: .4rem;
+    color: #9A9A9A;
+}
+.time_earnings{
+    margin-top: .54rem;
+    padding-left: .1rem;
+    color: #E70012;
+    font-size: .42rem;
+}
+.time_earnings img{
+    width: .47rem;
+    height: .47rem;
+    margin-top: .12rem;
+    margin-right: .28rem;
+}
+.over_hint {
+    margin: .37rem .44rem .45rem .44rem;
+    text-align: center;
+    height: 1.04rem;
+    line-height: 1.04rem;
+    background-color: #fec842;
+    color: #ffffff;
+    font-size: .36rem;
+}

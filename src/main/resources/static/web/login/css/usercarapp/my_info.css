@@ -1,0 +1,99 @@
+body{
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    font-size: .48rem;
+    background-color: #F5F5F5;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.portraitBox{
+    margin-bottom: 0.2rem;
+    padding: .66rem 0 .56rem 0;
+    background-color: #ffffff;
+    max-height: 127px;
+}
+.portraitBox img{
+    display: block;
+    margin: 0% auto;
+    margin-bottom: .68rem;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    max-height: 75px;
+    max-width: 75px;
+}
+.portraitBox p{
+    text-align: center;
+}
+.fromBox{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ededed;
+    padding: 0.48rem 0.84rem;
+    background-color: #ffffff;
+}
+
+.fromBox div:last-child{
+    color: #CCCCCC;
+}
+.strong div:first-child{
+    font-weight: bolder;
+}
+.strong div:nth-child(2){
+    padding-right: .5rem;
+    color: #ffab1d;
+}
+.fromBox input{
+    border: none;
+    outline: none;
+    text-align: right;
+}
+.fromBox img{
+    position: absolute;
+    right: 0;
+    width: .47rem;
+    height: .47rem;
+    margin-top: .12rem;
+    margin-right: .5rem;
+}
+.fromBox.strong img{
+    position: absolute;
+    right: 10%;
+    bottom: 50%;
+    margin: 0;
+    margin-bottom: -.65rem;
+    padding: 0;
+    width: 1.5rem;
+    height: 1.3rem;
+}
+.fromBox.strong img.not_pass{
+    right: 25%;
+}
+.fromBox i{
+    position: absolute;
+    right: 7%;
+    top: 28%;
+    font-size: .8rem;
+    color: #d9d9d9;
+}
+.fromBox .siteBox{
+    margin-right: .5rem;
+    color: #CCCCCC;
+}
+.subscribeBox{
+    /*display: none;*/
+}
+.btn{
+    margin: .5rem 0;
+    padding: .88rem 0;
+    background-color: #ffffff;
+    text-align: center;
+    color: #ffab1d;
+}
+.indent_code{
+    text-align: center;
+    background-color: white;
+    padding: .5rem 0;
+}

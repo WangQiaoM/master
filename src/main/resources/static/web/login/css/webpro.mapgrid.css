@@ -1,0 +1,189 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #f1f3f5;
+    overflow: hidden;
+}
+
+.panle-body{
+    position: absolute;
+    top:10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background-color: #fff;
+
+    opacity: 0.01;
+}
+
+.flow-card{
+    position: absolute;
+    opacity: 0;
+    top: 10px;
+    left:10px;
+    border:1px solid #1d9def;
+    border-radius: 8px;
+}
+
+.flow-card-ground{
+    background-color: rgba(0,107,176,0.2);
+    border: 8px solid rgba(0,107,176,0.2);
+    border-radius: 8px;
+    background-clip: padding-box;
+}
+
+.flow-card-body{
+    position: relative;
+    width: 600px;
+    height: 450px;
+    clear: both;
+}
+
+.flow-card-body .flow-title{
+    background-color: #333;
+    color: #fff;
+    padding-left: 10px;
+    line-height: 25px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.flow-card-body .flow-title i{
+    float: right;
+    padding-right: 10px;
+    line-height: 25px;
+    font-size: 18px;
+}
+
+.flow-card-body .flow-grid{
+    position: absolute;
+    /*opacity: 0;*/
+    top: 32px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #f1f3f5;
+}
+
+.grid-searchBar{
+    margin: 10px;
+    background-color: #FFFFFF;
+}
+
+.grid-searchBar .button{
+    margin: 10px 0px 10px 0px;
+    padding: 0px;
+    width: 70px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+}
+
+.grid-searchBar .queryItem{
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.grid-searchBar .queryItem .titTxt{
+    float: left;
+    width: 75px;
+    line-height: 25px;
+    height: 25px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 13px;
+}
+.grid-searchBar .queryItem input,
+.grid-searchBar .queryItem select
+{
+    float: left;
+    width: 140px;
+    height: 25px;
+    padding: 3px 10px;
+}
+
+
+.grid-searchBar .button{
+    float: left;
+    margin-left: 20px;
+}
+
+.grid-bodyCenter{
+    margin: 10px;
+    background-color: #FFFFFF;
+}
+
+.grid-bodyCenter .gridPanle{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.grid-bodyCenter .gridPanle .datagrid{
+
+}
+
+.panle-body{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.grid-bodyCenter .panel-header{
+    display: none;
+    height: 0px;
+    line-height: 0px;
+}
+
+.grid-bodyCenter .datagrid-header-row, .datagrid-row{
+    height: 30px;
+    line-height: 30px;
+}
+
+.grid-bodyCenter .panel-header, .panel-body{
+    border: 1px solid #dddddd;
+}
+
+.funBar{
+    margin: 10px;
+    min-height: 30px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.funBar .button{
+    margin:5px 10px 5px 0px;
+    padding: 0px;
+    width: 70px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 13px;
+}
+
+.funBar .button i{
+    margin-right: 5px;
+    font-size: 13px;
+}
+
+.funBar .button:nth-child(1){
+    background-color: #26ae60;
+}
+
+.funBar .button:nth-child(2){
+    background-color: #297fb8;
+}
+
+.funBar .button:nth-child(3){
+    background-color: #d35400;
+}
+
+.funBar .button:nth-child(4){
+    background-color: #2b3e50;
+}
+
+.pagination-info, .pagination span, .datagrid-header .datagrid-cell span, .datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber{
+    font-size: 13px;
+}

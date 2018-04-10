@@ -1,0 +1,495 @@
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+
+/*说明：所有的标注都是通过设置标注下的属性类型来实现的*/
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ *1.设置默认字体家族无衬线。
+*2，防止 iOS 横屏字号变化，同时保证在PC上 zoom 功能正常（这个zoom好像是相机功能吧）
+
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+/*删除浏览器默认外边距。*/
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+/*HTML5显示的定义*/
+/*修复了在IE8/9下一些HTML5元素不能定义显示为block。*/
+/*修复了details或summary在IE10/11和Firefox不能显示为block的问题。 */
+/*修复了在IE11下定义`main`标签不能显示为block。                */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+/*1.定义为inline-block元素以修复 IE 8/9中不能正确显示的问题（应该是HTML5中的新元素）*/
+/*2.修复了进度条（progress）Chrome，火狐和Opera 中规范化的垂直对齐（应该是对齐底线）。*/
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/*修复了对不支持controls属性的现代浏览器，audio元素给以隐藏问题*/
+/*在iOS 5的设备去除多余的高度。*/
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+/*修复`[HIDDEN]`属性不出现在IE8/9/10中的问题。*/
+/*修复了在IE8/9/11Safari和Firefox（小于22的版本）下隐藏template（模板）元素的问题*/
+
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/*链接*/
+/**
+
+ * Remove the gray background color from active links in IE 10.
+ */
+/*删除IE 10中活动链接灰色的背景色。*/
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/*在所有浏览器中去掉点击时的焦点框，同时保证使用键盘可以显示焦点框*/
+
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/*文本级语义*/
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+/*修复IE8/9/10/11safari和chrome中不呈现地址样式的问题*/
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+/*在Firefox4 +，Safari浏览器和Chrome中字体设置成`bold`。*/
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+/*修复Safari和Chrome中不呈现地址样式问题*/
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+/*修复Firefox 4+, Safari, and Chrome中`section`和`article`的变量`h1`的字体大小和外边距。*/
+
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/*修复IE8/9中mark样式不出现问题*/
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/*在所有浏览器中定义small的字体大小。*/
+
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/*在所有浏览器中取消sub标签和sup标签对行高的影响。*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/*内嵌元素*/
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+/*去除IE8/9/10中a标签中img的外边框*/
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+/*修复IE8/9/10中的超出不隐藏情况*/
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/*分组内容*/
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+/*修复 IE 8/9、Safari中margin失效问题*/
+
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/*修正 Firefox 和其他浏览器之间hr的差异*/
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+/*标签设置滚动条，内容溢出时依旧出现*/
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+/*修复 Safari 5 和 Chrome 中奇怪的字体设置，统一字体样式*/
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/*形式*/
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/*已知的限制：在默认情况下，Chrome和Safari浏览器在OS X仅允许使用非常有限select元素的`类型，除非`设置border`的属性*/
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font  not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+/*1.修复了color属性不能被继承*/
+/*2.修复了字体属性设置不能被继承*/
+/*统一了Firefox 4+, Safari, and Chrome中不同的外边距margin*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+/*修复了IE 8/9/10/11中button超出不隐藏情况*/
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+/*修复了button和select属性，使其不继承文本转换属性*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/*1.修复了的Android 4.0中一些标签破坏原生`audio`和`video`控制的 WebKit bug。*/
+/*2.修复了iOS中不能设置button和input的类型。                        ??*/
+/*3.修复了光标在点击button和input显示不一致的问题*/
+
+
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/*重置了禁用的元素默认光标。*/
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/*修复了Firefox 4+中的内边距和border大小*/
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/*修复了Firefox 4+中浏览器默认的行高和输入框*/
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+/*以下风格建议不要尝试使用（应该主要是在firefox中）*/
+/*Firefox的内核不按设置盒模型大小，填充，或宽度读取（就是他有一套自己的算法）。*/
+/*1.修复了IE 8/9/10中文本盒模型设置*/
+/*2.修复了IE 8/9/10中溢出的内边距*/
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+/*修正了Chrome递增/递减按钮光标样式，因为对于`input`的确字体大小，它会导致减量按钮的光标样式从`default`改为`text`*/
+
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/*1.修复了Safari and Chrome中把appearance元素设置成搜索框问题*/
+/*2.修复了Safari and Chrome中把input盒模型大小设置成盒模型边框的大小问题*/
+
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome)  the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+/*修复了在苹果系统中Safari 和 Chrome浏览器搜索框和搜索按钮的内边距问题*/
+/*修复了Safari浏览器当搜索框中设置了内边距时减小了取消搜索按钮的问题*/
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+/*修复了fieldset的外边框、内边距和外边距不一致问题*/
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/*修复了IE 8/9/10/11中legend元素颜色不能继承问题*/
+/*修复了光标距离fieldsets区域为0px时被自动捕捉的问题*/
+
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+/*删除IE8/9/10/11默认的垂直滚动条*/
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+/*设置组以消除因父集设置了字体粗细的影响*/
+/*说明：以上设置对苹果系统下的Safari和Chrome不一定有作用*/
+
+optgroup {
+   font-weight: bold;
+ }
+
+/* Tables
+   ========================================================================== */
+/*单元格*/
+/**
+ * Remove most spacing between table cells.
+ */
+/*消除单元格之间多余的间隙和双线*/
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}

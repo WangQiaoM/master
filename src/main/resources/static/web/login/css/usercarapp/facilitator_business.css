@@ -1,0 +1,115 @@
+body{
+    padding-top: .38rem;
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #E8E6E6;
+}
+.looks_flex{
+    display: flex;
+}
+.looks_space-between {
+    justify-content: space-between;
+}
+.noBusiness{
+    margin: 20% 20%;
+    width: 60%;
+}
+.noBusiness2{
+    margin: 20% 30%;
+    width: 40%;
+}
+.switchoverBox{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #ffffff;
+}
+.switchoverBox div{
+    position: relative;
+    border-bottom: 1px solid #d2d2d2;
+    padding: .43rem 0;
+    width: 4.14rem;
+}
+.switchoverBox div.border{
+    border-bottom: 2px solid #E60012;
+    color: #E60012;
+}
+.switchoverBox div p:last-child{
+    color: #999999;
+}
+
+.switchoverBox div:nth-child(2):before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: .6rem;
+    height: 100%;
+    border-left: 1px solid #bababa;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    z-index: 2;
+}
+.switchoverBox div:nth-child(2):after {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: .6rem;
+    height: 100%;
+    border-left: 1px solid #bababa;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    z-index: 2;
+}
+.indent_padding{
+    padding: .36rem .44rem 0 .44rem;
+    box-sizing: border-box;
+}
+.indent_padding>div{
+    display: none;
+}
+.indent_padding>div:first-child{
+    display: block;
+}
+.indent_padding .accountBox{
+    display: none;
+}
+.indent_box{
+    margin-bottom: .3rem;
+    border-radius: 5px;
+    padding: .36rem .37rem .35rem .35rem;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+.advertisement_information .headPortrait{
+    margin-right: .38rem;
+    border-radius: 50%;
+    width: 2.8rem;
+    height: 2.8rem;
+}
+.information_main{
+    max-width: 7.55rem;
+}
+.information_main h5{
+    font-size: .48rem;
+}
+.information_main p{
+    margin-top: .1rem;
+    font-size: .4rem;
+    color: #9A9A9A;
+}
+.time_earnings{
+    margin-top: .1rem;
+    padding-left: .1rem;
+    color: #E70012;
+    font-size: .4rem;
+}
+.time_earnings img{
+    width: .42rem;
+    height: .42rem;
+    margin-top: .12rem;
+    margin-right: .28rem;
+}

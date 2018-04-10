@@ -1,0 +1,58 @@
+body{
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #D85048;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.red_packet{
+    width: 100%;
+}
+.hint{
+    position: absolute;
+    width: 6.5rem;
+    top: 27%;
+    left: 50%;
+    margin-left: -3.25rem;
+    font-size: .8rem;
+    color: #fffb28;
+    text-align: center;
+}
+.bodyPadding{
+    padding: 0 .6rem;
+}
+.main{
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid #AF2727;
+    padding: .55rem .45rem;
+}
+.main .position{
+    position: absolute;
+    right: 5%;
+    bottom: 35%;
+    color: #fffb28;
+}
+.main .portrait{
+    margin-right: .5rem;
+    border-radius: 50%;
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.main .infor{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: .1rem 0;
+    color: #e6e0e1;
+}
+.main .infor p span{
+    color: #fffb28;
+}
+.main .infor .name{
+    font-size: .58rem;
+    font-weight: bold;
+    color: #FFF8F9;
+}

@@ -1,0 +1,96 @@
+body{
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+}
+p,h1{
+    margin: 0;
+    padding: 0;
+}
+.tab{
+    display: flex;
+}
+.tab>div{
+    padding: .44rem 0;
+    width: 50%;
+    text-align: center;
+    background-color: #ffffff;
+    font-weight: bolder;
+}
+.tab>div:first-child>p{
+    border-right: 1px solid #999999;
+}
+.tab_on{
+    color: #E70012;
+    border-bottom: 2px solid #E70012;
+}
+.main>div{
+    display: none;
+}
+.main>div:first-child{
+    display: block;
+}
+.money{
+    margin: .24rem 0;
+    padding: 1.1rem 0;
+    text-align: center;
+    background-color: #ffffff;
+}
+.money h1{
+    margin-top: .48rem;
+    font-size: 1.32rem;
+    letter-spacing: .1rem;
+}
+.roll{
+    margin: 0 .46rem .2rem .46rem;
+    padding: .38rem .48rem .38rem .24rem;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+.roll{zoom:1;}    /*==for IE6/7 Maxthon2==*/
+.roll:after {clear:both;content:'';display:block;width: 0;height: 0;visibility:hidden;}
+.roll img{
+    float: left;
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+    width: 2.09rem;
+    height: 1.23rem;
+}
+.roll .message{
+    float: left;
+    margin-left: .24rem;
+}
+.roll .message p:first-child{
+    margin-bottom: .1rem;
+    color: #a0a0a0;
+    font-size: .4rem;
+}
+.roll .roll_money{
+    float: right;
+    color: #E70012;
+    line-height: 1.23rem;
+}
+.title {
+    margin-left: .64rem;
+    height: 1.14rem;
+    line-height: 1.14rem;
+    color: #8a8a8a;
+}
+.title span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .26rem;
+    width: .06rem;
+    height: .4rem;
+    background-color: #e70012;
+}
+.main_not .btn_box{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.52rem;
+}
+.main_not .btn_box img{
+    border-radius: 50%;
+    width: 2.1rem;
+    height: 2.1rem;
+}

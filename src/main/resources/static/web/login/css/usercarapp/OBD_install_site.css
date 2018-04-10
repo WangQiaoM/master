@@ -1,0 +1,192 @@
+body{
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    font-size: .48rem;
+    background-color: #F5F5F5;
+}
+.siteSelect,.siteBox{
+    border-bottom: 1px solid #e8e6e7;
+    margin-top: .32rem;
+    padding: .42rem .7rem;
+    background-color: #ffffff;
+}
+.siteBox{
+    margin-top: 0;
+    color: #bfbdbe;
+}
+.timeBox{
+    display: flex;
+    margin-top: .32rem;
+    margin-bottom: 1.2rem;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: .42rem .7rem;
+}
+.timeBox div:last-child{
+    width: 50%;
+    color: #bfbdbe;
+}
+.site_color{
+    color: #ffa620;
+}
+.weui-cells {
+    font-size: 14px;
+}
+.weui-btn_warn {
+    border: none;
+    border-radius: 5px;
+    width: 60%;
+    color: #ffffff;
+    background-color: #E90619;
+}
+.weui-btn+.weui-btn {
+    margin-top: 0;
+}
+.weui-label {
+    width: 80px;
+}
+.weui-cells {
+    margin-top: 0;
+}
+.weui-cell:before {
+    left: 0;
+}
+.weui-cells{
+    margin-bottom: 20px;
+    color: #C9C7C8;
+}
+.looks_color{
+    color: #FEB241;
+}
+.looks_flxd_end{
+    justify-content: flex-end;
+}
+.looks_flxd_spaceBetween{
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+.btn_box{
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
+.btn_box .weui-btn_warn{
+    width: 48%;
+    height: 45px;
+    font-size: 16px;
+}
+.weui-btn:after {
+    border: none;
+}
+.select_time{
+    color: #000000;
+}
+.consult{
+    position: absolute;
+    bottom: .5rem;
+    right: .8rem;
+    display: flex;
+    height: 30px;
+}
+.consult img{
+    width: .46rem;
+    vertical-align: -2px;
+}
+.consult_particulars a{
+    color: #000000;
+}
+.appointmenTime{
+    opacity: 1;
+    display: none;
+    position: absolute;
+    bottom: -60%;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 999;
+}
+.appointmenTime .appointmenTime_headline{
+    border-bottom: 1px solid #E8E6E7;
+    height: 1.65rem;
+    line-height: 1.65rem;
+    text-align: center;
+    background-color: #ffffff;
+}
+.appointmenTime_Time{
+    padding: .44rem .42rem .5rem .44rem;
+    background-color: #E8E6E7;
+}
+.appointmenTime ul{
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #dfdfdf;
+    margin-bottom: 1.3rem;
+}
+.appointmenTime ul li{
+    list-style: none;
+    border-bottom: 1px solid #dfdfdf;
+    height: 2.46rem;
+    line-height: 2.46rem;
+    width: 3.85rem;
+    text-align: center;
+    background-color: #ffffff;
+    color: #BFBFBF;
+    font-size: .36rem;
+    box-sizing: border-box;
+}
+.appointmenTime ul li.color{
+    color: #fba81c;
+}
+.appointmenTime ul li:nth-child(1),.appointmenTime ul li:nth-child(4){
+    border-left:  1px solid #dfdfdf;
+}
+.appointmenTime ul li:nth-child(2),.appointmenTime ul li:nth-child(5){
+    border-left:  1px solid #dfdfdf;
+    border-right:  1px solid #dfdfdf;
+}
+.appointmenTime ul li:nth-child(3),.appointmenTime ul li:nth-child(6){
+    border-right:  1px solid #dfdfdf;
+}
+.week_Time{
+    position: relative;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: .18rem .6rem .34rem .44rem;
+}
+.week_Time div{
+    position: relative;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+    padding: .1rem 0 .15rem 0;
+    width: 2.5rem;
+    height: 1.65rem;
+    text-align: center;
+    font-size: .4rem;
+    box-sizing: border-box;
+}
+.week_Time div img{
+    position: absolute;
+    bottom: -.27rem;
+    left: .9rem;
+    width: .6rem;
+    height: .3rem;
+}
+.week_Time div.color{
+    border: 1px solid #E90619;
+}
+.appointmenTime .weui-btn{
+    margin-bottom: .45rem;
+    width: 60%;
+}
+.appointmenTime .weui-btn_disabled {
+    background-color: #bbbbbb;
+}
+#mo{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    z-index: 99;
+}

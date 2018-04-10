@@ -1,0 +1,175 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #f1f3f5;
+	overflow: hidden;
+}
+
+.panle-body{
+	opacity: 0.01;
+}
+
+.grid-searchBar{
+	margin: 10px;
+	background-color: #FFFFFF;
+}
+
+.grid-searchBar .button{
+	margin: 10px 0px 10px 0px;
+	padding: 0px;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+.grid-bodyCenter{
+	margin: 10px;
+	background-color: #FFFFFF;
+}
+
+.funBar{
+	margin: 10px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.funBar .button{
+	margin: 8px 8px 8px 0px;
+	padding: 0px;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+.funBar .button i{
+	margin-right: 5px;
+	font-size: 14px;
+}
+
+.funBar button[atTblTr='2']{
+	display: none;
+}
+
+.funBar .button:nth-child(1){
+	background-color: #26ae60;
+}
+
+.funBar .button:nth-child(2){
+	background-color: #297fb8;
+}
+
+.funBar .button:nth-child(3){
+	background-color: #d35400;
+}
+
+.funBar .button:nth-child(4){
+	background-color: #2b3e50;
+}
+
+.grid-searchBar .queryItem{
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.grid-searchBar .queryItem .titTxt{
+	float: left;
+	width: 80px;
+	line-height: 30px;
+	height: 30px;
+	text-align: right;
+	padding-right: 10px;
+}
+.grid-searchBar .queryItem input,
+.grid-searchBar .queryItem select
+{
+	float: left;
+	width: 180px;
+	height: 30px;
+	padding: 3px 10px;
+}
+
+
+.grid-searchBar .button{
+	float: left;
+	margin-left: 80px;
+}
+
+.grid-bodyCenter .gridPanle{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.grid-bodyCenter .gridPanle .datagrid{
+	
+}
+
+.panle-body{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+
+.grid-bodyCenter .panel-header{
+	display: none;
+	height: 0px;
+	line-height: 0px;
+}
+
+.grid-bodyCenter .datagrid-header-row, .datagrid-row{
+	height: 30px;
+	line-height: 30px;
+}
+
+.grid-bodyCenter .panel-header, .panel-body{
+	border: 1px solid #dddddd;
+}
+
+
+.datagrid-header-check, .datagrid-cell-check{
+	height: 22px;
+}
+
+.datagrid-header-check input, .datagrid-cell-check input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.pagination-info, .pagination span, .datagrid-header .datagrid-cell span, .datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber{
+	font-size: 14px;
+}
+
+table .button{
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-left: 5px;
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 0px;
+	height: 26px;
+	line-height: 26px;
+	
+	font-size: 12px;
+}
+
+table .button i{
+	margin-right: 3px;
+}
+
+.grid-bodyCenter .tr-btn{
+	margin-left: 10px;
+	font-style: normal;
+	cursor: pointer;
+}
+
+.grid-bodyCenter .tr-btn:hover{
+	color: #00aad6;
+	text-decoration: underline;
+}

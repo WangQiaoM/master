@@ -1,0 +1,54 @@
+body{
+    padding-top: .3rem;
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #EFEFEF;
+}
+.box{
+    display: flex;
+    margin-bottom: .2rem;
+    padding: .58rem .62rem .26rem .68rem;
+    background-color: #ffffff;
+}
+.box .imgBox{
+    width: 3.7rem;
+    font-size: .4rem;
+    color: #9d9d9d;
+}
+.box .imgBox img{
+    width: 3.27rem;
+    height: 2.19rem;
+}
+.box .nameBox{
+   flex: 2;
+}
+.box .nameBox img{
+    width: .6rem;
+    height: .53rem;
+    vertical-align: -.1rem;
+}
+.box .nameBox p{
+    margin-left: .15rem;
+    color: #9d9d9d;
+}
+.butBox {
+    flex: 1;
+}
+.butBox button{
+    border: none;
+    outline: none;
+    width: 2.33rem;
+    height: 1rem;
+    background-color: #ffffff;
+    color: #E60012;
+}
+.butBox button:first-child{
+    margin-top: .18rem;
+    margin-bottom: .2rem;
+    border-radius: 5px;
+    background-color: #E60012;
+    color: #ffffff;
+}
+#agree{
+    background-color:#A1A3A7;
+}

@@ -1,0 +1,25 @@
+body{
+    padding: 1rem .45rem;
+    font-size: .48rem;
+    font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+    background-color: #EFEFEF;
+    text-align: center;
+}
+h1{
+    font-weight: 100;
+    font-size: .48rem;
+}
+p{
+    word-wrap: break-word;
+}
+img{
+    margin: 1rem 0;
+    width: 8rem;
+    height: 4rem;
+}
+.sharec{
+    margin: 0 auto;
+    width: 5rem;
+    height: 5rem;
+    background-color: #00aad6;
+}
