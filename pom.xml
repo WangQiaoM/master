@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.brtbeacon</groupId>
+	<artifactId>wechat-navigator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>3D-High-Speed-Rail</name>
+	<description>畅行九州高铁项目</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+		<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+		<okhttp3.version>3.5.0</okhttp3.version>
+		<fastjson.version>1.2.30</fastjson.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<!-- 测试时注释 -->
+			<!-- <scope>provided</scope>-->
+		</dependency>
+		<!-- Meta for IDEs -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- DB & Mybatis -->
+		<dependency>
+			<groupId>com.brtbeacon.druid.spring.boot</groupId>
+			<artifactId>brtbeacon-druid-spring-boot-starter</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.brtbeacon.mybatis.spring.boot</groupId>
+			<artifactId>brtbeacon-mybatis-spring-boot-starter</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- Http -->
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>${okhttp3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+
+		<!-- 二维码 -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+		<!-- OSS -->
+		<dependency>
+			<groupId>com.aliyun.oss</groupId>
+			<artifactId>aliyun-sdk-oss</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+
+		<!-- 大圣平台单点 -->
+		<!--<dependency>
+            <groupId>com.brtbeacon.sso.spring.boot</groupId>
+            <artifactId>heymking-sso-spring-boot-starter</artifactId>
+            <version>1.0</version>
+        </dependency>-->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- 针对 MAVEN 和 Intellij IDEA 不打包 src 目录下的 xml 文件解决方案 -->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<!-- 多环境配置需要替换的文件 -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>*.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- 多环境配置 -->
+	<profiles>
+		<profile>
+			<id>mybatis-generator</id>
+			<build>
+				<plugins>
+					<!-- Mybatis Generator 插件 -->
+					<plugin>
+						<!-- 执行 mvn mybatis-generator:generate -e -->
+						<groupId>org.mybatis.generator</groupId>
+						<artifactId>mybatis-generator-maven-plugin</artifactId>
+						<version>1.3.5</version>
+						<executions>
+							<execution>
+								<id>Generate MyBatis Artifacts</id>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+							</execution>
+						</executions>
+						<!-- 依赖的包 -->
+						<dependencies>
+							<dependency>
+								<groupId>com.brtbeacon.mbg</groupId>
+								<artifactId>mybatis-generator-support</artifactId>
+								<version>2.0</version>
+							</dependency>
+							<dependency>
+								<groupId>mysql</groupId>
+								<artifactId>mysql-connector-java</artifactId>
+								<version>5.1.41</version>
+							</dependency>
+						</dependencies>
+						<configuration>
+							<verbose>true</verbose>
+							<overwrite>true</overwrite>
+							<!-- 不指定配置文件路径时默认src/main/resource/generatorConfig.xml -->
+							<configurationFile>src/main/resources/mybatis-generator.xml</configurationFile>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<!-- Maven仓库定义 使用公司内部的包和插件时将从私服下载 -->
+	<repositories>
+		<repository>
+			<id>brt-releases</id>
+			<name>BrightBeacon release</name>
+			<url>http://nexus.brtbeacon.net/repository/maven-releases</url>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<layout>default</layout>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>maven2-repo</id>
+			<name>maven2 Repository</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>brt-releases</id>
+			<name>BrightBeacon release</name>
+			<url>http://nexus.brtbeacon.net/repository/maven-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>
